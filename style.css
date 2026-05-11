@@ -196,12 +196,61 @@ ul { list-style: none; }
     background: linear-gradient(to right, #ece9e6, #ffffff);
     height: 250px;
     border-radius: var(--radius-lg);
-    display: flex;
-    align-items: center;
-    padding: 40px;
     box-shadow: var(--shadow-soft);
     margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
 }
+
+.banner-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 40px;
+}
+
+
+.slide { display: none; width: 100%; animation: slideFadeIn 0.5s ease; }
+.slide.active { display: block; }
+
+@keyframes slideFadeIn {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Nút mũi tên */
+.arrow-btn {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  background: rgba(0,0,0,0.15);
+  border: none; color: white;
+  font-size: 28px;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s;
+}
+.arrow-btn.left  { left: 12px; }
+.arrow-btn.right { right: 12px; }
+.arrow-btn:hover { background: rgba(0,0,0,0.35); }
+
+/* Dots chỉ vị trí slide */
+.banner-dots {
+  position: absolute;
+  bottom: 14px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; gap: 8px;
+}
+.banner-dots .dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.banner-dots .dot.active { background: var(--primary-color); }
 
 .banner h2 { font-size: 32px; margin-bottom: 10px; }
 .banner p { font-size: 16px; color: var(--text-muted); margin-bottom: 20px; }
@@ -216,11 +265,13 @@ ul { list-style: none; }
     cursor: pointer;
     transition: background 0.3s;
     display: inline-block;
+    width: fit-content;
 }
 
 .btn-primary:hover {
     background-color: var(--primary-hover);
 }
+
 
 /* ================= PRODUCT GRID ================= */
 .section-title {
