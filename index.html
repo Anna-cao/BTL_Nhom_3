@@ -1,191 +1,491 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MobileShop - Smart Choice</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome cho các icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MobileShop — Smart Choice</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container header-inner">
-            <div class="logo">
-                <i class="fa-solid fa-mobile-screen-button"></i>
-                <span>MobileShop</span>
-            </div>
-            <nav class="main-nav">
-                <a href="index.html" class="active">Trang chủ</a>
-                <a href="category/iphone.html">iPhone</a>
-                <a href="category/samsung.html">Samsung</a>
-                <a href="category/oppo.html">Oppo</a>
-                <a href="category/accessories.html">Phụ kiện <i class="fa-solid fa-chevron-down text-small"></i></a>
-                <a href="category/deals.html" class="hot-deal">Ưu đãi</a>
-            </nav>
-            <div class="header-actions">
-                <div class="search-bar">
-                    <input type="text" placeholder="Bạn cần tìm gì?">
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                </div>
-                <a href="#" class="icon-btn"><i class="fa-regular fa-user"></i></a>
-                <a href="#" class="icon-btn cart-btn">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="cart-count">0</span>
-                </a>
-            </div>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+
+      <a href="index.html" class="logo">
+        <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+        <span>MobileShop</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="index.html" class="nav-link active">Trang chủ</a>
+        <a href="category/iphone.html" class="nav-link">iPhone</a>
+        <a href="category/samsung.html" class="nav-link">Samsung</a>
+        <a href="category/oppo.html" class="nav-link">Oppo</a>
+        <div class="nav-dropdown">
+          <a href="category/accessories.html" class="nav-link">
+            Phụ kiện <i class="fa-solid fa-chevron-down fa-xs" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#">Tai nghe</a>
+            <a href="#">Sạc & Cáp</a>
+            <a href="#">Ốp lưng</a>
+            <a href="#">Đồng hồ thông minh</a>
+          </div>
         </div>
-    </header>
+        <a href="category/deals.html" class="nav-link nav-hot">
+          <i class="fa-solid fa-fire-flame-curved" aria-hidden="true"></i> Ưu đãi
+        </a>
+      </nav>
 
-    <!-- MAIN LAYOUT -->
-    <div class="container main-layout">
-        
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
-            <div class="sidebar-block">
-                <h3>DANH MỤC</h3>
-                <ul class="category-list">
-                    <li><a href="category/iphone.html"><i class="fa-brands fa-apple"></i> iPhone</a></li>
-                    <li><a href="category/samsung.html"><i class="fa-solid fa-mobile-screen"></i> Samsung</a></li>
-                    <li><a href="category/oppo.html"><i class="fa-brands fa-android"></i> Oppo</a></li>
-                    <li><a href="category/accessories.html"><i class="fa-solid fa-headphones"></i> Phụ kiện</a></li>
-                </ul>
-            </div>
-
-            <div class="sidebar-block">
-                <h3>BỘ LỌC</h3>
-                <div class="filter-group">
-                    <label>Dung lượng</label>
-                    <label class="checkbox-container"><input type="checkbox"> 64GB</label>
-                    <label class="checkbox-container"><input type="checkbox"> 128GB</label>
-                    <label class="checkbox-container"><input type="checkbox"> 256GB</label>
-                    <label class="checkbox-container"><input type="checkbox"> 512GB</label>
-                </div>
-            </div>
-        </aside>
-
-        <!-- MAIN CONTENT -->
-        <main class="content">
-           <!-- Banner Slideshow -->
-<div class="banner" id="banner">
-
-  <!-- Slide 1 -->
-  <div class="slide active">
-    <div class="banner-content">
-      <h2>iPhone 15 Pro Max</h2>
-      <p>Titan. Mạnh mẽ. Đột phá.</p>
-      <a href="product/iphone15.html" class="btn-primary">MUA NGAY</a>
-    </div>
-  </div>
-
-  <!-- Slide 2 -->
-  <div class="slide">
-    <div class="banner-content">
-      <h2>Samsung Galaxy S24 Ultra</h2>
-      <p>AI thông minh. Màn hình đỉnh cao.</p>
-      <a href="category/samsung.html" class="btn-primary">MUA NGAY</a>
-    </div>
-  </div>
-
-  <!-- Slide 3 -->
-  <div class="slide">
-    <div class="banner-content">
-      <h2>Ưu Đãi Cuối Tuần</h2>
-      <p>Giảm đến 10% cho tất cả sản phẩm.</p>
-      <a href="category/deals.html" class="btn-primary">XEM NGAY</a>
-    </div>
-  </div>
-
-  <!-- Slide 4 -->
-  <div class="slide">
-    <div class="banner-content">
-      <h2>Samsung Galaxy A54</h2>
-      <p>Hiệu năng mạnh. Giá tốt nhất thị trường.</p>
-      <a href="category/samsung.html" class="btn-primary">MUA NGAY</a>
-    </div>
-  </div>
-
-  <button class="arrow-btn left" onclick="changeSlide(-1)">&#8249;</button>
-  <button class="arrow-btn right" onclick="changeSlide(1)">&#8250;</button>
-  <div class="banner-dots" id="bannerDots"></div>
-
-</div>
-
-            <!-- Product Section -->
-            <section class="product-section">
-                <h2 class="section-title">SẢN PHẨM NỔI BẬT</h2>
-                <div class="product-grid">
-                    
-                    <!-- Product Card 1 -->
-                    <div class="product-card">
-                        <div class="discount-badge">-8%</div>
-                        <i class="fa-regular fa-heart wishlist-icon"></i>
-                        <img src="https://via.placeholder.com/200x200" alt="iPhone 15 Pro Max">
-                        <h4 class="product-name">iPhone 15 Pro Max 256GB</h4>
-                        <div class="product-price">
-                            <span class="current-price">34.990.000đ</span>
-                            <span class="old-price">37.990.000đ</span>
-                        </div>
-                        <button class="btn-buy"><i class="fa-solid fa-cart-shopping"></i> Mua ngay</button>
-                    </div>
-
-                    <!-- Product Card 2 -->
-                    <div class="product-card">
-                        <div class="discount-badge">-7%</div>
-                        <i class="fa-regular fa-heart wishlist-icon"></i>
-                        <img src="https://via.placeholder.com/200x200" alt="Samsung Galaxy S24 Ultra">
-                        <h4 class="product-name">Samsung Galaxy S24 Ultra 256GB</h4>
-                        <div class="product-price">
-                            <span class="current-price">24.990.000đ</span>
-                            <span class="old-price">26.990.000đ</span>
-                        </div>
-                        <button class="btn-buy"><i class="fa-solid fa-cart-shopping"></i> Mua ngay</button>
-                    </div>
-
-                    <!-- Product Card 3 -->
-                    <div class="product-card">
-                        <div class="discount-badge">-10%</div>
-                        <i class="fa-regular fa-heart wishlist-icon"></i>
-                        <img src="https://via.placeholder.com/200x200" alt="Samsung Galaxy A54">
-                        <h4 class="product-name">Samsung Galaxy A54 5G 128GB</h4>
-                        <div class="product-price">
-                            <span class="current-price">7.490.000đ</span>
-                            <span class="old-price">8.290.000đ</span>
-                        </div>
-                        <button class="btn-buy"><i class="fa-solid fa-cart-shopping"></i> Mua ngay</button>
-                    </div>
-
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container footer-inner">
-            <div class="footer-col">
-                <h4>THÔNG TIN CỬA HÀNG</h4>
-                <p><i class="fa-solid fa-location-dot"></i> 123 Đường ABC, Quận 1, TP. HCM</p>
-                <p><i class="fa-solid fa-phone"></i> 1900 1234</p>
-                <p><i class="fa-solid fa-envelope"></i> support@mobileshop.vn</p>
-            </div>
-            <div class="footer-col">
-                <h4>CHÍNH SÁCH</h4>
-                <a href="#">Chính sách bảo hành</a>
-                <a href="#">Chính sách đổi trả</a>
-                <a href="#">Chính sách bảo mật</a>
-            </div>
-            <div class="footer-col">
-                <h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
-                <div class="newsletter">
-                    <input type="email" placeholder="Nhập email của bạn">
-                    <button class="btn-primary">Đăng ký</button>
-                </div>
-            </div>
+      <div class="header-actions">
+        <div class="search-bar">
+          <input type="text" placeholder="Tìm điện thoại, phụ kiện..." aria-label="Tìm kiếm sản phẩm">
+          <button aria-label="Tìm kiếm"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
         </div>
-    </footer>
+        <a href="#" class="icon-btn" aria-label="Tài khoản">
+          <i class="fa-regular fa-user" aria-hidden="true"></i>
+        </a>
+        <a href="#" class="icon-btn cart-btn" aria-label="Giỏ hàng">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </div>
 
-    <script src="main.js"></script>
+      <button class="menu-toggle" id="menuToggle" aria-label="Mở menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+
+    <!-- Slide items -->
+    <div class="hero-slides" id="heroSlides">
+
+      <div class="hero-slide active" data-index="0">
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=1400&q=80&auto=format')"></div>
+        <div class="container hero-content">
+          <div class="hero-eyebrow">Mới ra mắt · 2024</div>
+          <h1 class="hero-title">iPhone 15<br><em>Pro Max</em></h1>
+          <p class="hero-sub">Titan. Chip A17 Pro. Camera 48MP.<br>Mạnh mẽ hơn bất kỳ điều gì trước đó.</p>
+          <div class="hero-price-row">
+            <span class="hero-price">34.990.000đ</span>
+            <span class="hero-old-price">37.990.000đ</span>
+            <span class="hero-badge">-8%</span>
+          </div>
+          <div class="hero-cta-row">
+            <a href="product/iphone15.html" class="btn-primary">Mua ngay</a>
+            <a href="product/iphone15.html" class="btn-ghost">Xem thêm</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-slide" data-index="1">
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1707507652428-c019659c97b0?w=1400&q=80&auto=format')"></div>
+        <div class="container hero-content">
+          <div class="hero-eyebrow">Galaxy AI · 2024</div>
+          <h1 class="hero-title">Samsung<br><em>S24 Ultra</em></h1>
+          <p class="hero-sub">AI thông minh. Bút S Pen. Màn hình<br>Dynamic AMOLED 2X 6.8 inch.</p>
+          <div class="hero-price-row">
+            <span class="hero-price">24.990.000đ</span>
+            <span class="hero-old-price">26.990.000đ</span>
+            <span class="hero-badge">-7%</span>
+          </div>
+          <div class="hero-cta-row">
+            <a href="category/samsung.html" class="btn-primary">Mua ngay</a>
+            <a href="category/samsung.html" class="btn-ghost">Xem thêm</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-slide" data-index="2">
+        <div class="hero-bg" style="background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%)"></div>
+        <div class="container hero-content">
+          <div class="hero-eyebrow">Cuối tuần · Giảm sốc</div>
+          <h1 class="hero-title">Ưu đãi<br><em>lên đến 10%</em></h1>
+          <p class="hero-sub">Toàn bộ sản phẩm trong store được giảm giá.<br>Số lượng có hạn — nhanh tay kẻo hết.</p>
+          <div class="hero-cta-row">
+            <a href="category/deals.html" class="btn-primary">Xem tất cả ưu đãi</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="hero-arrow hero-arrow--prev" id="heroPrev" aria-label="Slide trước">
+      <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+    </button>
+    <button class="hero-arrow hero-arrow--next" id="heroNext" aria-label="Slide tiếp">
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+    </button>
+
+    <div class="hero-dots" id="heroDots" role="tablist" aria-label="Điều hướng slide"></div>
+
+    <!-- Scroll hint -->
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Cuộn xuống</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+
+  </section>
+
+  <!-- ===================== MAIN LAYOUT ===================== -->
+  <div class="container main-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+      <div class="sidebar-block">
+        <h3 class="sidebar-title">Danh mục</h3>
+        <ul class="category-list">
+          <li>
+            <a href="category/iphone.html" class="category-link">
+              <span class="category-icon"><i class="fa-brands fa-apple" aria-hidden="true"></i></span>
+              <span>iPhone</span>
+              <span class="category-count">12</span>
+            </a>
+          </li>
+          <li>
+            <a href="category/samsung.html" class="category-link">
+              <span class="category-icon"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i></span>
+              <span>Samsung</span>
+              <span class="category-count">18</span>
+            </a>
+          </li>
+          <li>
+            <a href="category/oppo.html" class="category-link">
+              <span class="category-icon"><i class="fa-brands fa-android" aria-hidden="true"></i></span>
+              <span>Oppo</span>
+              <span class="category-count">9</span>
+            </a>
+          </li>
+          <li>
+            <a href="category/accessories.html" class="category-link">
+              <span class="category-icon"><i class="fa-solid fa-headphones" aria-hidden="true"></i></span>
+              <span>Phụ kiện</span>
+              <span class="category-count">34</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-block">
+        <h3 class="sidebar-title">Bộ lọc</h3>
+
+        <div class="filter-group">
+          <p class="filter-label">Dung lượng</p>
+          <div class="pill-group">
+            <button class="pill-btn" data-filter="storage" data-value="64GB">64GB</button>
+            <button class="pill-btn" data-filter="storage" data-value="128GB">128GB</button>
+            <button class="pill-btn" data-filter="storage" data-value="256GB">256GB</button>
+            <button class="pill-btn" data-filter="storage" data-value="512GB">512GB</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <p class="filter-label">Mức giá</p>
+          <div class="pill-group">
+            <button class="pill-btn" data-filter="price" data-value="under10">Dưới 10tr</button>
+            <button class="pill-btn" data-filter="price" data-value="10to20">10 – 20tr</button>
+            <button class="pill-btn" data-filter="price" data-value="over20">Trên 20tr</button>
+          </div>
+        </div>
+
+        <button class="btn-reset-filter" id="resetFilter">Xóa bộ lọc</button>
+      </div>
+
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="content" id="content">
+
+      <!-- ---- FILTER BAR (mobile + top of grid) ---- -->
+      <div class="filter-bar" id="filterBar">
+        <span class="filter-bar-label">Lọc nhanh:</span>
+        <div class="filter-bar-pills">
+          <button class="pill-btn active" data-filter="brand" data-value="all">Tất cả</button>
+          <button class="pill-btn" data-filter="brand" data-value="apple">Apple</button>
+          <button class="pill-btn" data-filter="brand" data-value="samsung">Samsung</button>
+          <button class="pill-btn" data-filter="brand" data-value="oppo">Oppo</button>
+        </div>
+        <div class="sort-select-wrap">
+          <select class="sort-select" id="sortSelect" aria-label="Sắp xếp">
+            <option value="featured">Nổi bật</option>
+            <option value="price-asc">Giá tăng dần</option>
+            <option value="price-desc">Giá giảm dần</option>
+            <option value="discount">Giảm giá nhiều nhất</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ---- PRODUCT SECTION ---- -->
+      <section class="product-section" aria-labelledby="productHeading">
+        <div class="section-header">
+          <h2 class="section-title" id="productHeading">Sản phẩm nổi bật</h2>
+          <a href="category/all.html" class="section-link">Xem tất cả <i class="fa-solid fa-arrow-right fa-xs" aria-hidden="true"></i></a>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+
+          <!-- Product Card 1 — Large featured -->
+          <article class="product-card product-card--featured" data-brand="apple" data-price="34990000" data-storage="256GB" data-discount="8">
+            <div class="product-card-inner">
+              <span class="discount-badge">-8%</span>
+              <button class="wishlist-btn" aria-label="Thêm vào yêu thích" data-wishlist="iphone15promax">
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+              </button>
+              <div class="product-img-wrap">
+                <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&q=80&auto=format" alt="iPhone 15 Pro Max 256GB" loading="lazy">
+              </div>
+              <div class="product-info">
+                <span class="product-brand">Apple</span>
+                <h3 class="product-name">iPhone 15 Pro Max 256GB</h3>
+                <div class="product-specs">
+                  <span>A17 Pro</span>
+                  <span>48MP</span>
+                  <span>4422 mAh</span>
+                </div>
+                <div class="product-price">
+                  <span class="current-price">34.990.000đ</span>
+                  <span class="old-price">37.990.000đ</span>
+                </div>
+                <button class="btn-buy" data-id="iphone15promax" data-name="iPhone 15 Pro Max 256GB" data-price="34990000">
+                  <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Thêm vào giỏ
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 2 -->
+          <article class="product-card" data-brand="samsung" data-price="24990000" data-storage="256GB" data-discount="7">
+            <div class="product-card-inner">
+              <span class="discount-badge">-7%</span>
+              <button class="wishlist-btn" aria-label="Thêm vào yêu thích" data-wishlist="s24ultra">
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+              </button>
+              <div class="product-img-wrap">
+                <img src="https://images.unsplash.com/photo-1707507652428-c019659c97b0?w=400&q=80&auto=format" alt="Samsung Galaxy S24 Ultra 256GB" loading="lazy">
+              </div>
+              <div class="product-info">
+                <span class="product-brand">Samsung</span>
+                <h3 class="product-name">Samsung Galaxy S24 Ultra 256GB</h3>
+                <div class="product-specs">
+                  <span>Snapdragon 8 Gen 3</span>
+                  <span>200MP</span>
+                  <span>5000 mAh</span>
+                </div>
+                <div class="product-price">
+                  <span class="current-price">24.990.000đ</span>
+                  <span class="old-price">26.990.000đ</span>
+                </div>
+                <button class="btn-buy" data-id="s24ultra" data-name="Samsung Galaxy S24 Ultra 256GB" data-price="24990000">
+                  <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Thêm vào giỏ
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 3 -->
+          <article class="product-card" data-brand="samsung" data-price="7490000" data-storage="128GB" data-discount="10">
+            <div class="product-card-inner">
+              <span class="discount-badge discount-badge--hot">-10%</span>
+              <button class="wishlist-btn" aria-label="Thêm vào yêu thích" data-wishlist="a545g">
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+              </button>
+              <div class="product-img-wrap">
+                <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80&auto=format" alt="Samsung Galaxy A54 5G 128GB" loading="lazy">
+              </div>
+              <div class="product-info">
+                <span class="product-brand">Samsung</span>
+                <h3 class="product-name">Samsung Galaxy A54 5G 128GB</h3>
+                <div class="product-specs">
+                  <span>Exynos 1380</span>
+                  <span>50MP</span>
+                  <span>5000 mAh</span>
+                </div>
+                <div class="product-price">
+                  <span class="current-price">7.490.000đ</span>
+                  <span class="old-price">8.290.000đ</span>
+                </div>
+                <button class="btn-buy" data-id="a545g" data-name="Samsung Galaxy A54 5G 128GB" data-price="7490000">
+                  <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Thêm vào giỏ
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 4 -->
+          <article class="product-card" data-brand="oppo" data-price="8990000" data-storage="256GB" data-discount="5">
+            <div class="product-card-inner">
+              <span class="discount-badge">-5%</span>
+              <button class="wishlist-btn" aria-label="Thêm vào yêu thích" data-wishlist="oppofind7">
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+              </button>
+              <div class="product-img-wrap">
+                <img src="https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&q=80&auto=format" alt="Oppo Reno 11 Pro 256GB" loading="lazy">
+              </div>
+              <div class="product-info">
+                <span class="product-brand">Oppo</span>
+                <h3 class="product-name">Oppo Reno 11 Pro 256GB</h3>
+                <div class="product-specs">
+                  <span>Dimensity 8200</span>
+                  <span>50MP</span>
+                  <span>4600 mAh</span>
+                </div>
+                <div class="product-price">
+                  <span class="current-price">8.990.000đ</span>
+                  <span class="old-price">9.490.000đ</span>
+                </div>
+                <button class="btn-buy" data-id="oppofind7" data-name="Oppo Reno 11 Pro 256GB" data-price="8990000">
+                  <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Thêm vào giỏ
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 5 -->
+          <article class="product-card" data-brand="apple" data-price="22990000" data-storage="128GB" data-discount="6">
+            <div class="product-card-inner">
+              <span class="discount-badge">-6%</span>
+              <button class="wishlist-btn" aria-label="Thêm vào yêu thích" data-wishlist="iphone15">
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+              </button>
+              <div class="product-img-wrap">
+                <img src="https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?w=400&q=80&auto=format" alt="iPhone 15 128GB" loading="lazy">
+              </div>
+              <div class="product-info">
+                <span class="product-brand">Apple</span>
+                <h3 class="product-name">iPhone 15 128GB</h3>
+                <div class="product-specs">
+                  <span>A16 Bionic</span>
+                  <span>48MP</span>
+                  <span>3877 mAh</span>
+                </div>
+                <div class="product-price">
+                  <span class="current-price">22.990.000đ</span>
+                  <span class="old-price">24.490.000đ</span>
+                </div>
+                <button class="btn-buy" data-id="iphone15" data-name="iPhone 15 128GB" data-price="22990000">
+                  <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Thêm vào giỏ
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 6 -->
+          <article class="product-card" data-brand="samsung" data-price="13490000" data-storage="256GB" data-discount="9">
+            <div class="product-card-inner">
+              <span class="discount-badge discount-badge--hot">-9%</span>
+              <button class="wishlist-btn" aria-label="Thêm vào yêu thích" data-wishlist="s23fe">
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+              </button>
+              <div class="product-img-wrap">
+                <img src="https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?w=400&q=80&auto=format" alt="Samsung Galaxy S23 FE 256GB" loading="lazy">
+              </div>
+              <div class="product-info">
+                <span class="product-brand">Samsung</span>
+                <h3 class="product-name">Samsung Galaxy S23 FE 256GB</h3>
+                <div class="product-specs">
+                  <span>Snapdragon 8 Gen 1</span>
+                  <span>50MP</span>
+                  <span>4500 mAh</span>
+                </div>
+                <div class="product-price">
+                  <span class="current-price">13.490.000đ</span>
+                  <span class="old-price">14.790.000đ</span>
+                </div>
+                <button class="btn-buy" data-id="s23fe" data-name="Samsung Galaxy S23 FE 256GB" data-price="13490000">
+                  <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Thêm vào giỏ
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Empty state -->
+        <div class="empty-state" id="emptyState" hidden>
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <p>Không tìm thấy sản phẩm phù hợp.</p>
+          <button class="btn-ghost" id="resetFromEmpty">Xóa bộ lọc</button>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ===================== TOAST NOTIFICATION ===================== -->
+  <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true">
+    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+    <span id="toastMsg">Đã thêm vào giỏ hàng</span>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <div class="logo">
+          <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+          <span>MobileShop</span>
+        </div>
+        <p class="footer-tagline">Điện thoại chính hãng. Giá tốt nhất. Giao hàng trong 2 giờ.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Thông tin cửa hàng</h4>
+        <address>
+          <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> 123 Đường ABC, Quận 1, TP. HCM</p>
+          <p><i class="fa-solid fa-phone" aria-hidden="true"></i> <a href="tel:19001234">1900 1234</a></p>
+          <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:support@mobileshop.vn">support@mobileshop.vn</a></p>
+        </address>
+        <p class="footer-hours"><i class="fa-regular fa-clock" aria-hidden="true"></i> 8:00 – 21:00, Thứ 2 – Chủ nhật</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Chính sách</h4>
+        <nav aria-label="Liên kết chân trang">
+          <a href="#">Chính sách bảo hành</a>
+          <a href="#">Chính sách đổi trả</a>
+          <a href="#">Chính sách bảo mật</a>
+          <a href="#">Hướng dẫn mua hàng</a>
+          <a href="#">Hỏi đáp (FAQ)</a>
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <h4>Nhận ưu đãi sớm nhất</h4>
+        <p class="footer-newsletter-desc">Đăng ký để nhận thông báo flash sale và mã giảm giá độc quyền.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="email@của.bạn" aria-label="Địa chỉ email">
+          <button class="btn-primary" id="newsletterBtn">Đăng ký</button>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2024 MobileShop. Tất cả quyền được bảo lưu.</p>
+        <p>Thiết kế bởi <strong>MobileShop Team</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
