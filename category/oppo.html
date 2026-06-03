@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>OPPO Collection | MobileShop</title>
+
+  <link rel="stylesheet" href="../style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <i class="fa-solid fa-mobile-screen-button"></i>
+        <span>MobileShop</span>
+      </a>
+      
+      <nav class="main-nav">
+        <a href="../index.html" class="nav-link">Trang chủ</a>
+        <a href="iphone.html" class="nav-link"> iPhone</a>
+        <a href="samsung.html" class="nav-link">Samsung</a>
+        <a href="oppo.html" class="nav-link">Oppo</a>
+
+        <div class="nav-dropdown">
+          <a href="../header/accessories.html" class="nav-link">Phụ kiện
+            <i class="fa-solid fa-chevron-down fa-xs"></i>
+          </a>
+
+          <div class="dropdown-menu">
+            <a href="#">Tai nghe</a>
+            <a href="#">Sạc & Cáp</a>
+            <a href="#">Ốp lưng</a>
+            <a href="#">Đồng hồ thông minh</a>
+          </div>
+        </div>
+
+        <a href="#" class="nav-link nav-hot">
+          <i class="fa-solid fa-fire-flame-curved"></i>
+          Ưu đãi
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-bar">
+          <input type="text"
+            placeholder="Tìm điện thoại, phụ kiện...">
+          <button>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+        <a href="#" class="icon-btn"><i class="fa-regular fa-user"></i></a>
+        <a href="#" class="icon-btn cart-btn">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-count">
+            0
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+    <section class="oppo-banner">
+        <div class="oppo-banner-content">
+            <span class="hero-eyebrow">OPPO AI CAMERA PHONE</span>
+            <h1>OPPO COLLECTION</h1>
+            <p>
+                Tỏa sáng phong cách riêng với dòng smartphone OPPO mới nhất.
+                Camera AI, sạc siêu nhanh và thiết kế thời thượng.
+            </p>
+        </div>
+        <div class="oppo-banner-image"><img src="../image/oppo/sontung.jpg" alt="Sơn Tùng"></div>
+    </section>
+    
+    <!-- FILTER BAR -->
+<section class="filter-section">
+  <div class="container">
+    <div class="filter-bar">
+      <div class="filter-left">
+        <span class="filter-label">LỌC:</span>
+        <div class="filter-pills">
+          <button class="pill active" data-filter="all">Tất cả</button>
+          <button class="pill" data-filter="find">Find Series</button>
+          <button class="pill" data-filter="reno">Reno Series</button>
+          <button class="pill" data-filter="a-series">A Series</button>
+        </div>
+      </div>
+      <div class="filter-right">
+        <select class="sort-select">
+          <option value="featured">Nổi bật</option>
+          <option value="price-asc">Giá thấp → cao</option>
+          <option value="price-desc">Giá cao → thấp</option>
+          <option value="newest">Mới nhất</option>
+        </select>
+      </div>
+    </div>
+    <p class="result-count">Hiển thị <strong id="count">8</strong> sản phẩm</p>
+  </div>
+</section>
+ 
+<!-- PRODUCT GRID -->
+<section class="products-section">
+  <div class="container">
+    <div class="product-grid" id="productGrid">
+ 
+      <div class="product-card" data-category="find" data-price="23990000">
+        <div class="card-badges">
+          <span class="badge sale">-4%</span>
+          <span class="badge new">Mới</span>
+        </div>
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <a href="../product/oppo/FindX9s.html" class="card-image">
+          <img src="../image/oppo/find-x9s-pink.png" alt="OPPO Find X9s" onerror="this.src='https://via.placeholder.com/280x280/f5f5f5/999?text=OPPO+Find+X9s'">
+        </a>
+        <div class="color-dots">
+          <span class="dot active" style="background:#e8a89c" title="Hồng" 
+              data-img="../image/oppo/find-x9s-pink.png"></span>
+          <span class="dot  " style="background:#c8c8d8" title="Tím nhạt" 
+              data-img="../image/oppo/find-x9s-purple.png"></span>
+          <span class="dot " style="background:#444" title="Đen" 
+            data-img="../image/oppo/find-x9s-black.png"></span>
+        </div>
+        <div class="card-body">
+          <p class="brand">OPPO</p>
+          <h3 class="product-name">Find X9s</h3>
+          <p class="product-desc">Camera 50MP · Zoom 120x · Pin 7025 mAh</p>
+          <div class="price-row">
+            <span class="price-current">23.990.000₫</span>
+            <span class="price-old">24.990.000₫</span>
+          </div>
+          <div class="card-actions">
+            <a href="../product/oppo/FindX9s.html"><button class="btn-detail">Xem chi tiết</button></a>
+            <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Thêm giỏ</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="product-card" data-category="find" data-price="48990000">
+        <div class="card-badges">
+          <span class="badge hot"><i class="fa-solid fa-fire-flame-curved"></i> Hot</span>
+        </div>
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <div class="card-image">
+          <img src="../image/oppo/find-x9-ultra-black.png" alt="OPPO Find X9 Ultra" onerror="this.src='https://via.placeholder.com/280x280/f5f5f5/999?text=Find+X9+Ultra'">
+        </div>
+        <div class="color-dots">
+          <span class="dot active" style="background:#2c2c2c" title="Đen" data-img="../image/oppo/find-x9-ultra-black.png"></span>
+          <span class="dot " style="background:#c8856a" title="Cam nhạt" data-img="../image/oppo/find-x9-ultra-orange.png"></span>
+        </div>
+        <div class="card-body">
+          <p class="brand">OPPO</p>
+          <h3 class="product-name">Find X9 Ultra</h3>
+          <p class="product-desc">Hasselblad Camera · AI Zoom · AMOLED 120Hz</p>
+          <div class="price-row">
+            <span class="price-current">48.990.000₫</span>
+            <span class="price-old">49.990.000₫</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn-detail">Xem chi tiết</button>
+            <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Thêm giỏ</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="product-card" data-category="find" data-price="64990000">
+        <div class="card-badges">
+          <span class="badge sale">-2%</span>
+        </div>
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <div class="card-image">
+          <img src="../image/oppo/find-n6-orange.png" alt="OPPO Find N6" onerror="this.src='https://via.placeholder.com/280x280/f5f5f5/999?text=Find+N6'">
+        </div>
+        <div class="color-dots">
+          <span class="dot active" style="background:#e05a2b" title="Cam" data-img="../image/oppo/find-n6-orange.png"></span>
+          <span class="dot " style="background:#555" title="Xám" data-img="../image/oppo/find-n6-gray.png"></span>
+        </div>
+        <div class="card-body">
+          <p class="brand">OPPO</p>
+          <h3 class="product-name">Find N6</h3>
+          <p class="product-desc">Gập siêu mỏng · Snapdragon 8 Gen 3</p>
+          <div class="price-row">
+            <span class="price-current">64.990.000₫</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn-detail">Xem chi tiết</button>
+            <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Thêm giỏ</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="product-card" data-category="a-series" data-price="8990000">
+        <div class="card-badges">
+          <span class="badge new">Mới</span>
+        </div>
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <div class="card-image">
+          <img src="../image/oppo/a6-yellow.png" alt="OPPO A6" onerror="this.src='https://via.placeholder.com/280x280/f5f5f5/999?text=OPPO+A6'">
+        </div>
+        <div class="color-dots">
+          <span class="dot active" style="background:#f0e8c8" title="Vàng" data-img="../image/oppo/a6-yellow.png"></span>
+          <span class="dot " style="background:#2d5a27" title="Xanh" data-img="../image/oppo/a6-green.png"></span>
+        </div>
+        <div class="card-body">
+          <p class="brand">OPPO</p>
+          <h3 class="product-name">A6</h3>
+          <p class="product-desc">Pin 5000mAh · Sạc nhanh 33W · 6.7"</p>
+          <div class="price-row">
+            <span class="price-current">8.990.000₫</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn-detail">Xem chi tiết</button>
+            <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Thêm giỏ</button>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="product-card" data-category="reno" data-price="18590000">
+        <div class="card-badges">
+          <span class="badge sale">-2%</span>
+          <span class="badge new">Mới</span>
+        </div>
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <div class="card-image">
+          <img src="../image/oppo/reno15-pro-blue.png" alt="OPPO Reno15 Pro 5G"
+            onerror="this.src='https://via.placeholder.com/280x280/f5f5f5/999?text=Reno15+Pro'">
+        </div>
+        <div class="color-dots">
+          <span class="dot active" style="background:#a8c8e8" title="Xanh"
+            data-img="../image/oppo/reno15-pro-blue.png"></span>
+          <span class="dot " style="background:#c8a070" title="Nâu"
+            data-img="../image/oppo/reno15-pro-brown.png"></span>
+        </div>
+        <div class="card-body">
+          <p class="brand">OPPO</p>
+          <h3 class="product-name">Reno15 Pro 5G</h3>
+          <p class="product-desc">Video 4K HDR · Camera 200MP · ColorOS 16</p>
+          <div class="price-row">
+            <span class="price-current">18.590.000₫</span>
+            <span class="price-old">18.990.000₫</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn-detail">Xem chi tiết</button>
+            <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Thêm giỏ</button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="product-card" data-category="reno" data-price="15490000">
+        <div class="card-badges">
+          <span class="badge sale">-3%</span>
+          <span class="badge new">Mới</span>
+        </div>
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <div class="card-image">
+          <img src="../image/oppo/reno15-white.png" alt="OPPO Reno15 5G"
+            onerror="this.src='https://via.placeholder.com/280x280/f5f5f5/999?text=Reno15+5G'">
+        </div>
+        <div class="color-dots">
+          <span class="dot active" style="background:#f0f0f0" title="Trắng"
+            data-img="../image/oppo/reno15-white.png"></span>
+          <span class="dot " style="background:#2c3e6e" title="Xanh đêm"
+            data-img="../image/oppo/reno15-navy.png"></span>
+        </div>
+        <div class="card-body">
+          <p class="brand">OPPO</p>
+          <h3 class="product-name">Reno15 5G</h3>
+          <p class="product-desc">Selfie 50MP · Tele 3.5x · ColorOS 16</p>
+          <div class="price-row">
+            <span class="price-current">15.490.000₫</span>
+            <span class="price-old">15.990.000₫</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn-detail">Xem chi tiết</button>
+            <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Thêm giỏ</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card" data-category="find" data-price="44990000">
+        <div class="card-badges">
+          <span class="badge new">Mới</span>
+        </div>
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <div class="card-image">
+          <img src="../image/oppo/find-n5-white.png" alt="OPPO Find N5"
+            onerror="this.src='https://via.placeholder.com/280x280/f5f5f5/999?text=Find+N5'">
+        </div>
+        <div class="color-dots">
+          <span class="dot active" style="background:#f0f0f0" title="Trắng"
+            data-img="../image/oppo/find-n5-white.png"></span>
+          <span class="dot " style="background:#222" title="Đen"
+            data-img="../image/oppo/find-n5-black.png"></span>
+        </div>
+        <div class="card-body">
+          <p class="brand">OPPO</p>
+          <h3 class="product-name">Find N5</h3>
+          <p class="product-desc">Gập siêu mỏng · Snapdragon 8 Elite · 50MP</p>
+          <div class="price-row">
+            <span class="price-current">44.990.000₫</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn-detail">Xem chi tiết</button>
+            <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Thêm giỏ</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card" data-category="find" data-price="26990000">
+        <div class="card-badges">
+          <span class="badge sale">-40%</span>
+        </div>
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <div class="card-image">
+          <img src="../image/oppo/find-n3-gold.png" alt="OPPO Find N3"
+            onerror="this.src='https://via.placeholder.com/280x280/f5f5f5/999?text=Find+N3'">
+        </div>
+        <div class="color-dots">
+          <span class="dot active" style="background:#c8a84a" title="Vàng"
+            data-img="../image/oppo/find-n3-gold.png"></span>
+          <span class="dot " style="background:#222" title="Đen"
+            data-img="../image/oppo/find-n3-black.png"></span>
+        </div>
+        <div class="card-body">
+          <p class="brand">OPPO</p>
+          <h3 class="product-name">Find N3</h3>
+          <p class="product-desc">Hasselblad · Gập · Snapdragon 8 Gen 2</p>
+          <div class="price-row">
+            <span class="price-current">26.990.000₫</span>
+            <span class="price-old">44.990.000₫</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn-detail">Xem chi tiết</button>
+            <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Thêm giỏ</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card" data-category="find" data-price="13990000">
+        <div class="card-badges">
+          <span class="badge sale">-39%</span>
+        </div>
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <div class="card-image">
+          <img src="../image/oppo/find-n3-flip-pink.png" alt="OPPO Find N3 Flip"
+            onerror="this.src='https://via.placeholder.com/280x280/f5f5f5/999?text=Find+N3+Flip'">
+        </div>
+        <div class="color-dots">
+          <span class="dot active" style="background:#e8a0b0" title="Hồng"
+            data-img="../image/oppo/find-n3-flip-pink.png"></span>
+          <span class="dot " style="background:#d4b896" title="Kem"
+            data-img="../image/oppo/find-n3-flip-cream.png"></span>
+          <span class="dot " style="background:#333" title="Đen"
+            data-img="../image/oppo/find-n3-flip-black.png"></span>
+        </div>
+        <div class="card-body">
+          <p class="brand">OPPO</p>
+          <h3 class="product-name">Find N3 Flip</h3>
+          <p class="product-desc">Gập dọc · Dimensity 9200 · Hasselblad</p>
+          <div class="price-row">
+            <span class="price-current">13.990.000₫</span>
+            <span class="price-old">22.990.000₫</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn-detail">Xem chi tiết</button>
+            <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Thêm giỏ</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Find X9 Pro -->
+      <div class="product-card" data-category="find" data-price="33990000">
+        <div class="card-badges">
+          <span class="badge sale">-8%</span>
+          <span class="badge hot"><i class="fa-solid fa-fire-flame-curved"></i> Hot</span>
+        </div>
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <div class="card-image">
+          <img src="../image/oppo/find-x9-pro-white.png" alt="OPPO Find X9 Pro"
+            onerror="this.src='https://via.placeholder.com/280x280/f5f5f5/999?text=Find+X9+Pro'">
+        </div>
+        <div class="color-dots">
+          <span class="dot active" style="background:#f0f0f0" title="Trắng"
+            data-img="../image/oppo/find-x9-pro-white.png"></span>
+          <span class="dot " style="background:#333" title="Đen"
+            data-img="../image/oppo/find-x9-pro-black.png"></span>
+        </div>
+        <div class="card-body">
+          <p class="brand">OPPO</p>
+          <h3 class="product-name">Find X9 Pro</h3>
+          <p class="product-desc">Hasselblad · Snapdragon 8 Elite · IP69</p>
+          <div class="price-row">
+            <span class="price-current">33.990.000₫</span>
+            <span class="price-old">36.990.000₫</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn-detail">Xem chi tiết</button>
+            <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Thêm giỏ</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Find X9 -->
+      <div class="product-card" data-category="find" data-price="24990000">
+        <div class="card-badges">
+          <span class="badge sale">-11%</span>
+        </div>
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <div class="card-image">
+          <img src="../image/oppo/find-x9-red.png" alt="OPPO Find X9"
+            onerror="this.src='https://via.placeholder.com/280x280/f5f5f5/999?text=Find+X9'">
+        </div>
+        <div class="color-dots">
+          <span class="dot active" style="background:#c0304a" title="Đỏ"
+            data-img="../image/oppo/find-x9-red.png"></span>
+          <span class="dot " style="background:#888" title="Xám"
+            data-img="../image/oppo/find-x9-gray.png"></span>
+          <span class="dot " style="background:#222" title="Đen"
+            data-img="../image/oppo/find-x9-black.png"></span>
+        </div>
+        <div class="card-body">
+          <p class="brand">OPPO</p>
+          <h3 class="product-name">Find X9</h3>
+          <p class="product-desc">Hasselblad · Dimensity 9400 · 5600mAh</p>
+          <div class="price-row">
+            <span class="price-current">24.990.000₫</span>
+            <span class="price-old">28.990.000₫</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn-detail">Xem chi tiết</button>
+            <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Thêm giỏ</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Find X8 Pro -->
+      <div class="product-card" data-category="find" data-price="23990000">
+        <div class="card-badges">
+          <span class="badge hot"><i class="fa-solid fa-fire-flame-curved"></i> Hot</span>
+        </div>
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <div class="card-image">
+          <img src="../image/oppo/find-x8-pro-white.png" alt="OPPO Find X8 Pro"
+            onerror="this.src='https://via.placeholder.com/280x280/f5f5f5/999?text=Find+X8+Pro'">
+        </div>
+        <div class="color-dots">
+          <span class="dot active " style="background:#f0f0f0" title="Trắng"
+            data-img="../image/oppo/find-x8-pro-white.png"></span>
+          <span class="dot " style="background:#333" title="Đen"
+            data-img="../image/oppo/find-x8-pro-black.png"></span>
+        </div>
+        <div class="card-body">
+          <p class="brand">OPPO</p>
+          <h3 class="product-name">Find X8 Pro</h3>
+          <p class="product-desc">Camera Mạnh Mẽ · AI Vượt Trội · IP69</p>
+          <div class="price-row">
+            <span class="price-current">23.990.000₫</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn-detail">Xem chi tiết</button>
+            <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Thêm giỏ</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="reno" data-price="11990000">
+        <div class="card-badges">
+          <span class="badge new">Mới</span>
+        </div>
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <div class="card-image">
+          <img src="../image/oppo/reno15f-blue.png" alt="OPPO Reno15 F 5G"
+            onerror="this.src='https://via.placeholder.com/280x280/f5f5f5/999?text=Reno15+F+5G'">
+        </div>
+        <div class="color-dots">
+          <span class="dot active" style="background:#a8c0e8" title="Xanh"
+            data-img="../image/oppo/reno15f-blue.png"></span>
+          <span class="dot " style="background:#333" title="Đen"
+            data-img="../image/oppo/reno15f-black.png"></span>
+          <span class="dot " style="background:#e8a0a8" title="Hồng"
+            data-img="../image/oppo/reno15f-pink.png"></span>
+        </div>
+        <div class="card-body">
+          <p class="brand">OPPO</p>
+          <h3 class="product-name">Reno15 F 5G</h3>
+          <p class="product-desc">Camera 50MP · Pin 7000mAh · Chỉnh sáng AI</p>
+          <div class="price-row">
+            <span class="price-current">11.990.000₫</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn-detail">Xem chi tiết</button>
+            <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Thêm giỏ</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card" data-category="reno" data-price="15990000">
+        <div class="card-badges">
+          <span class="badge hot"><i class="fa-solid fa-fire-flame-curved"></i> Hot</span>
+        </div>
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <div class="card-image">
+          <img src="../image/oppo/reno14-pro-white.png" alt="OPPO Reno14 Pro 5G"
+            onerror="this.src='https://via.placeholder.com/280x280/f5f5f5/999?text=Reno14+Pro+5G'">
+        </div>
+        <div class="color-dots">
+          <span class="dot active" style="background:#f0f0f0" title="Trắng"
+            data-img="../image/oppo/reno14-pro-white.png"></span>
+          <span class="dot " style="background:#333" title="Đen"
+            data-img="../image/oppo/reno14-pro-black.png"></span>
+        </div>
+        <div class="card-body">
+          <p class="brand">OPPO</p>
+          <h3 class="product-name">Reno14 Pro 5G</h3>
+          <p class="product-desc">Flash AI · Chỉnh Sửa Ảnh AI 2.0</p>
+          <div class="price-row">
+            <span class="price-current">15.990.000₫</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn-detail">Xem chi tiết</button>
+            <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Thêm giỏ</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- A6x -->
+      <div class="product-card" data-category="a-series" data-price="4990000">
+        <div class="card-badges">
+          <span class="badge new">Mới</span>
+        </div>
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <div class="card-image">
+          <img src="../image/oppo/a6x-purple.png" alt="OPPO A6x"
+            onerror="this.src='https://via.placeholder.com/280x280/f5f5f5/999?text=OPPO+A6x'">
+        </div>
+        <div class="color-dots">
+          <span class="dot active" style="background:#7060a8" title="Tím đậm"
+            data-img="../image/oppo/a6x-purple.png"></span>
+          <span class="dot " style="background:#d0c8e8" title="Tím nhạt"
+            data-img="../image/oppo/a6x-lightpurple.png"></span>
+          <span class="dot " style="background:#40c8d0" title="Xanh ngọc"
+            data-img="../image/oppo/a6x-teal.png"></span>
+        </div>
+        <div class="card-body">
+          <p class="brand">OPPO</p>
+          <h3 class="product-name">A6x</h3>
+          <p class="product-desc">NFC · Xác Thực VNeID · Pin lớn</p>
+          <div class="price-row">
+            <span class="price-current">4.990.000₫</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn-detail">Xem chi tiết</button>
+            <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Thêm giỏ</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card" data-category="a-series" data-price="8290000">
+        <div class="card-badges">
+          <span class="badge new">Mới</span>
+        </div>
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+        <div class="card-image">
+          <img src="../image/oppo/a6-pro-blue.png" alt="OPPO A6 Pro"
+            onerror="this.src='https://via.placeholder.com/280x280/f5f5f5/999?text=OPPO+A6+Pro'">
+        </div>
+        <div class="color-dots">
+          <span class="dot active" style="background:#1c3a6e" title="Xanh đêm"
+            data-img="../image/oppo/a6-pro-blue.png"></span>
+          <span class="dot " style="background:#888" title="Xám"
+            data-img="../image/oppo/a6-pro-gray.png"></span>
+          <span class="dot " style="background:#e8a0a8" title="Hồng"
+            data-img="../image/oppo/a6-pro-pink.png"></span>
+        </div>
+        <div class="card-body">
+          <p class="brand">OPPO</p>
+          <h3 class="product-name">A6 Pro</h3>
+          <p class="product-desc">Camera AI · Sạc nhanh · 6.7" AMOLED</p>
+          <div class="price-row">
+            <span class="price-current">8.290.000₫</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn-detail">Xem chi tiết</button>
+            <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Thêm giỏ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pagination-wrap" id="pagination"></div>
+  </div>
+</section>
+
+<!-- PROMO BANNER -->
+<section class="promo-section">
+  <div class="container">
+    <div class="promo-grid">
+      <div class="promo-card promo-large">
+        <div class="promo-content">
+          <span class="promo-tag">Ưu đãi độc quyền</span>
+          <h3>Mua Find Series<br>Tặng ngay tai nghe</h3>
+          <p>Trị giá đến 1.500.000₫</p>
+          <button class="promo-btn">Mua ngay</button>
+        </div>
+        <div class="promo-deco">🎧</div>
+      </div>
+      <div class="promo-card promo-small promo-orange">
+        <div class="promo-content">
+          <span class="promo-tag">Flash Sale</span>
+          <h3>Reno Series<br>Giảm đến 10%</h3>
+          <p>Chỉ hôm nay</p>
+          <button class="promo-btn">Xem ngay</button>
+        </div>
+        <div class="promo-deco">⚡</div>
+      </div>
+      <div class="promo-card promo-small promo-dark">
+        <div class="promo-content">
+          <span class="promo-tag">Trả góp 0%</span>
+          <h3>Mua trả góp<br>Không lãi suất</h3>
+          <p>Đến 24 tháng</p>
+          <button class="promo-btn">Tìm hiểu</button>
+        </div>
+        <div class="promo-deco">💳</div>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="logo" href="../index.html">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+          <span>MobileShop</span>
+        </a>
+        <p class="footer-tagline">Điện thoại chính hãng. Giá tốt nhất. Giao hàng trong 2 giờ.</p>
+        <div class="footer-socials">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Thông tin cửa hàng</h4>
+        <address>
+          <p><i class="fa-solid fa-location-dot"></i>123 Đường ABC, Quận 1, TP. HCM</p>
+          <p><i class="fa-solid fa-phone"></i><a href="tel:19001234">1900 1234</a></p>
+          <p><i class="fa-solid fa-envelope"></i><a href="mailto:support@mobileshop.vn">support@mobileshop.vn</a></p>
+        </address>
+        <p class="footer-hours"><i class="fa-regular fa-clock"></i>8:00 – 21:00, Thứ 2 – Chủ nhật</p>
+      </div>
+      <div class="footer-col">
+        <h4>Chính sách</h4>
+        <nav>
+          <a href="#">Chính sách bảo hành</a>
+          <a href="#">Chính sách đổi trả</a>
+          <a href="#">Chính sách bảo mật</a>
+          <a href="#">Hướng dẫn mua hàng</a>
+          <a href="#">Hỏi đáp (FAQ)</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Nhận ưu đãi sớm nhất</h4>
+        <p class="footer-newsletter-desc">Đăng ký để nhận thông báo flash sale và mã giảm giá độc quyền.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="email@của.bạn">
+          <button class="btn-primary" id="newsletterBtn">Đăng ký</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2024 MobileShop. Tất cả quyền được bảo lưu.</p>
+      <p>Thiết kế bởi <strong>MobileShop Team</strong></p>
+    </div>
+  </div>
+</footer>
+</body>
+<script src="../main.js"></script>
+</html>

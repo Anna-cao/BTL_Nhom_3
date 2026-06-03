@@ -516,8 +516,46 @@ document.querySelectorAll('img[loading="lazy"]').forEach(function(img) {
     this.src = 'https://placehold.co/400x400/f5f4f0/b8b7b2?text=' + encodeURIComponent(this.alt || 'Sản phẩm');
   });
 });
+const ITEMS_PER_PAGE = 8;
+let currentPage = 1;
 
+function renderPagination() {
+  const allCards = Array.from(document.querySelectorAll('.product-card'));
+  const visibleCards = allCards.filter(c => !c.hidden);
+  const totalPages = Math.ceil(visibleCards.length / ITEMS_PER_PAGE);
+  const pagination = document.getElementById('pagination');
+  if (!pagination) return;
 
+  visibleCards.forEach((card, idx) => {
+    const page = Math.floor(idx / ITEMS_PER_PAGE) + 1;
+    card.style.display = page === currentPage ? 'flex' : 'none';
+  });
+
+  pagination.innerHTML = '';
+
+  const prev = document.createElement('button');
+  prev.className = 'page-btn';
+  prev.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+  prev.disabled = currentPage === 1;
+  prev.addEventListener('click', () => { currentPage--; renderPagination(); window.scrollTo({top: 400, behavior: 'smooth'}); });
+  pagination.appendChild(prev);
+
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement('button');
+    btn.className = 'page-btn' + (i === currentPage ? ' active' : '');
+    btn.textContent = i;
+    btn.addEventListener('click', () => { currentPage = i; renderPagination(); window.scrollTo({top: 400, behavior: 'smooth'}); });
+    pagination.appendChild(btn);
+  }
+
+  const next = document.createElement('button');
+  next.className = 'page-btn';
+  next.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+  next.disabled = currentPage === totalPages;
+  next.addEventListener('click', () => { currentPage++; renderPagination(); window.scrollTo({top: 400, behavior: 'smooth'}); });
+  pagination.appendChild(next);
+}
+renderPagination();
 /* ============================================================
    CART MODAL CSS
    ============================================================ */
@@ -555,3 +593,103 @@ document.querySelectorAll('img[loading="lazy"]').forEach(function(img) {
   ].join('');
   document.head.appendChild(style);
 })();
+
+/* JS CHO OPPO*/
+document.addEventListener('DOMContentLoaded', () => {
+ 
+  const pills = document.querySelectorAll('.pill');
+  const cards = document.querySelectorAll('.product-card');
+  const sortSelect = document.querySelector('.sort-select');
+  const countEl = document.getElementById('count');
+  const grid = document.getElementById('productGrid');
+ 
+  let activeFilter = 'all';
+ 
+  // Filter by category
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      activeFilter = pill.dataset.filter;
+      applyFilterAndSort();
+    });
+  });
+ 
+  // Sort
+  sortSelect.addEventListener('change', applyFilterAndSort);
+ 
+  function applyFilterAndSort() {
+    // Get all cards as array
+    let cardArray = Array.from(cards);
+    currentPage = 1;
+    renderPagination();
+ 
+    // Filter
+    cardArray.forEach(card => {
+      const cat = card.dataset.category;
+      if (activeFilter === 'all' || cat === activeFilter) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+ 
+    // Sort visible cards
+    const visible = cardArray.filter(c => !c.classList.contains('hidden'));
+    const sortVal = sortSelect.value;
+ 
+    visible.sort((a, b) => {
+      const pa = parseInt(a.dataset.price);
+      const pb = parseInt(b.dataset.price);
+      if (sortVal === 'price-asc')  return pa - pb;
+      if (sortVal === 'price-desc') return pb - pa;
+      return 0;
+    });
+ 
+    // Re-append in sorted order
+    visible.forEach(card => grid.appendChild(card));
+ 
+    // Update count
+    countEl.textContent = visible.length;
+  }
+ 
+  // Wishlist toggle
+  document.querySelectorAll('.wishlist-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+      const icon = btn.querySelector('i');
+      if (btn.classList.contains('active')) {
+        icon.classList.replace('fa-regular', 'fa-solid');
+      } else {
+        icon.classList.replace('fa-solid', 'fa-regular');
+      }
+    });
+  });
+ 
+  // Add to cart feedback
+  document.querySelectorAll('.btn-cart').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const original = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> Đã thêm!';
+      btn.style.background = '#00b894';
+      setTimeout(() => {
+        btn.innerHTML = original;
+        btn.style.background = '';
+      }, 1500);
+    });
+  });
+
+  document.querySelectorAll('.color-dots').forEach(dotsGroup => {
+  dotsGroup.querySelectorAll('.dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+   
+      const card = dot.closest('.product-card');
+      const img = card.querySelector('.card-image img');
+      img.src = dot.dataset.img;
+
+      dotsGroup.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+      dot.classList.add('active');
+    });
+  });
+});
+});
