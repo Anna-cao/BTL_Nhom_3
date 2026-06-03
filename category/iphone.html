@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPhone Collection | MobileShop</title>
+
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ===== BANNER ===== */
+    .category-banner {
+      position: relative;
+      height: 400px;
+      background: linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.58)),
+        url('../image/banner/iphone-banner.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .category-banner::before {
+      content: "";
+      position: absolute;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, transparent 70%);
+      animation: glowMove 10s linear infinite;
+    }
+    @keyframes glowMove {
+      0%   { transform: translate(-20%,-20%) rotate(0deg); }
+      50%  { transform: translate(10%,10%) rotate(180deg); }
+      100% { transform: translate(-20%,-20%) rotate(360deg); }
+    }
+    .banner-content {
+      position: relative; z-index: 2;
+      text-align: center; color: #fff;
+      max-width: 700px; padding: 20px;
+      animation: fadeUp 1s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(32px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .banner-eyebrow {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: rgba(255,255,255,.5); margin-bottom: 1rem;
+    }
+    .banner-content h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 400; letter-spacing: -.02em;
+      line-height: 1.08; margin-bottom: 1rem;
+      color: #fff;
+    }
+    .banner-content h1 em { font-style: italic; color: rgba(255,255,255,.72); }
+    .banner-content p {
+      font-size: 15px; line-height: 1.7;
+      color: rgba(255,255,255,.65); font-weight: 300;
+    }
+
+    /* ===== FILTER BAR ===== */
+    .iphone-filter-bar {
+      width: min(1200px,100%);
+      margin: 2rem auto 0;
+      padding: 0 1.5rem;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .iphone-filter-bar .filter-label {
+      font-size: 12px; font-weight: 600;
+      color: #888; text-transform: uppercase;
+      letter-spacing: .07em; white-space: nowrap;
+    }
+    .iphone-filter-bar .pill-btn {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      font-size: 12.5px; font-weight: 500;
+      color: #6b6b68; background: #fff;
+      border: 1px solid #e2e1dc; border-radius: 99px;
+      padding: 6px 16px; cursor: pointer;
+      transition: all .18s;
+    }
+    .iphone-filter-bar .pill-btn:hover { color: #111; border-color: #888; }
+    .iphone-filter-bar .pill-btn.active { background: #111110; color: #fff; border-color: #111110; }
+    .sort-wrap { margin-left: auto; }
+    .sort-wrap select {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      font-size: 13px; color: #111;
+      background: #fff; border: 1px solid #e2e1dc;
+      border-radius: 8px; padding: 7px 12px;
+      outline: none; cursor: pointer;
+    }
+
+    /* ===== RESULT COUNT ===== */
+    .result-count {
+      width: min(1200px,100%);
+      margin: 1rem auto 0;
+      padding: 0 1.5rem;
+      font-size: 13px; color: #888;
+    }
+    .result-count strong { color: #111; }
+
+    /* ===== PRODUCT GRID ===== */
+    .iphone-grid {
+      width: min(1200px,100%);
+      margin: 1rem auto 0;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+      min-height: 300px;
+    }
+
+    /* ===== CARD ===== */
+    .iphone-card {
+      background: #fff;
+      border: 1px solid #e8e7e2;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      display: flex; flex-direction: column;
+      transition: box-shadow .22s, border-color .22s, transform .22s;
+      animation: cardIn .3s ease both;
+    }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .iphone-card:hover {
+      box-shadow: 0 12px 36px rgba(0,0,0,.12);
+      border-color: #ccc;
+      transform: translateY(-5px);
+    }
+    .card-badge {
+      position: absolute; top: 12px; left: 12px; z-index: 3;
+      background: #d94f2b; color: #fff;
+      font-size: 10px; font-weight: 700;
+      padding: 3px 10px; border-radius: 99px; letter-spacing: .04em;
+    }
+    .card-badge.hot { background: #e8a020; color: #4a2800; }
+    .card-wishlist {
+      position: absolute; top: 10px; right: 10px; z-index: 3;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: #f5f4f0; border: 1px solid #e2e1dc;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; color: #888; cursor: pointer;
+      transition: all .18s;
+    }
+    .card-wishlist:hover { color: #d94f2b; border-color: #d94f2b; }
+    .card-wishlist.active { color: #d94f2b; background: #fdf0ed; border-color: #f5c4b3; }
+
+    .card-img {
+      background: #f5f4f0;
+      padding: 28px 24px 16px;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 200px; overflow: hidden;
+    }
+    .card-img img {
+      width: 100%; max-height: 180px;
+      object-fit: contain;
+      transition: transform .4s ease;
+    }
+    .iphone-card:hover .card-img img { transform: scale(1.07) rotate(-1.5deg); }
+
+    .card-body { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; }
+    .card-brand { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #b8b7b2; margin-bottom: 4px; }
+    .card-name { font-size: 14px; font-weight: 600; color: #111110; line-height: 1.35; margin-bottom: 8px; }
+    .card-stars { font-size: 11px; color: #e8a020; margin-bottom: 10px; }
+    .card-stars span { color: #aaa; margin-left: 3px; }
+    .card-specs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+    .card-specs span {
+      font-size: 10px; font-weight: 500; color: #6b6b68;
+      background: #f5f4f0; border: 1px solid #e2e1dc;
+      border-radius: 4px; padding: 2px 7px; white-space: nowrap;
+    }
+    .card-price { display: flex; align-items: baseline; gap: 7px; margin-bottom: 14px; margin-top: auto; }
+    .card-price .cur { font-size: 15px; font-weight: 700; color: #111110; }
+    .card-price .old { font-size: 11px; color: #b8b7b2; text-decoration: line-through; }
+
+    .card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .btn-detail {
+      padding: 10px 0;
+      border-radius: 8px; font-family: 'Be Vietnam Pro', sans-serif;
+      font-size: 12.5px; font-weight: 500;
+      background: transparent; border: 1.5px solid #e2e1dc;
+      color: #111; cursor: pointer; text-align: center;
+      transition: border-color .18s, background .18s;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+      text-decoration: none;
+    }
+    .btn-detail:hover { border-color: #888; background: #f5f4f0; }
+    .btn-cart {
+      padding: 10px 0;
+      border-radius: 8px; font-family: 'Be Vietnam Pro', sans-serif;
+      font-size: 12.5px; font-weight: 500;
+      background: #111110; color: #fff;
+      border: 1.5px solid #111110; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+      transition: background .18s, transform .1s;
+    }
+    .btn-cart:hover { background: #d94f2b; border-color: #d94f2b; }
+    .btn-cart:active { transform: scale(.97); }
+    .btn-cart.added { background: #2a7a4b; border-color: #2a7a4b; }
+
+    /* ===== EMPTY STATE ===== */
+    .empty-msg {
+      width: min(1200px,100%);
+      margin: 2rem auto;
+      padding: 3rem 1.5rem;
+      text-align: center; color: #b8b7b2;
+      display: none;
+    }
+    .empty-msg i { font-size: 2.5rem; display: block; margin-bottom: 1rem; }
+    .empty-msg p { font-size: 14px; margin-bottom: 1rem; }
+    .empty-msg button {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      font-size: 13px; font-weight: 500;
+      padding: 9px 20px; border-radius: 8px;
+      background: #111; color: #fff; border: none; cursor: pointer;
+    }
+
+    /* ===== PAGINATION ===== */
+    .iphone-pagination {
+      width: min(1200px,100%);
+      margin: 2rem auto 5rem;
+      padding: 0 1.5rem;
+      display: flex; justify-content: center; align-items: center; gap: 6px;
+    }
+    .pg-btn {
+      min-width: 40px; height: 40px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      font-size: 13px; font-weight: 500;
+      background: #fff; border: 1px solid #e2e1dc;
+      color: #111; cursor: pointer;
+      transition: all .18s; padding: 0 10px;
+    }
+    .pg-btn:hover:not(:disabled) { border-color: #888; background: #f5f4f0; }
+    .pg-btn.active { background: #111110; color: #fff; border-color: #111110; }
+    .pg-btn:disabled { opacity: .35; cursor: default; }
+    .pg-dots {
+      font-size: 13px; color: #aaa;
+      display: flex; align-items: center; padding: 0 4px;
+    }
+
+    /* ===== TOAST ===== */
+    .toast-notify {
+      position: fixed; bottom: .75rem; left: 50%;
+      transform: translateX(-50%) translateY(160%);
+      background: #111110; color: #fff;
+      font-size: 13.5px; font-weight: 500;
+      padding: 12px 20px; border-radius: 10px;
+      display: flex; align-items: center; gap: 8px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.18);
+      z-index: 9999;
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+      white-space: nowrap;
+    }
+    .toast-notify.show { transform: translateX(-50%) translateY(0); }
+    .toast-notify i { color: #6ee7b7; font-size: 15px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .iphone-grid { grid-template-columns: repeat(2,1fr); gap: 12px; }
+      .category-banner { height: 300px; }
+    }
+    @media (max-width: 480px) {
+      .iphone-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+        <span>MobileShop</span>
+      </a>
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="../index.html" class="nav-link">Trang chủ</a>
+        <a href="iphone.html" class="nav-link active">iPhone</a>
+        <a href="samsung.html" class="nav-link">Samsung</a>
+        <a href="oppo.html" class="nav-link">Oppo</a>
+        <div class="nav-dropdown">
+          <a href="accessories.html" class="nav-link">
+            Phụ kiện <i class="fa-solid fa-chevron-down fa-xs" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#">Tai nghe</a>
+            <a href="#">Sạc & Cáp</a>
+            <a href="#">Ốp lưng</a>
+            <a href="#">Đồng hồ thông minh</a>
+          </div>
+        </div>
+        <a href="deals.html" class="nav-link nav-hot">
+          <i class="fa-solid fa-fire-flame-curved" aria-hidden="true"></i> Ưu đãi
+        </a>
+      </nav>
+      <div class="header-actions">
+        <div class="search-bar">
+          <input type="text" placeholder="Tìm điện thoại, phụ kiện..." aria-label="Tìm kiếm sản phẩm">
+          <button aria-label="Tìm kiếm"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+        </div>
+        <a href="../account.html" class="icon-btn" aria-label="Tài khoản">
+          <i class="fa-regular fa-user" aria-hidden="true"></i>
+        </a>
+        <a href="#" class="icon-btn cart-btn" aria-label="Giỏ hàng">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Mở menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- BANNER -->
+  <section class="category-banner">
+    <div class="banner-content">
+      <div class="banner-eyebrow">Apple Premium Series · 2024</div>
+      <h1>iPhone<br><em>Collection</em></h1>
+      <p>Thiết kế Titan. Chip A18 Pro. Camera đỉnh cao.<br>Trải nghiệm công nghệ Apple thế hệ mới nhất.</p>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="iphone-filter-bar">
+    <span class="filter-label">Lọc:</span>
+    <button class="pill-btn active" data-filter="all">Tất cả</button>
+    <button class="pill-btn" data-filter="pro">Pro / Pro Max</button>
+    <button class="pill-btn" data-filter="standard">Tiêu chuẩn</button>
+    <button class="pill-btn" data-filter="budget">Tầm trung</button>
+    <div class="sort-wrap">
+      <select id="sortSelect" aria-label="Sắp xếp">
+        <option value="featured">Nổi bật</option>
+        <option value="price-asc">Giá tăng dần</option>
+        <option value="price-desc">Giá giảm dần</option>
+        <option value="discount">Giảm nhiều nhất</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- RESULT COUNT -->
+  <div class="result-count" id="resultCount"></div>
+
+  <!-- PRODUCT GRID -->
+  <div class="iphone-grid" id="iphoneGrid"></div>
+
+  <!-- EMPTY STATE -->
+  <div class="empty-msg" id="emptyMsg">
+    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+    <p>Không tìm thấy sản phẩm phù hợp.</p>
+    <button id="btnResetFilter">Xóa bộ lọc</button>
+  </div>
+
+  <!-- PAGINATION -->
+  <div class="iphone-pagination" id="pagination"></div>
+
+  <!-- TOAST -->
+  <div class="toast-notify" id="toastNotify" role="alert" aria-live="polite" aria-atomic="true">
+    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+    <span id="toastMsg">Đã thêm vào giỏ hàng</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="logo">
+          <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+          <span>MobileShop</span>
+        </div>
+        <p class="footer-tagline">Điện thoại chính hãng. Giá tốt nhất. Giao hàng trong 2 giờ.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Thông tin cửa hàng</h4>
+        <address>
+          <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> 123 Đường ABC, Quận 1, TP. HCM</p>
+          <p><i class="fa-solid fa-phone" aria-hidden="true"></i> <a href="tel:19001234">1900 1234</a></p>
+          <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:support@mobileshop.vn">support@mobileshop.vn</a></p>
+        </address>
+        <p class="footer-hours"><i class="fa-regular fa-clock" aria-hidden="true"></i> 8:00 – 21:00, Thứ 2 – Chủ nhật</p>
+      </div>
+      <div class="footer-col">
+        <h4>Chính sách</h4>
+        <nav aria-label="Liên kết chân trang">
+          <a href="#">Chính sách bảo hành</a>
+          <a href="#">Chính sách đổi trả</a>
+          <a href="#">Chính sách bảo mật</a>
+          <a href="#">Hướng dẫn mua hàng</a>
+          <a href="#">Hỏi đáp (FAQ)</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Nhận ưu đãi sớm nhất</h4>
+        <p class="footer-newsletter-desc">Đăng ký để nhận thông báo flash sale và mã giảm giá độc quyền.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="email@của.bạn" aria-label="Địa chỉ email">
+          <button class="btn-primary">Đăng ký</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2024 MobileShop. Tất cả quyền được bảo lưu.</p>
+        <p>Thiết kế bởi <strong>MobileShop Team</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // =============================================
+    // DATA — thêm sản phẩm vào đây thoải mái
+    // =============================================
+    const PRODUCTS = [
+      {
+        id: 'iphone16promax', cat: 'pro', discount: 8,
+        price: 36990000, oldPrice: 39990000,
+        name: 'iPhone 16 Pro Max',
+        img: '../image/iphone/IP16PRM.png',
+        stars: 5, reviews: 128,
+        specs: ['A18 Pro','48MP','4676 mAh','6.9"'],
+        href: '../product/iphone/iphone16prm.html'
+      },
+      {
+        id: 'iphone16pro', cat: 'pro', discount: 6,
+        price: 31990000, oldPrice: 33990000,
+        name: 'iPhone 16 Pro',
+        img: '../image/iphone/IP16PRM.png',
+        stars: 5, reviews: 87,
+        specs: ['A18 Pro','48MP','3274 mAh','6.3"'],
+        href: '../product/iphone/iphone16pro.html'
+      },
+      {
+        id: 'iphone16', cat: 'standard', discount: 5,
+        price: 24990000, oldPrice: 26290000,
+        name: 'iPhone 16',
+        img: '../image/iphone/IP16.png',
+        stars: 4, reviews: 94,
+        specs: ['A18','48MP','3561 mAh','6.1"'],
+        href: '../product/iphone/iphone16.html'
+      },
+      {
+        id: 'iphone16plus', cat: 'standard', discount: 5,
+        price: 27490000, oldPrice: 28990000,
+        name: 'iPhone 16 Plus',
+        img: '../image/iphone/IP16.png',
+        stars: 4, reviews: 61,
+        specs: ['A18','48MP','4674 mAh','6.7"'],
+        href: '../product/iphone/iphone16plus.html'
+      },
+      {
+        id: 'iphone15plus', cat: 'standard', discount: 10,
+        price: 21990000, oldPrice: 24390000,
+        name: 'iPhone 15 Plus',
+        img: '../image/iphone/IP15Plus.png',
+        stars: 5, reviews: 76,
+        specs: ['A16 Bionic','48MP','4383 mAh','6.7"'],
+        href: '../product/iphone/iphone15plus.html'
+      },
+      {
+        id: 'iphone15', cat: 'standard', discount: 9,
+        price: 19990000, oldPrice: 21990000,
+        name: 'iPhone 15',
+        img: '../image/iphone/IP15Plus.png',
+        stars: 4, reviews: 143,
+        specs: ['A16 Bionic','48MP','3877 mAh','6.1"'],
+        href: '../product/iphone/iphone15.html'
+      },
+      {
+        id: 'iphone14promax', cat: 'pro', discount: 6,
+        price: 27990000, oldPrice: 29790000,
+        name: 'iPhone 14 Pro Max',
+        img: '../image/iphone/IP14PRM.png',
+        stars: 5, reviews: 210,
+        specs: ['A16 Bionic','48MP','4323 mAh','6.7"'],
+        href: '../product/iphone/iphone14prm.html'
+      },
+      {
+        id: 'iphone14pro', cat: 'pro', discount: 7,
+        price: 24490000, oldPrice: 26390000,
+        name: 'iPhone 14 Pro',
+        img: '../image/iphone/IP14PRM.png',
+        stars: 5, reviews: 178,
+        specs: ['A16 Bionic','48MP','3200 mAh','6.1"'],
+        href: '../product/iphone/iphone14pro.html'
+      },
+      {
+        id: 'iphone13', cat: 'standard', discount: 7,
+        price: 16990000, oldPrice: 18290000,
+        name: 'iPhone 13',
+        img: '../image/iphone/IP13.png',
+        stars: 4, reviews: 305,
+        specs: ['A15 Bionic','12MP','3227 mAh','6.1"'],
+        href: '../product/iphone/iphone13.html'
+      },
+      {
+        id: 'iphone13mini', cat: 'budget', discount: 11,
+        price: 13990000, oldPrice: 15690000,
+        name: 'iPhone 13 Mini',
+        img: '../image/iphone/IP13.png',
+        stars: 4, reviews: 119,
+        specs: ['A15 Bionic','12MP','2438 mAh','5.4"'],
+        href: '../product/iphone/iphone13mini.html'
+      },
+      {
+        id: 'iphoneair', cat: 'budget', discount: 12,
+        price: 5990000, oldPrice: 6790000,
+        name: 'iPhone Air',
+        img: '../image/iphone/IPair.png',
+        stars: 4, reviews: 48,
+        specs: ['A18','48MP','2602 mAh','6.6"'],
+        href: '../product/iphone/iphoneair.html'
+      },
+      {
+        id: 'iphone12', cat: 'budget', discount: 15,
+        price: 11990000, oldPrice: 14090000,
+        name: 'iPhone 12',
+        img: '../image/iphone/IP13.png',
+        stars: 4, reviews: 421,
+        specs: ['A14 Bionic','12MP','2815 mAh','6.1"'],
+        href: '../product/iphone/iphone12.html'
+      },
+    ];
+
+    const PER_PAGE = 6;
+
+    // =============================================
+    // STATE
+    // =============================================
+    let activeFilter = 'all';
+    let activeSort   = 'featured';
+    let currentPage  = 1;
+    let cartTotal    = 0;
+
+    // =============================================
+    // HELPERS
+    // =============================================
+    function stars(n) {
+      return '★'.repeat(n) + '☆'.repeat(5 - n);
+    }
+    function fmt(n) {
+      return n.toLocaleString('vi-VN') + 'đ';
+    }
+    function filtered() {
+      let list = activeFilter === 'all'
+        ? [...PRODUCTS]
+        : PRODUCTS.filter(p => p.cat === activeFilter);
+      if (activeSort === 'price-asc')  list.sort((a,b) => a.price - b.price);
+      if (activeSort === 'price-desc') list.sort((a,b) => b.price - a.price);
+      if (activeSort === 'discount')   list.sort((a,b) => b.discount - a.discount);
+      return list;
+    }
+    function totalPages(list) {
+      return Math.ceil(list.length / PER_PAGE);
+    }
+
+    // =============================================
+    // RENDER CARDS
+    // =============================================
+    function renderGrid() {
+      const grid    = document.getElementById('iphoneGrid');
+      const empty   = document.getElementById('emptyMsg');
+      const countEl = document.getElementById('resultCount');
+      const list    = filtered();
+      const pages   = totalPages(list);
+
+      if (currentPage > pages) currentPage = 1;
+
+      const slice = list.slice((currentPage - 1) * PER_PAGE, currentPage * PER_PAGE);
+
+      grid.innerHTML = '';
+
+      if (list.length === 0) {
+        empty.style.display = 'block';
+        countEl.innerHTML = '';
+        renderPagination(0, 0);
+        return;
+      }
+      empty.style.display = 'none';
+
+      const start = (currentPage - 1) * PER_PAGE + 1;
+      const end   = Math.min(currentPage * PER_PAGE, list.length);
+      countEl.innerHTML = `Hiển thị <strong>${start}–${end}</strong> trong <strong>${list.length}</strong> sản phẩm`;
+
+      slice.forEach((p, i) => {
+        const hot = p.discount >= 10;
+        const card = document.createElement('div');
+        card.className = 'iphone-card';
+        card.style.animationDelay = `${i * 0.05}s`;
+        card.innerHTML = `
+          <span class="card-badge${hot ? ' hot' : ''}">-${p.discount}%</span>
+          <button class="card-wishlist" aria-label="Yêu thích" data-id="${p.id}">
+            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+          </button>
+          <div class="card-img">
+            <img src="${p.img}" alt="${p.name}" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="card-brand">Apple</span>
+            <h3 class="card-name">${p.name}</h3>
+            <div class="card-stars">${stars(p.stars)} <span>(${p.reviews} đánh giá)</span></div>
+            <div class="card-specs">${p.specs.map(s => `<span>${s}</span>`).join('')}</div>
+            <div class="card-price">
+              <span class="cur">${fmt(p.price)}</span>
+              <span class="old">${fmt(p.oldPrice)}</span>
+            </div>
+            <div class="card-actions">
+              <a href="${p.href}" class="btn-detail">
+                <i class="fa-regular fa-eye" aria-hidden="true"></i> Xem chi tiết
+              </a>
+              <button class="btn-cart"
+                data-id="${p.id}"
+                data-name="${p.name}"
+                data-price="${p.price}">
+                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Thêm giỏ
+              </button>
+            </div>
+          </div>`;
+        grid.appendChild(card);
+      });
+
+      attachCardEvents();
+      renderPagination(pages, list.length);
+    }
+
+    // =============================================
+    // RENDER PAGINATION
+    // =============================================
+    function renderPagination(pages, total) {
+      const pg = document.getElementById('pagination');
+      pg.innerHTML = '';
+      if (pages <= 1) return;
+
+      const make = (label, page, disabled = false, active = false) => {
+        const btn = document.createElement('button');
+        btn.className = 'pg-btn' + (active ? ' active' : '');
+        btn.innerHTML = label;
+        btn.disabled  = disabled;
+        btn.setAttribute('aria-label', `Trang ${page}`);
+        if (!disabled && !active) {
+          btn.addEventListener('click', () => {
+            currentPage = page;
+            renderGrid();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+        return btn;
+      };
+
+      const dots = () => {
+        const d = document.createElement('span');
+        d.className = 'pg-dots'; d.textContent = '…';
+        return d;
+      };
+
+      // Prev
+      pg.appendChild(make('<i class="fa-solid fa-chevron-left fa-xs"></i>', currentPage - 1, currentPage === 1));
+
+      // Page numbers with smart ellipsis
+      const range = [];
+      for (let i = 1; i <= pages; i++) {
+        if (i === 1 || i === pages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+          range.push(i);
+        }
+      }
+      let prev = null;
+      range.forEach(i => {
+        if (prev !== null && i - prev > 1) pg.appendChild(dots());
+        pg.appendChild(make(i, i, false, i === currentPage));
+        prev = i;
+      });
+
+      // Next
+      pg.appendChild(make('<i class="fa-solid fa-chevron-right fa-xs"></i>', currentPage + 1, currentPage === pages));
+    }
+
+    // =============================================
+    // CARD EVENTS (wishlist + cart)
+    // =============================================
+    function attachCardEvents() {
+      // Wishlist
+      document.querySelectorAll('.card-wishlist').forEach(btn => {
+        btn.addEventListener('click', () => {
+          btn.classList.toggle('active');
+          btn.querySelector('i').className = btn.classList.contains('active')
+            ? 'fa-solid fa-heart' : 'fa-regular fa-heart';
+        });
+      });
+
+      // Cart
+      document.querySelectorAll('.btn-cart').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const name = btn.dataset.name;
+          cartTotal++;
+          const countEl = document.getElementById('cartCount');
+          countEl.textContent = cartTotal;
+          countEl.style.transform = 'scale(1.5)';
+          setTimeout(() => countEl.style.transform = '', 220);
+
+          btn.classList.add('added');
+          btn.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i> Đã thêm';
+          setTimeout(() => {
+            btn.classList.remove('added');
+            btn.innerHTML = '<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Thêm giỏ';
+          }, 1600);
+
+          showToast(`Đã thêm "${name}" vào giỏ hàng`);
+        });
+      });
+    }
+
+    // =============================================
+    // TOAST
+    // =============================================
+    let toastTimer;
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotify');
+      document.getElementById('toastMsg').textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+
+    // =============================================
+    // FILTER & SORT CONTROLS
+    // =============================================
+    document.querySelectorAll('.iphone-filter-bar .pill-btn').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.iphone-filter-bar .pill-btn').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        activeFilter = pill.dataset.filter;
+        currentPage  = 1;
+        renderGrid();
+      });
+    });
+
+    document.getElementById('sortSelect').addEventListener('change', function () {
+      activeSort  = this.value;
+      currentPage = 1;
+      renderGrid();
+    });
+
+    document.getElementById('btnResetFilter').addEventListener('click', () => {
+      activeFilter = 'all';
+      activeSort   = 'featured';
+      currentPage  = 1;
+      document.querySelectorAll('.iphone-filter-bar .pill-btn').forEach(p => p.classList.remove('active'));
+      document.querySelector('.pill-btn[data-filter="all"]').classList.add('active');
+      document.getElementById('sortSelect').value = 'featured';
+      renderGrid();
+    });
+
+    // =============================================
+    // HEADER SCROLL + MOBILE MENU
+    // =============================================
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+    });
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav    = document.querySelector('.main-nav');
+    menuToggle?.addEventListener('click', () => {
+      const open = mainNav.classList.toggle('open');
+      menuToggle.classList.toggle('open', open);
+      menuToggle.setAttribute('aria-expanded', open);
+    });
+
+    // =============================================
+    // INIT
+    // =============================================
+    renderGrid();
+  </script>
+
+</body>
+</html>
