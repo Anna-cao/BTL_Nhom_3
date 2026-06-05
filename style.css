@@ -135,7 +135,7 @@ address { font-style: normal; }
 
 /* Nav */
 .main-nav {
-  
+
   display: flex;
   align-items: center;
   gap: 0;
@@ -2843,4 +2843,39 @@ address { font-style: normal; }
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+--Chữ index
+/* ===== HERO INDEX — match iphone-banner-content style ===== */
+.hero-content .hero-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+.hero-content .hero-title {
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+}
+
+.hero-content .hero-title em {
+  font-style: italic;
+  font-weight: 300;           /* giống chữ nghiêng nhẹ của iphone */
+  text-transform: none;
+}
+
+.hero-content .hero-sub {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 2rem;
 }
