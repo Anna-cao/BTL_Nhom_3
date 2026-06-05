@@ -526,9 +526,13 @@ function renderPagination() {
   const pagination = document.getElementById('pagination');
   if (!pagination) return;
 
+  // Ẩn tất cả card trước (kể cả card bị filter ẩn)
+  allCards.forEach(card => { card.style.display = 'none'; });
+
+  // Chỉ hiện card thuộc trang hiện tại (đã qua filter)
   visibleCards.forEach((card, idx) => {
     const page = Math.floor(idx / ITEMS_PER_PAGE) + 1;
-    card.style.display = page === currentPage ? 'flex' : 'none';
+    if (page === currentPage) card.style.display = 'flex';
   });
 
   pagination.innerHTML = '';
@@ -595,7 +599,7 @@ renderPagination();
   document.head.appendChild(style);
 })();
 
-/* JS CHO OPPO*/
+
 document.addEventListener('DOMContentLoaded', () => {
  
   const pills = document.querySelectorAll('.pill');
@@ -638,20 +642,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const sortVal = sortSelect.value;
  
     visible.sort((a, b) => {
-      const pa = parseInt(a.dataset.price);
-      const pb = parseInt(b.dataset.price);
-      if (sortVal === 'price-asc')  return pa - pb;
-      if (sortVal === 'price-desc') return pb - pa;
-      return 0;
-    });
+  const pa = parseInt(a.dataset.price);
+  const pb = parseInt(b.dataset.price);
+
+  if (sortVal === 'price-asc')  return pa - pb;
+  if (sortVal === 'price-desc') return pb - pa;
+  return 0;
+});
+
+    visible.sort((a, b) => {
+  const pa = parseInt(a.dataset.price);
+  const pb = parseInt(b.dataset.price);
+
+  if (sortVal === 'price-asc')  return pa - pb;
+  if (sortVal === 'price-desc') return pb - pa;
+
+  if (sortVal === 'discount') {
+    return parseInt(b.dataset.discount) - parseInt(a.dataset.discount);
+  }
+
+  return 0;
+});
  
     // Re-append in sorted order
     visible.forEach(card => grid.appendChild(card));
  
     // Update count
-    countEl.textContent = visible.length;
+    if (countEl) countEl.textContent = visible.length;
+
+    // Reset về trang 1 và render lại pagination
+    currentPage = 1;
+    renderPagination();
   }
  
+  // Gọi ngay khi load trang để hiển thị số lượng ban đầu
+  applyFilterAndSort();
+
   // Wishlist toggle
   document.querySelectorAll('.wishlist-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -690,4 +716,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+
 });
