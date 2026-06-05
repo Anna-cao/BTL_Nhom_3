@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OPPO Find X9s | MobileShop</title>
+  <title>OPPO Find X9 Pro | MobileShop</title>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
@@ -88,6 +88,14 @@
       font-size: 12px; font-weight: 700;
       padding: 5px 12px; border-radius: 999px;
     }
+    .badge-ai {
+      position: absolute; top: 16px; right: 16px;
+      background: #111; color: #fff;
+      font-size: 11px; font-weight: 700;
+      padding: 5px 12px; border-radius: 999px;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .badge-ai i { color: #f59e0b; font-size: 10px; }
     .thumb-row { display: flex; gap: 10px; }
     .thumb {
       flex: 1; aspect-ratio: 1;
@@ -119,9 +127,25 @@
     .price-main { display: flex; align-items: baseline; gap: 10px; }
     .price-current { font-size: 28px; font-weight: 800; color: var(--accent); }
     .price-sub { font-size: 13px; color: var(--muted); }
-    .price-installment { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .price-discount-badge { background: #fff0f0; color: var(--accent); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 6px; }
+    .price-installment { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .price-tax-note { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
-    /* COLOR SELECTOR - OPPO style */
+    /* GIFT BOX */
+    .gift-box {
+      background: linear-gradient(135deg, #fff8f0, #fff3e8);
+      border: 1.5px solid #f0d4b0;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+    }
+    .gift-box-title { font-size: 13px; font-weight: 700; color: #c45e00; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+    .gift-list { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .gift-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #555; }
+    .gift-item i { color: #e07b00; font-size: 12px; width: 14px; }
+    .gift-highlight { grid-column: 1/-1; background: #e07b00; color: #fff; border-radius: 8px; padding: 8px 12px; font-size: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px; justify-content: center; }
+
+    /* COLOR SELECTOR */
     .option-section { margin-bottom: 20px; }
     .option-label { font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 10px; }
     .option-label span { color: var(--muted); font-weight: 400; }
@@ -136,13 +160,13 @@
       transition: all .2s;
       font-size: 13px; font-weight: 500;
       background: #fff;
-      min-width: 140px;
+      min-width: 160px;
     }
     .color-chip:hover { border-color: #999; }
     .color-chip.active { border-color: var(--black); border-width: 2px; background: #fafafa; }
     .color-dot { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,0.12); flex-shrink: 0; }
 
-    /* STORAGE SELECTOR - OPPO style với giá */
+    /* STORAGE SELECTOR */
     .storage-grid { display: flex; flex-direction: column; gap: 8px; }
     .storage-chip {
       display: flex; align-items: center; justify-content: space-between;
@@ -159,8 +183,6 @@
     .storage-right { text-align: right; }
     .storage-price { font-size: 15px; font-weight: 700; color: var(--black); }
     .storage-installment { font-size: 11px; color: var(--muted); }
-    .storage-chip.unavailable .storage-left { color: var(--muted); }
-    .storage-chip.unavailable .storage-price { color: var(--muted); font-weight: 400; }
 
     /* ƯU ĐÃI MUA KÈM */
     .combo-section { margin-bottom: 20px; }
@@ -208,7 +230,7 @@
       font-size: 11px; font-weight: 600;
       cursor: pointer; transition: all .2s;
       background: #fff;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Be Vietnam Pro', sans-serif;
     }
     .combo-add-btn:hover, .combo-item.selected .combo-add-btn { background: var(--black); color: #fff; }
 
@@ -218,7 +240,7 @@
       flex: 1; padding: 16px;
       background: #fff; color: var(--black);
       border: 2px solid var(--black); border-radius: 12px;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Be Vietnam Pro', sans-serif;
       font-size: 15px; font-weight: 700;
       cursor: pointer; transition: all .2s;
       display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -228,7 +250,7 @@
       flex: 1; padding: 16px;
       background: var(--black); color: #fff;
       border: none; border-radius: 12px;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Be Vietnam Pro', sans-serif;
       font-size: 15px; font-weight: 700;
       cursor: pointer; transition: all .2s;
       display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -260,14 +282,14 @@
     }
     .share-btn:hover { background: var(--black); color: #fff; border-color: var(--black); }
 
-    /* ===== PRODUCT INFO TABS (specs + description) ===== */
+    /* PRODUCT INFO TABS */
     .product-info-section { padding: 48px 0 60px; background: #fff; border-top: 1px solid var(--border); }
     .product-info-section .container { max-width: 1280px; margin: auto; padding: 0 1.5rem; }
 
     .tab-nav { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 40px; }
     .tab-btn {
       padding: 14px 28px;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Be Vietnam Pro', sans-serif;
       font-size: 14px; font-weight: 600;
       background: none; border: none;
       cursor: pointer; color: var(--muted);
@@ -315,19 +337,22 @@
       display: flex; flex-direction: column; justify-content: flex-end;
     }
     .highlight-card.dark { background: linear-gradient(135deg, #111 0%, #2c2c2c 100%); }
-    .highlight-card.pink { background: linear-gradient(135deg, #f8e8e0 0%, #ffd4b8 100%); }
+    .highlight-card.brown { background: linear-gradient(135deg, #3d2b1f 0%, #6b4226 100%); }
     .highlight-card.blue { background: linear-gradient(135deg, #e8f0ff 0%, #d0e4ff 100%); }
     .highlight-content { padding: 28px; position: relative; z-index: 2; }
     .highlight-tag { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
     .highlight-card.dark .highlight-tag { color: rgba(255,255,255,.5); }
-    .highlight-card.pink .highlight-tag { color: #d94f2b; }
+    .highlight-card.brown .highlight-tag { color: rgba(255,220,180,.7); }
     .highlight-card.blue .highlight-tag { color: #1a56db; }
     .highlight-title { font-size: 22px; font-weight: 800; line-height: 1.25; margin-bottom: 8px; }
     .highlight-card.dark .highlight-title { color: #fff; }
+    .highlight-card.brown .highlight-title { color: #fff; }
     .highlight-sub { font-size: 13px; line-height: 1.6; }
     .highlight-card.dark .highlight-sub { color: rgba(255,255,255,.6); }
+    .highlight-card.brown .highlight-sub { color: rgba(255,220,180,.8); }
     .highlight-icon { position: absolute; top: 28px; right: 28px; font-size: 48px; opacity: .15; }
     .highlight-card.dark .highlight-icon { color: #fff; }
+    .highlight-card.brown .highlight-icon { color: #fff; }
 
     /* RELATED */
     .related-section { background: var(--gray); padding: 60px 0; }
@@ -381,14 +406,14 @@
     .sticky-bar-actions { display: flex; gap: 10px; }
     .sticky-btn-cart {
       padding: 10px 24px; border: 2px solid var(--black); border-radius: 8px;
-      font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700;
+      font-family: 'Be Vietnam Pro', sans-serif; font-size: 13px; font-weight: 700;
       background: #fff; cursor: pointer; transition: all .2s;
     }
     .sticky-btn-cart:hover { background: var(--black); color: #fff; }
     .sticky-btn-buy {
       padding: 10px 24px; border: none; border-radius: 8px;
       background: var(--black); color: #fff;
-      font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700;
+      font-family: 'Be Vietnam Pro', sans-serif; font-size: 13px; font-weight: 700;
       cursor: pointer; transition: all .2s;
     }
     .sticky-btn-buy:hover { background: #333; }
@@ -454,7 +479,7 @@
     <i class="fa-solid fa-chevron-right fa-xs"></i>
     <a href="../../oppo/oppo.html">OPPO</a>
     <i class="fa-solid fa-chevron-right fa-xs"></i>
-    <span>Find X9s</span>
+    <span>Find X9 Pro</span>
   </div>
 </div>
 
@@ -467,28 +492,23 @@
       <div class="image-panel">
         <div class="main-img-wrap">
           <span class="badge-float">Mới ra mắt</span>
-          <img id="mainImg" src="../../image/oppo/find-x9s-pink.png" alt="OPPO Find X9s">
+          <span class="badge-ai"><i class="fa-solid fa-sparkles"></i> OPPO AI Phone</span>
+          <img id="mainImg" src="../../image/oppo/find-x9-pro-white.png" alt="OPPO Find X9 Pro Trắng">
         </div>
         <div class="thumb-row">
-          <div class="thumb active" onclick="changeImg(this, '../../image/oppo/find-x9s-pink.png')">
-            <img src="../../image/oppo/find-x9s-pink.png" alt="Pink">
+          <div class="thumb active" onclick="changeImg(this, '../../image/oppo/find-x9-pro-white.png')">
+            <img src="../../image/oppo/find-x9-pro-white.png" alt="Trắng">
           </div>
-          <div class="thumb" onclick="changeImg(this, '../../image/oppo/find-x9s-purple.png')">
-            <img src="../../image/oppo/find-x9s-purple.png" alt="Purple">
-          </div>
-          <div class="thumb" onclick="changeImg(this, '../../image/oppo/find-x9s-black.png')">
-            <img src="../../image/oppo/find-x9s-black.png" alt="Black">
-          </div>
-          <div class="thumb" onclick="changeImg(this, '../../image/oppo/find-x9s-pink.png')">
-            <img src="../../image/oppo/find-x9s-pink.png" alt="Sunset Orange">
+          <div class="thumb" onclick="changeImg(this, '../../image/oppo/find-x9-pro-black.png')">
+            <img src="../../image/oppo/find-x9-pro-black.png" alt="Đen">
           </div>
         </div>
       </div>
 
       <!-- INFO PANEL -->
       <div class="info-panel">
-        <p class="info-brand">OPPO · Find X Series</p>
-        <h1 class="info-name">OPPO Find X9s</h1>
+        <p class="info-brand">OPPO Find X Series</p>
+        <h1 class="info-name">OPPO Find X9 Pro</h1>
 
         <div class="rating-row">
           <div class="stars">
@@ -496,33 +516,32 @@
             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star-half-stroke"></i>
           </div>
-          <span class="rating-count">4.5 (128 đánh giá)</span>
+          <span class="rating-count">4.7 (256 đánh giá)</span>
+          <span class="badge-new">Flagship</span>
         </div>
 
         <!-- PRICE DISPLAY -->
         <div class="price-display" id="priceDisplay">
           <div class="price-main">
-            <span class="price-current" id="priceMain">23.990.000₫</span>
-            <span class="price-sub" id="priceOld" style="text-decoration:line-through; color:#bbb;">24.990.000₫</span>
+            <span class="price-current" id="priceMain">32.990.000₫</span>
+            <span class="price-sub" id="priceOld" style="text-decoration:line-through; color:#bbb;">36.990.000₫</span>
+            <span class="price-discount-badge">Giảm 10%</span>
           </div>
-          <div class="price-installment" id="priceInstall">hoặc chỉ từ <strong>999.583₫/tháng</strong></div>
+          <p class="price-tax-note">(bao gồm tất cả các loại thuế)</p>
+          <div class="price-installment" id="priceInstall">Trả góp chỉ từ <strong>1.374.583₫/tháng</strong> · <a href="#" style="color:var(--accent);text-decoration:underline">Chính sách trả góp không lãi suất</a></div>
         </div>
 
         <!-- MÀU SẮC -->
         <div class="option-section">
-          <div class="option-label">Màu sắc: <span id="colorName">Midnight Grey</span></div>
+          <div class="option-label">Màu sắc: <span id="colorName">Trắng</span></div>
           <div class="color-grid" id="colorOptions">
-            <div class="color-chip active" onclick="selectColor(this,'Midnight Grey','../../image/oppo/find-x9s-black.png','#555555')">
-              <div class="color-dot" style="background:#555;"></div>
-              <span>Midnight Grey</span>
+            <div class="color-chip active" onclick="selectColor(this,'Trắng','../../image/oppo/find-x9-pro-white.png')">
+              <div class="color-dot" style="background:linear-gradient(135deg,#eae8e6,#ebe8e7);"></div>
+              <span>Trắng</span>
             </div>
-            <div class="color-chip" onclick="selectColor(this,'Lavender Sky','../../image/oppo/find-x9s-purple.png','#c8c8d8')">
-              <div class="color-dot" style="background:#c8c8d8;"></div>
-              <span>Lavender Sky</span>
-            </div>
-            <div class="color-chip" onclick="selectColor(this,'Sunset Orange','../../image/oppo/find-x9s-pink.png','#e8a080')">
-              <div class="color-dot" style="background:#e8a080;"></div>
-              <span>Sunset Orange</span>
+            <div class="color-chip" onclick="selectColor(this,'Đen','../../image/oppo/find-x9-pro-black.png')">
+              <div class="color-dot" style="background:linear-gradient(135deg,#1b1817,#141413);"></div>
+              <span>Đen</span>
             </div>
           </div>
         </div>
@@ -531,18 +550,11 @@
         <div class="option-section">
           <div class="option-label">Dung lượng</div>
           <div class="storage-grid">
-            <div class="storage-chip active" onclick="selectStorage(this, 23990000, 24990000, 999583)">
-              <span class="storage-left">12GB + 256GB</span>
+            <div class="storage-chip active" onclick="selectStorage(this, 32990000, 36990000, 1374583)">
+              <span class="storage-left">16+512G</span>
               <div class="storage-right">
-                <div class="storage-price">23.990.000₫</div>
-                <div class="storage-installment">chỉ từ 999.583₫/tháng</div>
-              </div>
-            </div>
-            <div class="storage-chip" onclick="selectStorage(this, 25990000, 26990000, 1082917)">
-              <span class="storage-left">12GB + 512GB</span>
-              <div class="storage-right">
-                <div class="storage-price">25.990.000₫</div>
-                <div class="storage-installment">chỉ từ 1.082.917₫/tháng</div>
+                <div class="storage-price">32.990.000₫</div>
+                <div class="storage-installment">chỉ từ 1.374.583₫/tháng</div>
               </div>
             </div>
           </div>
@@ -556,21 +568,19 @@
           </div>
           <div class="combo-body" id="comboBody">
             <div class="combo-item" id="comboItem1" onclick="toggleComboItem(this, 'OPPO Enco Clip2', 3493000)">
-              <img class="combo-img"
-                src="../../image/accessories/enco-clip2.png" alt="Enco Clip2">
+              <img class="combo-img" src="../../image/accessories/enco-clip2.png" alt="Enco Clip2">
               <span class="combo-name">OPPO Enco Clip2<br>Open Earbuds</span>
               <span class="combo-old-price">4.990.000₫</span>
               <span class="combo-new-price">3.493.000₫</span>
               <span class="combo-discount">Giảm giá tới 30%</span>
               <button class="combo-add-btn">Thêm vào</button>
             </div>
-            <div class="combo-item" id="comboItem2" onclick="toggleComboItem(this, 'OPPO Enco Air5 Pro', 1603000)">
-              <img class="combo-img"
-                src="../../image/accessories/enco-air5-pro.png" alt="Enco Air5 Pro">
-              <span class="combo-name">OPPO Enco Air5 Pro</span>
-              <span class="combo-old-price">2.290.000₫</span>
-              <span class="combo-new-price">1.603.000₫</span>
-              <span class="combo-discount">Giảm giá tới 30%</span>
+            <div class="combo-item" id="comboItem2" onclick="toggleComboItem(this, 'OPPO Watch X2', 5990000)">
+              <img class="combo-img" src="../../image/accessories/watch-x2.png" alt="Watch X2">
+              <span class="combo-name">OPPO Watch X2<br>Smartwatch</span>
+              <span class="combo-old-price">8.490.000₫</span>
+              <span class="combo-new-price">5.990.000₫</span>
+              <span class="combo-discount">Giảm giá tới 29%</span>
               <button class="combo-add-btn">Thêm vào</button>
             </div>
           </div>
@@ -590,7 +600,7 @@
         <div class="perks">
           <div class="perk"><i class="fa-solid fa-truck-fast"></i> Giao hàng 2 giờ</div>
           <div class="perk"><i class="fa-solid fa-shield-halved"></i> Bảo hành 24 tháng</div>
-          <div class="perk"><i class="fa-solid fa-rotate-left"></i> Đổi trả 30 ngày</div>
+          <div class="perk"><i class="fa-solid fa-rotate-left"></i> Đổi trả 12 tháng</div>
           <div class="perk"><i class="fa-solid fa-certificate"></i> Hàng chính hãng</div>
         </div>
 
@@ -609,25 +619,40 @@
       <div class="highlight-card dark">
         <i class="fa-solid fa-camera highlight-icon"></i>
         <div class="highlight-content">
-          <p class="highlight-tag">Camera</p>
-          <h3 class="highlight-title">Ba camera 50MP<br>Hasselblad</h3>
-          <p class="highlight-sub">Cả ba ống kính đều 50MP, hiệu chỉnh màu sắc bởi Hasselblad. Zoom kỹ thuật số tối đa 18x.</p>
-        </div>
-      </div>
-      <div class="highlight-card pink">
-        <i class="fa-solid fa-battery-full highlight-icon"></i>
-        <div class="highlight-content">
-          <p class="highlight-tag">Pin & Sạc</p>
-          <h3 class="highlight-title">Pin 7025 mAh<br>Sạc 80W</h3>
-          <p class="highlight-sub">Pin Silicon-Carbon khủng 7025mAh, sạc siêu nhanh SUPERVOOC 80W, thân máy chỉ 7.99mm.</p>
+          <p class="highlight-tag">Camera Hasselblad</p>
+          <h3 class="highlight-title" style="color:#fff">
+            Tele Hasselblad 200MP<br> Zoom 120x
+          </h3>
+          <p class="highlight-sub" style="color:rgba(255,255,255,.7)">
+            Camera Tele Hasselblad 200MP hỗ trợ zoom kỹ thuật số lên đến 120x,
+            tái hiện chi tiết rõ nét ngay cả ở khoảng cách xa.
+          </p>
         </div>
       </div>
       <div class="highlight-card blue">
-        <i class="fa-solid fa-display highlight-icon"></i>
+        <i class="fa-solid fa-video highlight-icon"></i>
         <div class="highlight-content">
-          <p class="highlight-tag">Màn hình</p>
-          <h3 class="highlight-title">AMOLED 6.59"<br>Viền 1.15mm</h3>
-          <p class="highlight-sub">Màn hình AMOLED 120Hz, viền siêu mỏng chỉ 1.15mm, tỷ lệ màn hình 95.4%, độ sáng 3600 nits.</p>
+          <p class="highlight-tag">Quay Video Chuyên Nghiệp</p>
+          <h3 class="highlight-title">
+            4K 120fps<br>Dolby Vision
+          </h3>
+          <p class="highlight-sub" style="color:#444">
+            Hỗ trợ quay video 4K 120fps Dolby Vision, mang lại chất lượng hình
+            ảnh điện ảnh với màu sắc sống động và độ chi tiết vượt trội.
+          </p>
+        </div>
+      </div>
+      <div class="highlight-card brown">
+        <i class="fa-solid fa-battery-full highlight-icon"></i>
+        <div class="highlight-content">
+          <p class="highlight-tag">Pin & Sạc</p>
+          <h3 class="highlight-title" style="color:#fff">
+            Pin 7500mAh<br>Sạc 80W
+          </h3>
+          <p class="highlight-sub" style="color:rgba(255,220,180,.8)">
+            Viên pin dung lượng lớn 7500mAh, hỗ trợ sạc nhanh SUPERVOOC™ 80W
+            và sạc không dây AIRVOOC™ 50W cho thời gian sử dụng bền bỉ cả ngày.
+          </p>
         </div>
       </div>
     </div>
@@ -646,84 +671,120 @@
     <div class="tab-pane active" id="tab-specs">
       <div class="specs-grid">
         <div class="spec-card">
-          <div class="spec-icon"><i class="fa-solid fa-microchip"></i></div>
-          <div class="spec-info">
-            <p class="spec-label">Vi xử lý</p>
-            <p class="spec-value">MediaTek Dimensity 9500s</p>
-            <p class="spec-sub">Tiến trình 3nm · 8 nhân · GPU Immortalis G925</p>
-          </div>
+            <div class="spec-icon"><i class="fa-solid fa-microchip"></i></div>
+            <div class="spec-info">
+                <p class="spec-label">Vi xử lý</p>
+                <p class="spec-value">MediaTek Dimensity 9500</p>
+                <p class="spec-sub">CPU 8 nhân · GPU Arm Mali Drage MC12</p>
+            </div>
         </div>
         <div class="spec-card">
-          <div class="spec-icon"><i class="fa-solid fa-memory"></i></div>
-          <div class="spec-info">
-            <p class="spec-label">RAM & Bộ nhớ</p>
-            <p class="spec-value">12GB LPDDR5X</p>
-            <p class="spec-sub">256GB / 512GB UFS 4.1</p>
-          </div>
+            <div class="spec-icon"><i class="fa-solid fa-memory"></i></div>
+            <div class="spec-info">
+                <p class="spec-label">RAM & Bộ nhớ</p>
+                <p class="spec-value">16GB + 512GB</p>
+                <p class="spec-sub">LPDDR5X · UFS 4.1 · Không hỗ trợ thẻ nhớ · USB OTG</p>
+            </div>
         </div>
         <div class="spec-card">
-          <div class="spec-icon"><i class="fa-solid fa-camera"></i></div>
-          <div class="spec-info">
-            <p class="spec-label">Camera sau</p>
-            <p class="spec-value">50MP + 50MP + 50MP</p>
-            <p class="spec-sub">Góc rộng f/1.8 OIS · Siêu rộng f/2.0 · Tele f/2.6 OIS</p>
-          </div>
+            <div class="spec-icon"><i class="fa-solid fa-camera"></i></div>
+            <div class="spec-info">
+                <p class="spec-label">Camera sau</p>
+                <p class="spec-value">50MP + 50MP + 200MP + 2MP</p>
+                <p class="spec-sub">
+                Góc rộng 50MP OIS · Siêu rộng 50MP AF · Tele Hasselblad 200MP OIS · Monochrome 2MP
+                </p>
+            </div>
         </div>
         <div class="spec-card">
-          <div class="spec-icon"><i class="fa-solid fa-expand"></i></div>
-          <div class="spec-info">
-            <p class="spec-label">Màn hình</p>
-            <p class="spec-value">6.59" AMOLED FHD+</p>
-            <p class="spec-sub">2760×1256px · 120Hz · 3600 nits · Gorilla Glass 7i</p>
-          </div>
+            <div class="spec-icon"><i class="fa-solid fa-camera-rotate"></i></div>
+            <div class="spec-info">
+                <p class="spec-label">Camera trước</p>
+                <p class="spec-value">50MP</p>
+                <p class="spec-sub">
+                f/2.0 · FOV 90° · Ống kính 5P · Hỗ trợ AF
+                </p>
+            </div>
         </div>
         <div class="spec-card">
-          <div class="spec-icon"><i class="fa-solid fa-battery-full"></i></div>
-          <div class="spec-info">
-            <p class="spec-label">Pin</p>
-            <p class="spec-value">7025 mAh</p>
-            <p class="spec-sub">Sạc có dây SUPERVOOC 80W · Không có sạc không dây</p>
-          </div>
+            <div class="spec-icon"><i class="fa-solid fa-expand"></i></div>
+            <div class="spec-info">
+                <p class="spec-label">Màn hình</p>
+                <p class="spec-value">6.78" AMOLED FHD+</p>
+                <p class="spec-sub">
+                2772 × 1272 px · 120Hz · 450 PPI · 1.07 tỷ màu · Gorilla Glass Victus 2
+                </p>
+            </div>
         </div>
         <div class="spec-card">
-          <div class="spec-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          <div class="spec-info">
-            <p class="spec-label">Kháng nước</p>
-            <p class="spec-value">IP66 + IP68 + IP69</p>
-            <p class="spec-sub">Chống nước áp suất cao · Chống bụi · Chuẩn SGS</p>
-          </div>
+            <div class="spec-icon"><i class="fa-solid fa-sun"></i></div>
+            <div class="spec-info">
+                <p class="spec-label">Độ sáng & Màu sắc</p>
+                <p class="spec-value">1800 nits HBM</p>
+                <p class="spec-sub">
+                800 nits thông thường · 100% DCI-P3 · Cảm ứng 240Hz
+                </p>
+            </div>
         </div>
         <div class="spec-card">
-          <div class="spec-icon"><i class="fa-solid fa-wifi"></i></div>
-          <div class="spec-info">
-            <p class="spec-label">Kết nối</p>
-            <p class="spec-value">5G · Wi-Fi 7 · Bluetooth 6.1</p>
-            <p class="spec-sub">USB Type-C · NFC · Dual nano-SIM / eSIM</p>
-          </div>
+            <div class="spec-icon"><i class="fa-solid fa-battery-full"></i></div>
+            <div class="spec-info">
+                <p class="spec-label">Pin</p>
+                <p class="spec-value">7500mAh</p>
+                <p class="spec-sub">
+                SUPERVOOC™ 80W · AIRVOOC™ 50W
+                </p>
+            </div>
+        </div>
+       <div class="spec-card">
+            <div class="spec-icon"><i class="fa-solid fa-film"></i></div>
+            <div class="spec-info">
+                <p class="spec-label">Quay Video</p>
+                <p class="spec-value">4K 120fps</p>
+                <p class="spec-sub">
+                Dolby Vision · HDR Video · SLO-MO 1080P 240fps · Chống rung OIS
+                </p>
+            </div>
         </div>
         <div class="spec-card">
-          <div class="spec-icon"><i class="fa-brands fa-android"></i></div>
-          <div class="spec-info">
-            <p class="spec-label">Hệ điều hành</p>
-            <p class="spec-value">ColorOS 16.0</p>
-            <p class="spec-sub">Dựa trên Android 16</p>
-          </div>
+            <div class="spec-icon"><i class="fa-solid fa-wifi"></i></div>
+            <div class="spec-info">
+                <p class="spec-label">Kết nối</p>
+                <p class="spec-value">5G · Wi-Fi 7 · Bluetooth 6.0</p>
+                <p class="spec-sub">
+                NFC · eSIM · Dual SIM · USB Type-C 3.2 Gen 1 · Hồng ngoại IR
+                </p>
+            </div>
         </div>
         <div class="spec-card">
-          <div class="spec-icon"><i class="fa-solid fa-ruler-combined"></i></div>
-          <div class="spec-info">
-            <p class="spec-label">Kích thước & Trọng lượng</p>
-            <p class="spec-value">156.98 × 73.93 × 7.99 mm</p>
-            <p class="spec-sub">Trọng lượng khoảng 202g</p>
-          </div>
+            <div class="spec-icon"><i class="fa-solid fa-ruler-combined"></i></div>
+            <div class="spec-info">
+                <p class="spec-label">Kích thước & Trọng lượng</p>
+                <p class="spec-value">161.26 × 76.46 mm</p>
+                <p class="spec-sub">
+                Độ dày 8.25 mm · Trọng lượng khoảng 224g
+                </p>
+            </div>
         </div>
         <div class="spec-card">
-          <div class="spec-icon"><i class="fa-solid fa-fingerprint"></i></div>
-          <div class="spec-info">
-            <p class="spec-label">Sinh trắc học</p>
-            <p class="spec-value">Vân tay siêu âm 3D dưới màn hình</p>
-            <p class="spec-sub">Nhận diện khuôn mặt · Nút Snap Key tùy chỉnh</p>
-          </div>
+            <div class="spec-icon"><i class="fa-solid fa-fingerprint"></i></div>
+            <div class="spec-info">
+                <p class="spec-label">Sinh trắc học & Cảm biến</p>
+                <p class="spec-value">Vân tay siêu âm dưới màn hình</p>
+                <p class="spec-sub">
+                Nhận diện khuôn mặt · Hall · Laser AF · Cảm biến quang phổ
+                </p>
+            </div>
+        </div>
+        <div class="spec-card">
+            <div class="spec-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+            <div class="spec-info">
+                <p class="spec-label">Định vị</p>
+                <p class="spec-value">GPS · GLONASS · BDS · Galileo</p>
+                <p class="spec-sub">
+                QZSS · NavIC · A-GNSS · WLAN Positioning
+                </p>
+            </div>
         </div>
       </div>
     </div>
@@ -731,30 +792,61 @@
     <!-- DESC TAB -->
     <div class="tab-pane" id="tab-desc">
       <div class="desc-content">
-        <h3>OPPO Find X9s — Flagship nhỏ gọn, pin kỷ lục</h3>
-        <p>OPPO Find X9s là mẫu flagship nhỏ gọn thuộc dòng Find X9 Series, ra mắt chính thức tại Việt Nam ngày 05/05/2026 trong sự kiện "Finding Hội An" tổ chức tại Đà Nẵng. Đây là phiên bản tập trung vào sự cân bằng hoàn hảo giữa thiết kế mỏng nhẹ và thời lượng pin cực khủng.</p>
-
-        <h3>Thiết kế mỏng nhẹ, viền siêu mỏng 1.15mm</h3>
-        <p>Với độ dày chỉ 7.99mm và trọng lượng 202g, Find X9s sở hữu thiết kế gọn gàng cầm vừa tay. Màn hình AMOLED 6.59 inch với viền 4 cạnh đồng đều chỉ 1.15mm nhờ công nghệ đóng gói LIPO, mang lại tỷ lệ hiển thị mặt trước lên tới 95.4%. Ba tùy chọn màu sắc thời thượng: Midnight Grey, Lavender Sky và Sunset Orange.</p>
-
-        <h3>Hiệu năng chip Dimensity 9500s tiến trình 3nm</h3>
-        <p>Find X9s được trang bị chip MediaTek Dimensity 9500s sản xuất trên tiến trình 3nm, kết hợp với 12GB RAM LPDDR5X và bộ nhớ UFS 4.1. Chip này tăng tốc độ xử lý GPU lên 41% và tăng độ ổn định khi tải nặng 37% so với thế hệ trước, đồng thời kiểm soát nhiệt rất tốt.</p>
-
-        <h3>Hệ thống ba camera 50MP Hasselblad</h3>
-        <p>Điểm nhấn của Find X9s là hệ thống ba camera sau, mỗi ống kính đều có độ phân giải 50MP:</p>
+        <h3>OPPO Find X9 Pro - Flagship nhiếp ảnh thế hệ mới</h3>
+        <p>
+            OPPO Find X9 Pro mang đến trải nghiệm cao cấp với màn hình AMOLED 120Hz,
+            chip MediaTek Dimensity 9500 mạnh mẽ, viên pin 7500mAh cùng hệ thống
+            camera Hasselblad chuyên nghiệp. Thiết bị được thiết kế dành cho người dùng
+            yêu thích nhiếp ảnh, giải trí và hiệu năng hàng đầu.
+        </p>
+        <h3>Camera Hasselblad Tele 200MP - Siêu Zoom 120x</h3>
+        <p>
+            Hệ thống camera sau bao gồm cảm biến chính 50MP, camera góc siêu rộng
+            50MP và camera Tele Hasselblad 200MP cao cấp. Công nghệ chống rung OIS
+            4 trục cùng khả năng zoom kỹ thuật số lên tới 120x giúp ghi lại mọi khoảnh
+            khắc với độ sắc nét ấn tượng.
+        </p>
         <ul>
-          <li><strong>Camera góc rộng chính:</strong> 50MP, f/1.8, FOV 84°, chống rung OIS 2 trục</li>
-          <li><strong>Camera góc siêu rộng:</strong> 50MP, f/2.0, góc nhìn 120°, hỗ trợ AF</li>
-          <li><strong>Camera tele tiềm vọng:</strong> 50MP, f/2.6, FOV 33°, OIS 2 trục, zoom quang 3x</li>
+            <li>Camera chính 50MP f/1.8 hỗ trợ OIS 4 trục</li>
+            <li>Camera góc siêu rộng 50MP FOV 120°</li>
+            <li>Camera Tele Hasselblad 200MP OIS 4 trục</li>
+            <li>Camera trước 50MP hỗ trợ lấy nét AF</li>
         </ul>
-        <p>Toàn bộ hệ thống được hiệu chỉnh màu sắc bởi Hasselblad, hỗ trợ quay video 4K 60fps Dolby Vision và zoom kỹ thuật số lên đến 18x.</p>
-
-        <h3>Pin Silicon-Carbon 7025mAh — Sử dụng 2 ngày</h3>
-        <p>Viên pin dung lượng 7025mAh sử dụng vật liệu Silicon-Carbon thế hệ mới, mật độ năng lượng cao gấp rưỡi pin truyền thống, cho phép sử dụng thoải mái cả 2 ngày. Kết hợp với công nghệ sạc nhanh SUPERVOOC 80W kèm trong hộp, máy có thể sạc đầy trong khoảng 60 phút.</p>
-
-        <h3>Độ bền chuẩn IP66/IP68/IP69</h3>
-        <p>Find X9s đạt đồng thời ba tiêu chuẩn kháng nước và bụi: IP66 (tia nước mạnh), IP68 (ngâm nước 1.5m/30 phút) và IP69 (áp lực nước cao). Màn hình được bảo vệ bởi kính cường lực Corning Gorilla Glass 7i chống trầy xước. Máy cũng đạt chứng nhận độ bền 5 sao từ tổ chức SGS Thụy Sĩ.</p>
-      </div>
+        <h3>Quay Video 4K 120fps Dolby Vision</h3>
+        <p>
+            OPPO Find X9s hỗ trợ quay video 4K ở 120fps cùng công nghệ Dolby Vision,
+            mang đến chất lượng hình ảnh điện ảnh, màu sắc sống động và độ chi tiết
+            vượt trội. Thiết bị còn hỗ trợ quay HDR, chống rung, tua nhanh thời gian,
+            quay chuyên nghiệp và quay video kép.
+        </p>
+        <h3>Pin 7500mAh - Sạc Nhanh SUPERVOOC™ 80W</h3>
+        <p>
+            Viên pin dung lượng lớn 7500mAh đáp ứng nhu cầu sử dụng cả ngày dài.
+            Công nghệ sạc nhanh SUPERVOOC™ 80W giúp rút ngắn thời gian sạc,
+            đồng thời hỗ trợ sạc không dây AIRVOOC™ 50W tiện lợi.
+        </p>
+        <h3>Màn hình AMOLED 120Hz sống động</h3>
+        <p>
+            Màn hình AMOLED linh hoạt kích thước 6.78 inch có độ phân giải
+            FHD+ 2772 × 1272 pixels, tần số quét tối đa 120Hz, hiển thị
+            1.07 tỷ màu cùng độ sáng HBM lên tới 1800 nits, mang đến trải nghiệm
+            hiển thị sắc nét và chân thực.
+        </p>
+        <h3>Hiệu năng mạnh mẽ với MediaTek Dimensity 9500</h3>
+        <p>
+            OPPO Find X9s được trang bị vi xử lý MediaTek Dimensity 9500 8 nhân,
+            GPU Mali Drage MC12, RAM LPDDR5X 16GB và bộ nhớ trong UFS 4.1 dung lượng
+            512GB. Cấu hình này đáp ứng hoàn hảo mọi nhu cầu từ làm việc, giải trí
+            đến chơi game đồ họa cao.
+        </p>
+        <h3>Kết nối hiện đại và bảo mật cao cấp</h3>
+        <p>
+            Thiết bị hỗ trợ Wi-Fi 7, Bluetooth 6.0, NFC, eSIM, USB Type-C 3.2 Gen 1,
+            định vị đa băng tần và cảm biến vân tay siêu âm dưới màn hình. Người dùng
+            cũng được trải nghiệm hệ điều hành ColorOS 16.0 mới nhất với khả năng tối ưu
+            hiệu suất và bảo mật.
+        </p>
+        </div>
     </div>
   </div>
 </section>
@@ -764,16 +856,6 @@
   <div class="container">
     <h2 class="section-title">Sản phẩm <span>liên quan</span></h2>
     <div class="related-grid">
-      <a href="FindX9-Ultra.html" class="rel-card">
-        <div class="rel-img">
-          <img src="../../image/oppo/find-x9-ultra-black.png" alt="Find X9 Ultra">
-        </div>
-        <div class="rel-body">
-          <p class="rel-brand">OPPO</p>
-          <p class="rel-name">Find X9 Ultra</p>
-          <p class="rel-price">48.990.000₫</p>
-        </div>
-      </a>
       <a href="FindX9Pro.html" class="rel-card">
         <div class="rel-img">
           <img src="../../image/oppo/find-x9-pro-white.png" alt="Find X9 Pro">
@@ -781,10 +863,10 @@
         <div class="rel-body">
           <p class="rel-brand">OPPO</p>
           <p class="rel-name">Find X9 Pro</p>
-          <p class="rel-price">32.990.000₫</p>
+          <p class="rel-price">33.990.000₫</p>
         </div>
       </a>
-      <a href="FindX9.html" class="rel-card">
+      <a href="Find-X9.html" class="rel-card">
         <div class="rel-img">
           <img src="../../image/oppo/find-x9-red.png" alt="Find X9">
         </div>
@@ -792,6 +874,16 @@
           <p class="rel-brand">OPPO</p>
           <p class="rel-name">Find X9</p>
           <p class="rel-price">22.990.000₫</p>
+        </div>
+      </a>
+      <a href="FindX9s.html" class="rel-card">
+        <div class="rel-img">
+          <img src="../../image/oppo/find-x9s-pink.png" alt="Find X9s">
+        </div>
+        <div class="rel-body">
+          <p class="rel-brand">OPPO</p>
+          <p class="rel-name">Find X9s</p>
+          <p class="rel-price">23.990.000₫</p>
         </div>
       </a>
       <a href="FindN5.html" class="rel-card">
@@ -866,8 +958,8 @@
 <!-- STICKY BUY BAR -->
 <div class="sticky-bar" id="stickyBar">
   <div class="sticky-bar-info">
-    <span class="sticky-bar-name">OPPO Find X9s</span>
-    <span class="sticky-bar-price" id="stickyPrice">23.990.000₫</span>
+    <span class="sticky-bar-name">OPPO Find X9 Pro</span>
+    <span class="sticky-bar-price" id="stickyPrice">32.990.000₫</span>
   </div>
   <div class="sticky-bar-actions">
     <button class="sticky-btn-cart" onclick="addToCart()"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button>
@@ -895,14 +987,10 @@
     mainImg.style.transition = 'opacity .2s';
     mainImg.style.opacity = '0';
     setTimeout(() => { mainImg.src = imgSrc; mainImg.style.opacity = '1'; }, 200);
-    document.querySelectorAll('.thumb').forEach((t, i) => {
-      const opts = document.querySelectorAll('.color-chip');
-      t.classList.toggle('active', opts[i] === el);
-    });
   }
 
   // ===== STORAGE =====
-  let currentPrice = 23990000;
+  let currentPrice = 32990000;
   function selectStorage(el, price, oldPrice, installment) {
     document.querySelectorAll('.storage-chip').forEach(o => o.classList.remove('active'));
     el.classList.add('active');
@@ -911,7 +999,7 @@
     const fmtInst = n => n.toLocaleString('vi-VN') + '₫/tháng';
     document.getElementById('priceMain').textContent = fmt(price);
     document.getElementById('priceOld').textContent = fmt(oldPrice);
-    document.getElementById('priceInstall').innerHTML = 'hoặc chỉ từ <strong>' + fmtInst(installment) + '</strong>';
+    document.getElementById('priceInstall').innerHTML = 'Trả góp chỉ từ <strong>' + fmtInst(installment) + '</strong> · <a href="#" style="color:var(--accent);text-decoration:underline">Chính sách trả góp không lãi suất</a>';
     document.getElementById('stickyPrice').textContent = fmt(price);
   }
 
@@ -962,7 +1050,7 @@
     btn.style.borderColor = '#00b894';
     btn.style.color = '#fff';
     btn.disabled = true;
-    showToast('Đã thêm "OPPO Find X9s" vào giỏ hàng');
+    showToast('Đã thêm "OPPO Find X9 Pro" vào giỏ hàng');
     const countEl = document.getElementById('cartCount');
     countEl.textContent = parseInt(countEl.textContent || 0) + 1;
     setTimeout(() => {

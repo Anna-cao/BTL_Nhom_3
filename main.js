@@ -518,17 +518,21 @@ document.querySelectorAll('img[loading="lazy"]').forEach(function(img) {
 });
 const ITEMS_PER_PAGE = 8;
 let currentPage = 1;
-
 function renderPagination() {
   const allCards = Array.from(document.querySelectorAll('.product-card'));
-  const visibleCards = allCards.filter(c => !c.hidden);
+  const visibleCards = allCards.filter(
+  c => !c.classList.contains('hidden'));
   const totalPages = Math.ceil(visibleCards.length / ITEMS_PER_PAGE);
   const pagination = document.getElementById('pagination');
   if (!pagination) return;
 
+  // Ẩn tất cả card trước (kể cả card bị filter ẩn)
+  allCards.forEach(card => { card.style.display = 'none'; });
+
+  // Chỉ hiện card thuộc trang hiện tại (đã qua filter)
   visibleCards.forEach((card, idx) => {
     const page = Math.floor(idx / ITEMS_PER_PAGE) + 1;
-    card.style.display = page === currentPage ? 'flex' : 'none';
+    if (page === currentPage) card.style.display = 'flex';
   });
 
   pagination.innerHTML = '';
@@ -556,6 +560,7 @@ function renderPagination() {
   pagination.appendChild(next);
 }
 renderPagination();
+
 /* ============================================================
    CART MODAL CSS
    ============================================================ */
@@ -594,6 +599,125 @@ renderPagination();
   document.head.appendChild(style);
 })();
 
+
+document.addEventListener('DOMContentLoaded', () => {
+ 
+  const pills = document.querySelectorAll('.pill');
+  const cards = document.querySelectorAll('.product-card');
+  const sortSelect = document.querySelector('.sort-select');
+  const countEl = document.getElementById('count');
+  const grid = document.getElementById('productGrid');
+ 
+  let activeFilter = 'all';
+ 
+  // Filter by category
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      activeFilter = pill.dataset.filter;
+      applyFilterAndSort();
+    });
+  });
+ 
+  // Sort
+  sortSelect.addEventListener('change', applyFilterAndSort);
+ 
+  function applyFilterAndSort() {
+    // Get all cards as array
+    let cardArray = Array.from(cards);
+ 
+    // Filter
+    cardArray.forEach(card => {
+      const cat = card.dataset.category;
+      if (activeFilter === 'all' || cat === activeFilter) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+ 
+    // Sort visible cards
+    const visible = cardArray.filter(c => !c.classList.contains('hidden'));
+    const sortVal = sortSelect.value;
+ 
+    visible.sort((a, b) => {
+  const pa = parseInt(a.dataset.price);
+  const pb = parseInt(b.dataset.price);
+
+  if (sortVal === 'price-asc')  return pa - pb;
+  if (sortVal === 'price-desc') return pb - pa;
+  return 0;
+});
+
+    visible.sort((a, b) => {
+  const pa = parseInt(a.dataset.price);
+  const pb = parseInt(b.dataset.price);
+
+  if (sortVal === 'price-asc')  return pa - pb;
+  if (sortVal === 'price-desc') return pb - pa;
+
+  if (sortVal === 'discount') {
+    return parseInt(b.dataset.discount) - parseInt(a.dataset.discount);
+  }
+
+  return 0;
+});
+ 
+    // Re-append in sorted order
+    visible.forEach(card => grid.appendChild(card));
+ 
+    // Update count
+    if (countEl) countEl.textContent = visible.length;
+
+    // Reset về trang 1 và render lại pagination
+    currentPage = 1;
+    renderPagination();
+  }
+ 
+  // Gọi ngay khi load trang để hiển thị số lượng ban đầu
+  applyFilterAndSort();
+
+  // Wishlist toggle
+  document.querySelectorAll('.wishlist-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+      const icon = btn.querySelector('i');
+      if (btn.classList.contains('active')) {
+        icon.classList.replace('fa-regular', 'fa-solid');
+      } else {
+        icon.classList.replace('fa-solid', 'fa-regular');
+      }
+    });
+  });
+ 
+  // Add to cart feedback
+  document.querySelectorAll('.btn-cart').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const original = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> Đã thêm!';
+      btn.style.background = '#00b894';
+      setTimeout(() => {
+        btn.innerHTML = original;
+        btn.style.background = '';
+      }, 1500);
+    });
+  });
+  document.querySelectorAll('.color-dots').forEach(dotsGroup => {
+  dotsGroup.querySelectorAll('.dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+   
+      const card = dot.closest('.product-card');
+      const img = card.querySelector('.card-image img');
+      img.src = dot.dataset.img;
+
+      dotsGroup.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+      dot.classList.add('active');
+    });
+  });
+});
+
+});
 /* JS CHO OPPO*/
 document.addEventListener('DOMContentLoaded', () => {
  
