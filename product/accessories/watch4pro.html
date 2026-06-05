@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oppo Watch 4 Pro | MobileShop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --black: #111; --white: #fff; --gray: #f5f5f5; --border: #e8e8e8; --accent: #e53935; --green: #00b894; --text: #222; --muted: #888; --header-h: 64px; }
+    body { font-family: 'Be Vietnam Pro', sans-serif; background: #fff; color: var(--text); }
+    a { text-decoration: none; color: inherit; } img { display: block; max-width: 100%; }
+    .header { position: sticky; top: 0; z-index: 200; height: var(--header-h); background: #fff; border-bottom: 1px solid var(--border); display: flex; align-items: center; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .header .container { display: flex; align-items: center; gap: 1.5rem; width: 100%; max-width: 1280px; margin: auto; padding: 0 1.5rem; }
+    .logo { display: flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 700; color: var(--black); } .logo i { color: var(--accent); font-size: 20px; }
+    .nav { display: flex; align-items: center; gap: 4px; margin-left: 1rem; flex: 1; }
+    .nav a { font-size: 13.5px; font-weight: 500; color: #666; padding: 8px 14px; border-radius: 6px; transition: all .2s; white-space: nowrap; }
+    .nav a:hover { color: var(--black); background: var(--gray); }
+    .header-actions { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+    .search-bar { display: flex; align-items: center; background: var(--gray); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .search-bar input { background: none; border: none; outline: none; font-family: inherit; font-size: 13px; color: var(--black); padding: 8px 12px; width: 200px; }
+    .search-bar button { padding: 8px 12px; color: #888; background: none; border: none; cursor: pointer; }
+    .icon-btn { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 6px; color: #888; font-size: 16px; position: relative; transition: all .2s; }
+    .icon-btn:hover { color: var(--black); background: var(--gray); }
+    .cart-count { position: absolute; top: 2px; right: 2px; background: var(--accent); color: #fff; font-size: 10px; font-weight: 700; width: 17px; height: 17px; border-radius: 99px; display: flex; align-items: center; justify-content: center; }
+    .breadcrumb { background: var(--gray); padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .breadcrumb .container { max-width: 1280px; margin: auto; padding: 0 1.5rem; display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); flex-wrap: wrap; }
+    .breadcrumb a { color: var(--muted); transition: color .2s; } .breadcrumb a:hover { color: var(--black); } .breadcrumb span { color: var(--black); font-weight: 500; }
+    .detail-section { padding: 40px 0 60px; background: #fff; }
+    .detail-section .container { max-width: 1280px; margin: auto; padding: 0 1.5rem; }
+    .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .image-panel { position: sticky; top: calc(var(--header-h) + 20px); }
+    .main-img-wrap { background: var(--gray); border-radius: 24px; overflow: hidden; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; position: relative; }
+    .main-img-wrap img { width: 80%; height: 80%; object-fit: contain; transition: transform .5s ease; }
+    .main-img-wrap:hover img { transform: scale(1.06); }
+    .badge-float { position: absolute; top: 16px; left: 16px; background: #e53935; color: #fff; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 999px; }
+    .info-panel { padding-top: 8px; }
+    .info-brand { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .info-name { font-size: 30px; font-weight: 800; color: var(--black); line-height: 1.2; margin-bottom: 10px; }
+    .rating-row { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+    .stars { color: #f59e0b; font-size: 14px; display: flex; gap: 2px; } .rating-count { font-size: 13px; color: var(--muted); }
+    .badge-new { background: #e53935; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
+    .price-display { margin-bottom: 24px; }
+    .price-main { display: flex; align-items: baseline; gap: 10px; }
+    .price-current { font-size: 28px; font-weight: 800; color: var(--accent); }
+    .price-old { font-size: 16px; font-weight: 500; color: var(--muted); text-decoration: line-through; }
+    .price-installment { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .color-section { margin-bottom: 24px; }
+    .option-label { font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 10px; }
+    .color-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .color-opt { padding: 7px 16px; border: 2px solid var(--border); border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all .2s; }
+    .color-opt.active { border-color: var(--black); background: var(--black); color: #fff; }
+    .color-opt:hover { border-color: #999; }
+    .quantity-section { margin-bottom: 24px; }
+    .qty-row { display: flex; align-items: center; gap: 0; border: 1.5px solid var(--border); border-radius: 10px; overflow: hidden; width: fit-content; }
+    .qty-btn { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: var(--gray); border: none; font-size: 18px; cursor: pointer; transition: background .2s; color: var(--black); }
+    .qty-btn:hover { background: #e8e8e8; }
+    .qty-val { width: 52px; height: 44px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; border-left: 1.5px solid var(--border); border-right: 1.5px solid var(--border); }
+    .action-row { display: flex; gap: 12px; margin-bottom: 24px; }
+    .btn-addcart { flex: 1; padding: 16px; background: #fff; color: var(--black); border: 2px solid var(--black); border-radius: 12px; font-family: 'Be Vietnam Pro', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; transition: all .2s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .btn-addcart:hover { background: var(--black); color: #fff; transform: translateY(-2px); }
+    .btn-buynow { flex: 1; padding: 16px; background: var(--black); color: #fff; border: none; border-radius: 12px; font-family: 'Be Vietnam Pro', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; transition: all .2s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .btn-buynow:hover { background: #333; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+    .perks { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+    .perk { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: var(--gray); border-radius: 12px; font-size: 12.5px; }
+    .perk i { color: var(--green); font-size: 16px; flex-shrink: 0; }
+    .divider { height: 1px; background: var(--border); margin: 20px 0; }
+    .share-row { display: flex; align-items: center; gap: 12px; } .share-label { font-size: 13px; color: var(--muted); font-weight: 500; }
+    .share-btn { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; cursor: pointer; border: 1.5px solid var(--border); transition: all .2s; background: #fff; }
+    .share-btn:hover { background: var(--black); color: #fff; border-color: var(--black); }
+    .highlights-section { padding: 60px 0; background: #fafafa; border-top: 1px solid var(--border); }
+    .highlights-section .container { max-width: 1280px; margin: auto; padding: 0 1.5rem; }
+    .section-title { font-size: 28px; font-weight: 800; margin-bottom: 32px; color: var(--black); } .section-title span { color: var(--accent); }
+    .highlight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .highlight-card { border-radius: 20px; overflow: hidden; position: relative; aspect-ratio: 4/5; display: flex; flex-direction: column; justify-content: flex-end; }
+    .highlight-card.dark { background: linear-gradient(135deg, #111 0%, #2c2c2c 100%); }
+    .highlight-card.pink { background: linear-gradient(135deg, #f8e8e0 0%, #ffd4b8 100%); }
+    .highlight-card.blue { background: linear-gradient(135deg, #e8f0ff 0%, #d0e4ff 100%); }
+    .highlight-content { padding: 28px; position: relative; z-index: 2; }
+    .highlight-tag { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+    .highlight-card.dark .highlight-tag { color: rgba(255,255,255,.5); } .highlight-card.pink .highlight-tag { color: #d94f2b; } .highlight-card.blue .highlight-tag { color: #1a56db; }
+    .highlight-title { font-size: 22px; font-weight: 800; line-height: 1.25; margin-bottom: 8px; }
+    .highlight-card.dark .highlight-title { color: #fff; }
+    .highlight-sub { font-size: 13px; line-height: 1.6; }
+    .highlight-card.dark .highlight-sub { color: rgba(255,255,255,.6); }
+    .highlight-icon { position: absolute; top: 28px; right: 28px; font-size: 48px; opacity: .15; }
+    .highlight-card.dark .highlight-icon { color: #fff; }
+    .product-info-section { padding: 48px 0 60px; background: #fff; border-top: 1px solid var(--border); }
+    .product-info-section .container { max-width: 1280px; margin: auto; padding: 0 1.5rem; }
+    .tab-nav { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 40px; }
+    .tab-btn { padding: 14px 28px; font-family: 'Be Vietnam Pro', sans-serif; font-size: 14px; font-weight: 600; background: none; border: none; cursor: pointer; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all .2s; }
+    .tab-btn.active { color: var(--black); border-bottom-color: var(--black); }
+    .tab-pane { display: none; } .tab-pane.active { display: block; }
+    .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .spec-card { background: var(--gray); border-radius: 16px; padding: 20px 24px; border: 1px solid var(--border); display: flex; align-items: flex-start; gap: 14px; }
+    .spec-icon { width: 44px; height: 44px; border-radius: 12px; background: #fff0f0; display: flex; align-items: center; justify-content: center; font-size: 18px; color: var(--accent); flex-shrink: 0; }
+    .spec-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 4px; }
+    .spec-value { font-size: 15px; font-weight: 700; color: var(--black); line-height: 1.3; } .spec-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .desc-content { max-width: 800px; }
+    .desc-content h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; margin-top: 28px; } .desc-content h3:first-child { margin-top: 0; }
+    .desc-content p { font-size: 14px; line-height: 1.8; color: #444; margin-bottom: 12px; }
+    .desc-content ul { padding-left: 20px; margin-bottom: 12px; } .desc-content ul li { font-size: 14px; line-height: 1.8; color: #444; margin-bottom: 4px; }
+    .related-section { background: var(--gray); padding: 60px 0; }
+    .related-section .container { max-width: 1280px; margin: auto; padding: 0 1.5rem; }
+    .related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .rel-card { background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); transition: all .3s; }
+    .rel-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.1); }
+    .rel-img { background: var(--gray); padding: 20px; display: flex; align-items: center; justify-content: center; aspect-ratio: 1; }
+    .rel-img img { width: 80%; height: 100%; object-fit: contain; }
+    .rel-body { padding: 14px; } .rel-brand { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+    .rel-name { font-size: 14px; font-weight: 700; margin: 2px 0 8px; } .rel-price { font-size: 15px; font-weight: 700; color: var(--accent); }
+    .toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%) translateY(150%); background: var(--black); color: #fff; font-size: 13.5px; font-weight: 500; padding: 12px 20px; border-radius: 10px; display: flex; align-items: center; gap: 9px; box-shadow: 0 8px 30px rgba(0,0,0,.2); z-index: 9999; transition: transform .35s cubic-bezier(.34,1.56,.64,1); white-space: nowrap; }
+    .toast.show { transform: translateX(-50%) translateY(0); } .toast i { color: #6ee7b7; }
+    .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid var(--border); padding: 12px 24px; display: none; align-items: center; justify-content: space-between; gap: 16px; z-index: 100; box-shadow: 0 -4px 24px rgba(0,0,0,.08); }
+    .sticky-bar.visible { display: flex; }
+    .sticky-bar-info { display: flex; align-items: center; gap: 16px; } .sticky-bar-name { font-size: 14px; font-weight: 700; } .sticky-bar-price { font-size: 18px; font-weight: 800; color: var(--accent); }
+    .sticky-bar-actions { display: flex; gap: 10px; }
+    .sticky-btn-cart { padding: 10px 24px; border: 2px solid var(--black); border-radius: 8px; font-family: 'Be Vietnam Pro', sans-serif; font-size: 13px; font-weight: 700; background: #fff; cursor: pointer; transition: all .2s; }
+    .sticky-btn-cart:hover { background: var(--black); color: #fff; }
+    .sticky-btn-buy { padding: 10px 24px; border: none; border-radius: 8px; background: var(--black); color: #fff; font-family: 'Be Vietnam Pro', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; transition: all .2s; }
+    .sticky-btn-buy:hover { background: #333; }
+    @media (max-width: 1024px) { .detail-grid { gap: 32px; } .highlight-grid { grid-template-columns: 1fr 1fr; } .related-grid { grid-template-columns: repeat(2, 1fr); } .specs-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .detail-grid { grid-template-columns: 1fr; } .image-panel { position: static; } .info-name { font-size: 24px; } .price-current { font-size: 24px; } .nav { display: none; } .search-bar input { width: 140px; } .highlight-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 520px) { .perks { grid-template-columns: 1fr; } .related-grid { grid-template-columns: 1fr 1fr; } .action-row { flex-direction: column; } }
+  </style>
+</head>
+<body>
+<header class="header"><div class="container">
+  <a href="../../index.html" class="logo"><i class="fa-solid fa-mobile-screen-button"></i><span>MobileShop</span></a>
+  <nav class="nav"><a href="../../index.html">Trang chủ</a><a href="../../category/iphone.html">iPhone</a><a href="../../category/oppo.html">Oppo</a><a href="../../category/accessories.html">Phụ kiện</a></nav>
+  <div class="header-actions"><div class="search-bar"><input type="text" placeholder="Tìm điện thoại, phụ kiện..."><button><i class="fa-solid fa-magnifying-glass"></i></button></div><a href="#" class="icon-btn"><i class="fa-regular fa-user"></i></a><a href="#" class="icon-btn"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count" id="cartCount">0</span></a></div>
+</div></header>
+
+<div class="breadcrumb"><div class="container">
+  <a href="../../index.html">Trang chủ</a><i class="fa-solid fa-chevron-right fa-xs"></i>
+  <a href="../../category/oppo.html">Oppo</a><i class="fa-solid fa-chevron-right fa-xs"></i>
+  <a href="../../category/accessories.html">Đồng hồ thông minh</a><i class="fa-solid fa-chevron-right fa-xs"></i>
+  <span>Oppo Watch 4 Pro</span>
+</div></div>
+
+<section class="detail-section" id="productTop"><div class="container"><div class="detail-grid">
+  <div class="image-panel">
+    <div class="main-img-wrap">
+      <span class="badge-float">Hot</span>
+      <img id="mainImg" src="../../image/accessories/watch4pro.jpg" alt="Oppo Watch 4 Pro" onerror="this.src='https://placehold.co/400x400/f5f5f7/999?text=Oppo+Watch+4+Pro'">
+    </div>
+  </div>
+  <div class="info-panel">
+    <p class="info-brand">Oppo · Đồng hồ thông minh</p>
+    <h1 class="info-name">Oppo Watch 4 Pro</h1>
+    <div class="rating-row">
+      <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+      <span class="rating-count">4.8 (876 đánh giá)</span>
+      <span class="badge-new">Bán chạy</span>
+    </div>
+    <div class="price-display">
+      <div class="price-main">
+        <span class="price-current">6.990.000₫</span>
+        <span class="price-old">8.490.000₫</span>
+      </div>
+      <div class="price-installment">Snapdragon W5 · AMOLED · Esim · Chống nước 5ATM</div>
+    </div>
+
+
+
+    <div class="quantity-section">
+      <div class="option-label">Số lượng</div>
+      <div class="qty-row"><button class="qty-btn" onclick="changeQty(-1)">−</button><div class="qty-val" id="qtyVal">1</div><button class="qty-btn" onclick="changeQty(1)">+</button></div>
+    </div>
+    <div class="action-row">
+      <button class="btn-addcart" id="addCartBtn" onclick="addToCart()"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button>
+      <button class="btn-buynow" onclick="showToast('Tính năng đang phát triển 🚀')"><i class="fa-solid fa-bolt"></i> Mua ngay</button>
+    </div>
+    <div class="perks">
+      <div class="perk"><i class="fa-solid fa-truck-fast"></i> Giao hàng 2 giờ</div>
+      <div class="perk"><i class="fa-solid fa-shield-halved"></i> Bảo hành 12 tháng</div>
+      <div class="perk"><i class="fa-solid fa-rotate-left"></i> Đổi trả 30 ngày</div>
+      <div class="perk"><i class="fa-solid fa-certificate"></i> Hàng chính hãng Oppo</div>
+    </div>
+    <div class="divider"></div>
+    <div class="share-row">
+      <span class="share-label">Chia sẻ:</span>
+      <div class="share-btn" style="color:#1877f2"><i class="fa-brands fa-facebook-f"></i></div>
+      <div class="share-btn" style="color:#e1306c"><i class="fa-brands fa-instagram"></i></div>
+      <div class="share-btn" style="color:#25d366"><i class="fa-brands fa-whatsapp"></i></div>
+      <div class="share-btn"><i class="fa-solid fa-link"></i></div>
+    </div>
+  </div>
+</div></div></section>
+
+<section class="highlights-section"><div class="container">
+  <h2 class="section-title">Điểm nổi <span>bật</span></h2>
+  <div class="highlight-grid">
+    <div class="highlight-card dark">
+      <i class="fa-solid fa-microchip highlight-icon"></i>
+      <div class="highlight-content">
+        <p class="highlight-tag">Hiệu năng</p>
+        <h3 class="highlight-title">Snapdragon W5<br>Chip đỉnh cho smartwatch</h3>
+        <p class="highlight-sub" style="color:rgba(255,255,255,.6)">Chip Snapdragon W5 Gen 1 mạnh mẽ, xử lý mượt mà mọi tác vụ, tiết kiệm pin hiệu quả, đảm bảo trải nghiệm liền mạch.</p>
+      </div>
+    </div>
+    <div class="highlight-card pink">
+      <i class="fa-solid fa-display highlight-icon"></i>
+      <div class="highlight-content">
+        <p class="highlight-tag">Màn hình</p>
+        <h3 class="highlight-title">AMOLED 1.91"<br>Sắc nét, rực rỡ</h3>
+        <p class="highlight-sub" style="color:#7a4030">Màn hình AMOLED 1.91 inch độ phân giải cao, màu sắc sống động, hiển thị rõ dưới ánh nắng mặt trời.</p>
+      </div>
+    </div>
+    <div class="highlight-card blue">
+      <i class="fa-solid fa-sim-card highlight-icon"></i>
+      <div class="highlight-content">
+        <p class="highlight-tag">Kết nối</p>
+        <h3 class="highlight-title">eSIM tích hợp<br>Gọi điện không cần điện thoại</h3>
+        <p class="highlight-sub" style="color:#1a3a7a">Hỗ trợ eSIM, nghe/gọi điện thoại trực tiếp từ đồng hồ mà không cần mang smartphone theo bên cạnh.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="product-info-section"><div class="container">
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('specs', this)">Thông số kỹ thuật</button>
+    <button class="tab-btn" onclick="switchTab('desc', this)">Mô tả sản phẩm</button>
+  </div>
+  <div class="tab-pane active" id="tab-specs">
+    <div class="specs-grid">
+      <div class="spec-card"><div class="spec-icon"><i class="fa-solid fa-display"></i></div><div><p class="spec-label">Màn hình</p><p class="spec-value">AMOLED 1.91"</p><p class="spec-sub">410 x 502 px · Gorilla Glass 3</p></div></div>
+      <div class="spec-card"><div class="spec-icon"><i class="fa-solid fa-microchip"></i></div><div><p class="spec-label">Chip</p><p class="spec-value">Snapdragon W5 Gen 1</p><p class="spec-sub">4nm · Tiết kiệm điện</p></div></div>
+      <div class="spec-card"><div class="spec-icon"><i class="fa-solid fa-sim-card"></i></div><div><p class="spec-label">eSIM</p><p class="spec-value">Có — Gọi điện độc lập</p><p class="spec-sub">Wifi · Bluetooth 5.3 · GPS</p></div></div>
+      <div class="spec-card"><div class="spec-icon"><i class="fa-solid fa-heart-pulse"></i></div><div><p class="spec-label">Sức khoẻ</p><p class="spec-value">Nhịp tim · SpO2 · ECG</p><p class="spec-sub">Đo huyết áp · Căng thẳng</p></div></div>
+      <div class="spec-card"><div class="spec-icon"><i class="fa-solid fa-droplet"></i></div><div><p class="spec-label">Chống nước</p><p class="spec-value">5ATM — 50 mét</p><p class="spec-sub">Bơi lội thoải mái</p></div></div>
+      <div class="spec-card"><div class="spec-icon"><i class="fa-solid fa-battery-three-quarters"></i></div><div><p class="spec-label">Pin</p><p class="spec-value">620 mAh · 4 ngày</p><p class="spec-sub">Sạc nhanh VOOC 7.5W</p></div></div>
+      <div class="spec-card"><div class="spec-icon"><i class="fa-solid fa-mobile-screen-button"></i></div><div><p class="spec-label">Hệ điều hành</p><p class="spec-value">Wear OS 3.5</p><p class="spec-sub">Android 8+ · iOS giới hạn</p></div></div>
+      <div class="spec-card"><div class="spec-icon"><i class="fa-solid fa-weight-hanging"></i></div><div><p class="spec-label">Trọng lượng</p><p class="spec-value">47g (không dây)</p><p class="spec-sub">Khung thép không gỉ</p></div></div>
+    </div>
+  </div>
+  <div class="tab-pane" id="tab-desc">
+    <div class="desc-content">
+      <h3>Oppo Watch 4 Pro — Đỉnh cao smartwatch Android</h3>
+      <p>Oppo Watch 4 Pro là chiếc đồng hồ thông minh cao cấp nhất của Oppo, tích hợp chip Snapdragon W5 mạnh mẽ, màn hình AMOLED sắc nét và hàng loạt tính năng sức khỏe tiên tiến.</p>
+      <h3>Chip Snapdragon W5 — Hiệu năng vượt trội</h3>
+      <p>Được trang bị chip Snapdragon W5 Gen 1 tiến trình 4nm, mang lại hiệu năng xử lý mạnh mẽ, giao diện mượt mà và thời lượng pin kéo dài lên đến 4 ngày sử dụng bình thường.</p>
+      <h3>Theo dõi sức khoẻ toàn diện</h3>
+      <ul>
+        <li>Đo nhịp tim liên tục, SpO2, nhiệt độ cơ thể</li>
+        <li>Điện tâm đồ ECG chuẩn y tế</li>
+        <li>Theo dõi giấc ngủ, căng thẳng, huyết áp</li>
+        <li>Hơn 100 chế độ thể thao tự động nhận diện</li>
+        <li>GPS kép L1+L5 độ chính xác cao</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="related-section"><div class="container">
+  <h2 class="section-title">Sản phẩm <span>liên quan</span></h2>
+  <div class="related-grid">
+    <a href="watch3.html" class="rel-card"><div class="rel-img"><img src="../../image/accessories/watch3.jpg" alt="Apple Watch Series 3" onerror="this.src='https://placehold.co/200x200/f5f5f7/999?text=Apple+Watch+3'"></div><div class="rel-body"><p class="rel-brand">Apple</p><p class="rel-name">Apple Watch Series 3</p><p class="rel-price">2.490.000₫</p></div></a>
+    <a href="watch6.html" class="rel-card"><div class="rel-img"><img src="../../image/accessories/watch6.png" alt="Oppo Watch 6" onerror="this.src='https://placehold.co/200x200/f5f5f7/999?text=Oppo+Watch+6'"></div><div class="rel-body"><p class="rel-brand">Oppo</p><p class="rel-name">Oppo Watch 6</p><p class="rel-price">4.490.000₫</p></div></a>
+    <a href="band3.html" class="rel-card"><div class="rel-img"><img src="../../image/accessories/band3.jpg" alt="Oppo Band 3" onerror="this.src='https://placehold.co/200x200/f5f5f7/999?text=Oppo+Band+3'"></div><div class="rel-body"><p class="rel-brand">Oppo</p><p class="rel-name">Oppo Band 3</p><p class="rel-price">990.000₫</p></div></a>
+    <a href="airpods4.html" class="rel-card"><div class="rel-img"><img src="../../image/accessories/airpod4.png" alt="AirPods 4" onerror="this.src='https://placehold.co/200x200/f5f5f7/999?text=AirPods+4'"></div><div class="rel-body"><p class="rel-brand">Apple</p><p class="rel-name">AirPods 4</p><p class="rel-price">2.990.000₫</p></div></a>
+  </div>
+</div></section>
+
+<footer style="background:#1c1c1b;color:rgba(255,255,255,.6);margin-top:0">
+  <div style="max-width:1280px;margin:auto;padding:3.5rem 1.5rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:3rem">
+    <div><a href="../../index.html" style="display:flex;align-items:center;gap:8px;font-size:17px;font-weight:700;color:#fff;margin-bottom:.75rem"><i class="fa-solid fa-mobile-screen-button" style="color:#e53935"></i> MobileShop</a><p style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:1.25rem">Điện thoại chính hãng. Giá tốt nhất. Giao hàng trong 2 giờ.</p><div style="display:flex;gap:8px"><a href="#" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.07);border-radius:6px;color:rgba(255,255,255,.5)"><i class="fa-brands fa-facebook-f"></i></a><a href="#" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.07);border-radius:6px;color:rgba(255,255,255,.5)"><i class="fa-brands fa-instagram"></i></a><a href="#" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.07);border-radius:6px;color:rgba(255,255,255,.5)"><i class="fa-brands fa-tiktok"></i></a><a href="#" style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.07);border-radius:6px;color:rgba(255,255,255,.5)"><i class="fa-brands fa-youtube"></i></a></div></div>
+    <div><h4 style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:1rem">Thông tin cửa hàng</h4><p style="font-size:13px;display:flex;gap:8px;margin-bottom:8px"><i class="fa-solid fa-location-dot" style="opacity:.5;margin-top:3px"></i>123 Đường ABC, Quận 1, TP. HCM</p><p style="font-size:13px;display:flex;gap:8px;margin-bottom:8px"><i class="fa-solid fa-phone" style="opacity:.5;margin-top:3px"></i>1900 1234</p><p style="font-size:13px;display:flex;gap:8px"><i class="fa-regular fa-clock" style="opacity:.5;margin-top:3px"></i>8:00 – 21:00, Thứ 2 – Chủ nhật</p></div>
+    <div><h4 style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:1rem">Chính sách</h4><nav style="display:flex;flex-direction:column;gap:6px"><a href="#" style="font-size:13px;color:rgba(255,255,255,.5)">Chính sách bảo hành</a><a href="#" style="font-size:13px;color:rgba(255,255,255,.5)">Chính sách đổi trả</a><a href="#" style="font-size:13px;color:rgba(255,255,255,.5)">Hướng dẫn mua hàng</a><a href="#" style="font-size:13px;color:rgba(255,255,255,.5)">Hỏi đáp (FAQ)</a></nav></div>
+    <div><h4 style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:1rem">Nhận ưu đãi sớm nhất</h4><p style="font-size:12.5px;line-height:1.55;margin-bottom:.75rem">Đăng ký để nhận thông báo flash sale và mã giảm giá độc quyền.</p><div style="display:flex;overflow:hidden;border:1px solid rgba(255,255,255,.15);border-radius:6px"><input type="email" placeholder="email@của.bạn" style="flex:1;background:rgba(255,255,255,.06);border:none;color:#fff;font-family:inherit;font-size:13px;padding:10px 12px;outline:none"><button style="background:#fff;color:#111;border:none;font-family:inherit;font-size:12px;font-weight:600;padding:10px 14px;cursor:pointer">Đăng ký</button></div></div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.07);padding:1.25rem 1.5rem"><div style="max-width:1280px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem"><p style="font-size:12px;color:rgba(255,255,255,.35)">© 2026 MobileShop. Tất cả quyền được bảo lưu.</p><p style="font-size:12px;color:rgba(255,255,255,.35)">Thiết kế bởi <strong style="color:rgba(255,255,255,.55)">MobileShop Team</strong></p></div></div>
+</footer>
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastMsg"></span></div>
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-bar-info"><span class="sticky-bar-name">Oppo Watch 4 Pro</span><span class="sticky-bar-price">6.990.000₫</span></div>
+  <div class="sticky-bar-actions"><button class="sticky-btn-cart" onclick="addToCart()"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button><button class="sticky-btn-buy" onclick="showToast('Tính năng đang phát triển 🚀')"><i class="fa-solid fa-bolt"></i> Mua ngay</button></div>
+</div>
+<script>
+  let qty = 1;
+  function changeQty(d) { qty = Math.max(1, qty + d); document.getElementById('qtyVal').textContent = qty; }
+  function selectColor(el) { el.closest('.color-row').querySelectorAll('.color-opt').forEach(o => o.classList.remove('active')); el.classList.add('active'); }
+  function switchTab(id, btn) { document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active')); document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); document.getElementById('tab-' + id).classList.add('active'); btn.classList.add('active'); }
+  let toastTimer;
+  function showToast(msg) { const t = document.getElementById('toast'); document.getElementById('toastMsg').textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 2800); }
+  function addToCart() { const btn = document.getElementById('addCartBtn'); const orig = btn.innerHTML; btn.innerHTML = '<i class="fa-solid fa-check"></i> Đã thêm!'; btn.style.cssText = 'background:#00b894;border-color:#00b894;color:#fff'; btn.disabled = true; showToast('Đã thêm "Oppo Watch 4 Pro" vào giỏ hàng'); const c = document.getElementById('cartCount'); c.textContent = parseInt(c.textContent || 0) + qty; setTimeout(() => { btn.innerHTML = orig; btn.style.cssText = ''; btn.disabled = false; }, 1600); }
+  window.addEventListener('scroll', () => { const r = document.getElementById('productTop').getBoundingClientRect(); document.getElementById('stickyBar').classList.toggle('visible', r.bottom < 0); });
+</script>
+</body>
+</html>
