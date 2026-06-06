@@ -61,7 +61,9 @@ address { font-style: normal; }
   margin-inline: auto;
   padding-inline: 1.5rem;
 }
-
+.cart-modal-footer {
+  padding: 1rem;
+}
 /* ============================================================
    BUTTONS
    ============================================================ */
@@ -442,9 +444,9 @@ address { font-style: normal; }
    ============================================================ */
 .main-layout {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 2rem;
-  padding-block: 2.5rem;
+  grid-template-columns: 180px 1fr;
+  gap: 1rem;
+  padding-block: 1.5rem;
   align-items: start;
 }
 
@@ -645,8 +647,8 @@ address { font-style: normal; }
    ============================================================ */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 }
 
 /* Featured card spans 2 rows */
@@ -655,11 +657,13 @@ address { font-style: normal; }
 
 /* ---- PRODUCT CARD ---- */
 .product-card {
-  background: var(--clr-surface);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-lg);
+  background: #fff;
+  border-radius: 16px;
   overflow: hidden;
-  transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 .product-card:hover {
   box-shadow: var(--shadow-md);
@@ -981,7 +985,7 @@ address { font-style: normal; }
 /* Tablet */
 @media (max-width: 1024px) {
   .main-layout { grid-template-columns: 190px 1fr; gap: 1.5rem; }
-  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .product-grid { grid-template-columns: repeat(3, 1fr); }
   .product-card--featured { grid-row: span 1; }
   .product-card--featured .product-img-wrap { aspect-ratio: 1; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -1039,7 +1043,6 @@ address { font-style: normal; }
   .product-card--featured { grid-column: span 1; }
   .hero-cta-row { flex-direction: column; align-items: flex-start; }
 }
-
 
 /* ============================================================
    ACCOUNT PAGE — account.html
@@ -1715,6 +1718,11 @@ address { font-style: normal; }
     grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
     gap: 35px;
 }
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
 
 /* CARD */
 
@@ -2344,17 +2352,11 @@ address { font-style: normal; }
  
 /* ===== PRODUCTS SECTION ===== */
 .products-section {
-  padding:20px 0 0;
+  padding: 0;
   background: #f8f8f8;
 }
- 
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
- 
-@media (max-width: 1200px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+
+@media (max-width: 1200px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 860px)  { .product-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px)  { .product-grid { grid-template-columns: 1fr; } }
  
@@ -2439,14 +2441,13 @@ address { font-style: normal; }
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 200px;
+  min-height: 240px;
   overflow: hidden;
 }
- 
 .card-image img {
   width: 100%;
-  max-width: 200px;
-  height: 180px;
+  max-width: 240px;
+  height: 220px;
   object-fit: contain;
   transition: transform 0.4s ease;
 }
@@ -2494,9 +2495,8 @@ address { font-style: normal; }
   text-transform: uppercase;
   margin: 0 0 2px;
 }
- 
 .product-name {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   color: #1a1a1a;
   margin: 0 0 4px;
@@ -2517,15 +2517,15 @@ address { font-style: normal; }
 }
  
 .price-current {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
   color: #e53935;
 }
- 
 .price-old {
-  font-size: 13px;
+  font-size: 12px;
   color: #bbb;
   text-decoration: line-through;
+  white-space: nowrap;
 }
  
 /* Card actions */
@@ -2537,7 +2537,7 @@ address { font-style: normal; }
  
 .btn-detail {
   flex: 1;
-  padding: 9px 12px;
+  padding: 9px 8px;
   border: 1.5px solid #222;
   border-radius: 8px;
   background: #fff;
@@ -2556,7 +2556,7 @@ address { font-style: normal; }
  
 .btn-cart {
   flex: 1.2;
-  padding: 9px 12px;
+  padding: 9px 8px;
   border: none;
   border-radius: 8px;
   background: #222;
@@ -2571,6 +2571,7 @@ address { font-style: normal; }
   justify-content: center;
   gap: 6px;
 }
+ 
  
 .btn-cart:hover {
   background: #e53935;
@@ -2878,4 +2879,96 @@ address { font-style: normal; }
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.65);
   margin-bottom: 2rem;
+}
+
+/* Làm card-body thành flex column */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 12px; /* giữ nguyên padding bạn đang có */
+}
+
+/* Tên sản phẩm chiếm không gian còn lại → đẩy giá xuống */
+.product-desc {
+  flex: 1;
+}
+
+/* Giá và nút luôn nằm ở vị trí cố định phía dưới */
+.price-row {
+  margin-top: auto;
+}
+/* ===== SIDEBAR ACCORDION ===== */
+.sidebar-group { margin-bottom: 4px; }
+
+.sidebar-group-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--clr-dark);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.sidebar-group-btn:hover { background: var(--clr-bg); }
+.sidebar-group-btn i {
+  font-size: 10px;
+  color: var(--clr-mid);
+  transition: transform 0.2s ease;
+}
+.sidebar-group.open .sidebar-group-btn i { transform: rotate(180deg); }
+
+.sidebar-sub {
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 8px;
+  margin-bottom: 4px;
+}
+.sidebar-group.open .sidebar-sub { display: flex; }
+
+.sidebar-sub .pill-btn {
+  text-align: left;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: none;
+  font-size: 12px;
+  color: var(--clr-mid);
+  padding: 6px 10px;
+}
+.sidebar-sub .pill-btn:hover { background: var(--clr-bg); color: var(--clr-dark); }
+.sidebar-sub .pill-btn.active { background: var(--clr-bg); color: var(--clr-dark); font-weight: 600; }
+
+/* ===== LỌC GIÁ ===== */
+.price-filter { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
+.price-btn {
+  width: 100%;
+  text-align: left;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--clr-border);
+  background: var(--clr-bg);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--clr-mid);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.price-btn:hover { color: var(--clr-dark); border-color: var(--clr-mid); }
+.price-btn.active { background: var(--clr-dark); color: #fff; border-color: var(--clr-dark); }
+.card-body {
+  min-height: 180px;
+}
+
+.card-actions .btn-detail,
+.card-actions .btn-cart {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

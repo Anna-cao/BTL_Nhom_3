@@ -151,159 +151,17 @@
               <div class="dash-avatar" id="dashAvatar">N</div>
               <div class="dash-name" id="dashName">Người dùng</div>
               <div class="dash-email" id="dashEmail">user@email.com</div>
+              <div class="dash-role-badge" id="dashRoleBadge"></div>
             </div>
-            <nav class="dash-nav">
-              <div class="dash-nav-item active" onclick="showPanel('overview')">
-                <i class="fa-solid fa-house"></i> Tổng quan
-              </div>
-              <div class="dash-nav-item" onclick="showPanel('profile')">
-                <i class="fa-solid fa-user-pen"></i> Thông tin cá nhân
-              </div>
-              <div class="dash-nav-item" onclick="showPanel('orders')">
-                <i class="fa-solid fa-bag-shopping"></i> Lịch sử đơn hàng
-              </div>
-              <div class="dash-nav-item" onclick="showPanel('password')">
-                <i class="fa-solid fa-key"></i> Đổi mật khẩu
-              </div>
-              <div class="dash-nav-divider"></div>
-              <div class="dash-nav-item" onclick="doLogout()" style="color:#ef4444">
-                <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
-              </div>
+            <nav class="dash-nav" id="dashNav">
+              <!-- Menu được render bằng JS theo role -->
             </nav>
           </div>
 
           <!-- Main content -->
-          <div class="dash-content">
-
-            <!-- Overview -->
-            <div class="dash-panel active" id="panel-overview">
-              <div class="dash-stats">
-                <div class="stat-card">
-                  <div class="stat-icon orange"><i class="fa-solid fa-bag-shopping"></i></div>
-                  <div class="stat-num" id="statTotal">0</div>
-                  <div class="stat-label">Tổng đơn hàng</div>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-icon blue"><i class="fa-solid fa-truck"></i></div>
-                  <div class="stat-num" id="statShipping">0</div>
-                  <div class="stat-label">Đang giao</div>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-icon green"><i class="fa-solid fa-circle-check"></i></div>
-                  <div class="stat-num" id="statDone">0</div>
-                  <div class="stat-label">Hoàn thành</div>
-                </div>
-              </div>
-
-              <div class="panel-card">
-                <div class="panel-card-title">
-                  <i class="fa-solid fa-clock-rotate-left"></i> Đơn hàng gần đây
-                </div>
-                <div id="recentOrders"></div>
-              </div>
-            </div>
-
-            <!-- Profile -->
-            <div class="dash-panel" id="panel-profile">
-              <div class="panel-card">
-                <div class="panel-card-title">
-                  <i class="fa-solid fa-user-pen"></i> Thông tin cá nhân
-                </div>
-                <div class="profile-grid">
-                  <div class="pf-group">
-                    <label class="pf-label">Họ và tên</label>
-                    <input type="text" class="pf-input" id="pfName" placeholder="Nguyễn Văn A">
-                  </div>
-                  <div class="pf-group">
-                    <label class="pf-label">Số điện thoại</label>
-                    <input type="tel" class="pf-input" id="pfPhone" placeholder="0901 234 567">
-                  </div>
-                  <div class="pf-group">
-                    <label class="pf-label">Email</label>
-                    <input type="email" class="pf-input" id="pfEmail" placeholder="email@example.com">
-                  </div>
-                  <div class="pf-group">
-                    <label class="pf-label">Ngày sinh</label>
-                    <input type="date" class="pf-input" id="pfDob">
-                  </div>
-                  <div class="pf-group">
-                    <label class="pf-label">Giới tính</label>
-                    <select class="pf-select pf-input" id="pfGender">
-                      <option value="">-- Chọn --</option>
-                      <option value="male">Nam</option>
-                      <option value="female">Nữ</option>
-                      <option value="other">Khác</option>
-                    </select>
-                  </div>
-                  <div class="pf-group">
-                    <label class="pf-label">Tỉnh / Thành phố</label>
-                    <input type="text" class="pf-input" id="pfCity" placeholder="TP. Hồ Chí Minh">
-                  </div>
-                  <div class="pf-group full">
-                    <label class="pf-label">Địa chỉ</label>
-                    <input type="text" class="pf-input" id="pfAddress" placeholder="Số nhà, tên đường...">
-                  </div>
-                </div>
-                <button class="btn-save" onclick="saveProfile()">
-                  <i class="fa-solid fa-floppy-disk"></i> Lưu thay đổi
-                </button>
-              </div>
-            </div>
-
-            <!-- Orders -->
-            <div class="dash-panel" id="panel-orders">
-              <div class="panel-card">
-                <div class="panel-card-title">
-                  <i class="fa-solid fa-bag-shopping"></i> Lịch sử đơn hàng
-                </div>
-                <div class="order-filter-tabs">
-                  <div class="order-tab active" onclick="filterOrders('all', this)">Tất cả</div>
-                  <div class="order-tab" onclick="filterOrders('pending', this)">Chờ xác nhận</div>
-                  <div class="order-tab" onclick="filterOrders('shipping', this)">Đang giao</div>
-                  <div class="order-tab" onclick="filterOrders('done', this)">Hoàn thành</div>
-                  <div class="order-tab" onclick="filterOrders('cancel', this)">Đã hủy</div>
-                </div>
-                <div id="orderList"></div>
-              </div>
-            </div>
-
-            <!-- Password -->
-            <div class="dash-panel" id="panel-password">
-              <div class="panel-card">
-                <div class="panel-card-title">
-                  <i class="fa-solid fa-key"></i> Đổi mật khẩu
-                </div>
-                <div class="pw-group">
-                  <label>Mật khẩu hiện tại</label>
-                  <div class="pw-wrap">
-                    <input type="password" id="pwCurrent" placeholder="••••••••">
-                    <button class="pw-toggle" onclick="togglePw('pwCurrent', this)"><i class="fa-solid fa-eye"></i></button>
-                  </div>
-                </div>
-                <div class="pw-group">
-                  <label>Mật khẩu mới</label>
-                  <div class="pw-wrap">
-                    <input type="password" id="pwNew" placeholder="Tối thiểu 6 ký tự" oninput="checkStrength(this.value, 'pwBar2', 'pwStrength2')">
-                    <button class="pw-toggle" onclick="togglePw('pwNew', this)"><i class="fa-solid fa-eye"></i></button>
-                  </div>
-                  <div class="pw-strength">
-                    <span id="pwStrength2">Nhập mật khẩu mới</span>
-                    <div class="pw-bar"><div class="pw-bar-fill" id="pwBar2"></div></div>
-                  </div>
-                </div>
-                <div class="pw-group">
-                  <label>Xác nhận mật khẩu mới</label>
-                  <div class="pw-wrap">
-                    <input type="password" id="pwConfirm" placeholder="Nhập lại mật khẩu mới">
-                    <button class="pw-toggle" onclick="togglePw('pwConfirm', this)"><i class="fa-solid fa-eye"></i></button>
-                  </div>
-                </div>
-                <button class="btn-save" onclick="changePassword()">
-                  <i class="fa-solid fa-lock"></i> Cập nhật mật khẩu
-                </button>
-              </div>
-            </div>
-
+          <!-- Main content -->
+          <div class="dash-content" id="dashContent">
+            <!-- Được render bằng JS theo role -->
           </div><!-- end dash-content -->
         </div>
       </div>
@@ -318,236 +176,510 @@
   </div>
 
   <script src="main.js"></script>
+  <script src="login.js"></script>
+  <script src="register.js"></script>
   <script>
-    // ===== MOCK DATA =====
-    var MOCK_ORDERS = [
-      { id: '#MS241201', date: '01/12/2024', status: 'done',     items: [{ name: 'iPhone 15 Pro Max 256GB', qty: 1, price: 34990000 }] },
-      { id: '#MS241115', date: '15/11/2024', status: 'shipping', items: [{ name: 'Samsung Galaxy S24 Ultra', qty: 1, price: 24990000 }, { name: 'Ốp lưng Samsung S24', qty: 2, price: 250000 }] },
-      { id: '#MS241030', date: '30/10/2024', status: 'done',     items: [{ name: 'Oppo Reno 11 Pro 256GB', qty: 1, price: 15990000 }] },
-      { id: '#MS241005', date: '05/10/2024', status: 'cancel',   items: [{ name: 'iPhone 15 128GB', qty: 1, price: 22990000 }] },
-      { id: '#MS240920', date: '20/09/2024', status: 'pending',  items: [{ name: 'Samsung Galaxy A54 5G', qty: 1, price: 7490000 }] },
-    ];
+  /* ============================================================
+     UTILS — Account page specific
+  ============================================================ */
+  var accToastTimer;
+  function accToast(msg, icon) {
+    icon = icon || 'fa-circle-check';
+    var t = document.getElementById('accToast');
+    if (!t) return;
+    t.querySelector('i').className = 'fa-solid ' + icon;
+    document.getElementById('accToastMsg').textContent = msg;
+    t.classList.add('show');
+    clearTimeout(accToastTimer);
+    accToastTimer = setTimeout(function(){ t.classList.remove('show'); }, 2800);
+  }
+  var accToastEl = document.getElementById('accToast');
+  if (accToastEl) accToastEl.addEventListener('click', function(){ clearTimeout(accToastTimer); this.classList.remove('show'); });
 
-    var STATUS_MAP = {
-      pending:  { label: 'Chờ xác nhận', cls: 'badge-pending' },
-      shipping: { label: 'Đang giao',    cls: 'badge-shipping' },
-      done:     { label: 'Hoàn thành',   cls: 'badge-done' },
-      cancel:   { label: 'Đã hủy',       cls: 'badge-cancel' },
+  function formatPrice(p) { return p.toLocaleString('vi-VN') + 'đ'; }
+
+  /* ============================================================
+     DỮ LIỆU localStorage — Dashboard data (riêng cho admin panel)
+  ============================================================ */
+  var DEFAULT_ORDERS = [
+    { id:'#MS241201', date:'01/12/2024', status:'done',     items:[{name:'iPhone 15 Pro Max 256GB', qty:1, price:34990000}] },
+    { id:'#MS241115', date:'15/11/2024', status:'shipping', items:[{name:'Samsung Galaxy S24 Ultra', qty:1, price:24990000}] },
+    { id:'#MS241030', date:'30/10/2024', status:'done',     items:[{name:'Oppo Reno 14 Pro', qty:1, price:15990000}] },
+    { id:'#MS241005', date:'05/10/2024', status:'cancel',   items:[{name:'iPhone 16 128GB', qty:1, price:22990000}] },
+    { id:'#MS240920', date:'20/09/2024', status:'pending',  items:[{name:'Oppo A6 Pro', qty:1, price:7490000}] },
+  ];
+  var DEFAULT_DASHBOARD_USERS = [
+    { id:1, name:'Nguyễn Văn A', email:'nguyenvana@gmail.com', phone:'0901234567', role:'customer', orders:3, locked:false },
+    { id:2, name:'Trần Thị B',   email:'tranthib@gmail.com',   phone:'0912345678', role:'customer', orders:1, locked:false },
+    { id:3, name:'Lê Văn C',     email:'levanc@gmail.com',     phone:'0923456789', role:'customer', orders:5, locked:false },
+    { id:4, name:'Phạm Thị D',   email:'phamthid@gmail.com',   phone:'0934567890', role:'customer', orders:2, locked:false },
+  ];
+  var DEFAULT_PRODUCTS = [
+    { id:1, name:'iPhone 17 Pro Max', brand:'Apple',   price:39990000, stock:10, sold:45 },
+    { id:2, name:'iPhone 16 Pro Max', brand:'Apple',   price:34990000, stock:12, sold:67 },
+    { id:3, name:'Oppo Find X9 Ultra',brand:'Oppo',    price:29990000, stock:8,  sold:20 },
+    { id:4, name:'Oppo Reno 15 Pro',  brand:'Oppo',    price:15990000, stock:15, sold:32 },
+    { id:5, name:'Oppo A6 Pro',       brand:'Oppo',    price:7490000,  stock:30, sold:88 },
+  ];
+
+  function getOrders()   { return JSON.parse(localStorage.getItem('ms_orders')   || JSON.stringify(DEFAULT_ORDERS)); }
+  function getDashboardUsers() { return JSON.parse(localStorage.getItem('ms_dashboard_users') || JSON.stringify(DEFAULT_DASHBOARD_USERS)); }
+  function getProducts() { return JSON.parse(localStorage.getItem('ms_products') || JSON.stringify(DEFAULT_PRODUCTS)); }
+  function saveOrders(d)   { localStorage.setItem('ms_orders',   JSON.stringify(d)); }
+  function saveDashboardUsers(d) { localStorage.setItem('ms_dashboard_users', JSON.stringify(d)); }
+  function saveProducts(d) { localStorage.setItem('ms_products', JSON.stringify(d)); }
+
+  var STATUS_MAP = {
+    pending:  { label:'Chờ xác nhận', cls:'badge-pending' },
+    shipping: { label:'Đang giao',    cls:'badge-shipping' },
+    done:     { label:'Hoàn thành',   cls:'badge-done' },
+    cancel:   { label:'Đã hủy',       cls:'badge-cancel' },
+  };
+
+  /* ============================================================
+     LOAD DASHBOARD — phân quyền theo role
+  ============================================================ */
+  function loadDashboard(user) {
+    document.getElementById('authScreen').style.display = 'none';
+    document.getElementById('dashboard').classList.add('active');
+
+    var initial = (user.name||'U').charAt(0).toUpperCase();
+    document.getElementById('dashAvatar').textContent = initial;
+    document.getElementById('dashName').textContent   = user.name || 'Người dùng';
+    document.getElementById('dashEmail').textContent  = user.email || '';
+
+    var badge = document.getElementById('dashRoleBadge');
+    if (badge) {
+      badge.innerHTML = user.role === 'admin'
+        ? '<span style="background:rgba(239,68,68,.2);color:#fca5a5;padding:3px 10px;border-radius:99px;font-size:.75rem;font-weight:700">ADMIN</span>'
+        : '<span style="background:rgba(99,102,241,.2);color:#a5b4fc;padding:3px 10px;border-radius:99px;font-size:.75rem;font-weight:700">CUSTOMER</span>';
+    }
+
+    if (user.role === 'admin') {
+      renderAdminDashboard(user);
+    } else {
+      renderCustomerDashboard(user);
+    }
+  }
+
+  /* ============================================================
+     ADMIN DASHBOARD
+  ============================================================ */
+  function renderAdminDashboard(user) {
+    document.getElementById('dashNav').innerHTML = [
+      '<div class="dash-nav-item active" onclick="showAdminPanel(\'overview\',this)"><i class="fa-solid fa-chart-line"></i> Tổng quan</div>',
+      '<div class="dash-nav-item" onclick="showAdminPanel(\'users\',this)"><i class="fa-solid fa-users"></i> Quản lý người dùng</div>',
+      '<div class="dash-nav-item" onclick="showAdminPanel(\'products\',this)"><i class="fa-solid fa-box"></i> Quản lý sản phẩm</div>',
+      '<div class="dash-nav-item" onclick="showAdminPanel(\'orders\',this)"><i class="fa-solid fa-bag-shopping"></i> Quản lý đơn hàng</div>',
+      '<div class="dash-nav-item" onclick="showAdminPanel(\'revenue\',this)"><i class="fa-solid fa-chart-bar"></i> Báo cáo doanh thu</div>',
+      '<div class="dash-nav-divider"></div>',
+      '<div class="dash-nav-item" onclick="doLogout()" style="color:#ef4444"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</div>',
+    ].join('');
+
+    document.getElementById('dashContent').innerHTML =
+      '<div class="dash-panel active" id="admin-overview"></div>' +
+      '<div class="dash-panel" id="admin-users"></div>' +
+      '<div class="dash-panel" id="admin-products"></div>' +
+      '<div class="dash-panel" id="admin-orders"></div>' +
+      '<div class="dash-panel" id="admin-revenue"></div>';
+
+    renderAdminOverview(); renderAdminUsers();
+    renderAdminProducts(); renderAdminOrders(); renderAdminRevenue();
+    showAdminPanel('overview', document.querySelector('#dashNav .dash-nav-item'));
+  }
+
+  function showAdminPanel(name, el) {
+    document.querySelectorAll('#dashContent .dash-panel').forEach(function(p){ p.classList.remove('active'); });
+    document.querySelectorAll('#dashNav .dash-nav-item').forEach(function(n){ n.classList.remove('active'); });
+    var panel = document.getElementById('admin-' + name);
+    if (panel) panel.classList.add('active');
+    if (el) el.classList.add('active');
+  }
+
+  function statCard(icon, color, value, label) {
+    return '<div class="stat-card"><div class="stat-icon ' + color + '"><i class="fa-solid ' + icon + '"></i></div>'
+      + '<div class="stat-num">' + value + '</div><div class="stat-label">' + label + '</div></div>';
+  }
+
+  function renderAdminOverview() {
+    var orders = getOrders(); var users = getDashboardUsers(); var products = getProducts();
+    var done = orders.filter(function(o){ return o.status==='done'; });
+    var revenue = done.reduce(function(s,o){ return s+o.items.reduce(function(ss,i){ return ss+i.price*i.qty; },0); },0);
+    document.getElementById('admin-overview').innerHTML =
+      '<div class="dash-stats" style="grid-template-columns:repeat(4,1fr)">'
+      + statCard('fa-users','blue', users.length, 'Người dùng')
+      + statCard('fa-box','orange', products.length, 'Sản phẩm')
+      + statCard('fa-bag-shopping','purple', orders.length, 'Đơn hàng')
+      + statCard('fa-money-bill-wave','green', formatPrice(revenue), 'Doanh thu')
+      + '</div>'
+      + '<div class="panel-card"><div class="panel-card-title"><i class="fa-solid fa-clock-rotate-left"></i> Đơn hàng gần đây</div>'
+      + renderOrderTable(orders.slice(0,5)) + '</div>';
+  }
+
+  function renderAdminUsers() {
+    var users = getDashboardUsers();
+    var rows = users.map(function(u) {
+      var locked = u.locked;
+      return '<tr><td><strong>' + u.name + '</strong><br><small style="color:var(--clr-mid)">' + u.email + '</small></td>'
+        + '<td>' + u.phone + '</td><td>' + u.orders + ' đơn</td>'
+        + '<td><span class="order-badge ' + (locked?'badge-cancel':'badge-done') + '">' + (locked?'Đã khóa':'Hoạt động') + '</span></td>'
+        + '<td><button class="btn-tbl-action ' + (locked?'':'btn-tbl-danger') + '" onclick="toggleLockUser(' + u.id + ')">'
+        + (locked?'<i class="fa-solid fa-lock-open"></i> Mở khóa':'<i class="fa-solid fa-lock"></i> Khóa') + '</button></td></tr>';
+    }).join('');
+    document.getElementById('admin-users').innerHTML =
+      '<div class="panel-card"><div class="panel-card-title"><i class="fa-solid fa-users"></i> Danh sách người dùng</div>'
+      + '<div class="tbl-wrap"><table class="data-table"><thead><tr>'
+      + '<th>Họ tên / Email</th><th>SĐT</th><th>Đơn hàng</th><th>Trạng thái</th><th>Thao tác</th>'
+      + '</tr></thead><tbody>' + rows + '</tbody></table></div></div>';
+  }
+
+  function toggleLockUser(id) {
+    var users = getDashboardUsers();
+    var u = users.find(function(u){ return u.id===id; });
+    if (!u) return;
+    u.locked = !u.locked; saveDashboardUsers(users); renderAdminUsers();
+    accToast((u.locked?'Đã khóa':'Đã mở khóa') + ' tài khoản ' + u.name, u.locked?'fa-lock':'fa-lock-open');
+  }
+
+  function renderAdminProducts() {
+    var products = getProducts();
+    var rows = products.map(function(p) {
+      return '<tr><td><strong>' + p.name + '</strong></td><td>' + p.brand + '</td>'
+        + '<td>' + formatPrice(p.price) + '</td><td>' + p.stock + '</td><td>' + p.sold + '</td>'
+        + '<td style="white-space:nowrap">'
+        + '<button class="btn-tbl-action" style="margin-right:4px" onclick="openProductModal(' + p.id + ')"><i class="fa-solid fa-pen"></i> Sửa</button>'
+        + '<button class="btn-tbl-action btn-tbl-danger" onclick="deleteProduct(' + p.id + ')"><i class="fa-solid fa-trash"></i> Xóa</button>'
+        + '</td></tr>';
+    }).join('');
+    document.getElementById('admin-products').innerHTML =
+      '<div class="panel-card"><div class="panel-card-title"><i class="fa-solid fa-box"></i> Danh sách sản phẩm'
+      + '<button class="btn-save" style="margin-left:auto;margin-top:0;padding:7px 14px;font-size:.82rem" onclick="openProductModal(null)">'
+      + '<i class="fa-solid fa-plus"></i> Thêm mới</button></div>'
+      + '<div class="tbl-wrap"><table class="data-table"><thead><tr>'
+      + '<th>Tên sản phẩm</th><th>Hãng</th><th>Giá</th><th>Tồn kho</th><th>Đã bán</th><th>Thao tác</th>'
+      + '</tr></thead><tbody>' + rows + '</tbody></table></div></div>'
+      + productModalHTML();
+  }
+
+  function productModalHTML() {
+    return '<div id="productModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:20000;align-items:center;justify-content:center">'
+      + '<div style="background:#fff;border-radius:16px;padding:2rem;width:min(480px,90vw);max-height:90vh;overflow-y:auto">'
+      + '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem">'
+      + '<h3 id="productModalTitle" style="font-size:1.1rem;font-weight:700">Thêm sản phẩm</h3>'
+      + '<button onclick="closeProductModal()" style="background:none;border:none;font-size:1.3rem;cursor:pointer">&times;</button></div>'
+      + pFld('pm-name','text','Tên sản phẩm','VD: iPhone 17 Pro Max')
+      + '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">'
+      + pFld('pm-brand','text','Hãng','Apple / Oppo') + pFld('pm-price','number','Giá (đ)','34990000')
+      + pFld('pm-stock','number','Tồn kho','10') + pFld('pm-sold','number','Đã bán','0') + '</div>'
+      + '<input type="hidden" id="pm-id">'
+      + '<div style="display:flex;gap:.8rem;margin-top:1.5rem">'
+      + '<button class="btn-save" style="flex:1;justify-content:center;margin-top:0" onclick="saveProduct()"><i class="fa-solid fa-floppy-disk"></i> Lưu</button>'
+      + '<button onclick="closeProductModal()" style="flex:1;padding:10px;border:1.5px solid #ddd;border-radius:8px;cursor:pointer;font-weight:600">Hủy</button>'
+      + '</div></div></div>';
+  }
+
+  function pFld(id, type, label, placeholder) {
+    return '<div class="pf-group" style="margin-bottom:.8rem"><label class="pf-label">' + label + '</label>'
+      + '<input type="' + type + '" class="pf-input" id="' + id + '" placeholder="' + placeholder + '"></div>';
+  }
+
+  function openProductModal(id) {
+    var modal = document.getElementById('productModal');
+    modal.style.display = 'flex';
+    if (id) {
+      var p = getProducts().find(function(p){ return p.id===id; });
+      if (!p) return;
+      document.getElementById('productModalTitle').textContent = 'Chỉnh sửa sản phẩm';
+      document.getElementById('pm-id').value=p.id; document.getElementById('pm-name').value=p.name;
+      document.getElementById('pm-brand').value=p.brand; document.getElementById('pm-price').value=p.price;
+      document.getElementById('pm-stock').value=p.stock; document.getElementById('pm-sold').value=p.sold;
+    } else {
+      document.getElementById('productModalTitle').textContent = 'Thêm sản phẩm mới';
+      ['pm-id','pm-name','pm-brand','pm-price','pm-stock'].forEach(function(i){ document.getElementById(i).value=''; });
+      document.getElementById('pm-sold').value='0';
+    }
+  }
+
+  function closeProductModal() { document.getElementById('productModal').style.display='none'; }
+
+  function saveProduct() {
+    var name=document.getElementById('pm-name').value.trim();
+    var brand=document.getElementById('pm-brand').value.trim();
+    var price=parseInt(document.getElementById('pm-price').value);
+    var stock=parseInt(document.getElementById('pm-stock').value);
+    var sold=parseInt(document.getElementById('pm-sold').value)||0;
+    var id=document.getElementById('pm-id').value;
+    if (!name||!brand||!price||isNaN(stock)) { alert('Vui lòng điền đầy đủ!'); return; }
+    var products=getProducts();
+    if (id) {
+      var p=products.find(function(p){ return p.id===parseInt(id); });
+      if (p) { p.name=name; p.brand=brand; p.price=price; p.stock=stock; p.sold=sold; }
+      accToast('Đã cập nhật sản phẩm!','fa-pen');
+    } else {
+      var newId=products.length?Math.max.apply(null,products.map(function(p){ return p.id; }))+1:1;
+      products.push({id:newId,name:name,brand:brand,price:price,stock:stock,sold:sold});
+      accToast('Đã thêm sản phẩm mới!','fa-plus');
+    }
+    saveProducts(products); closeProductModal(); renderAdminProducts(); renderAdminOverview(); renderAdminRevenue();
+  }
+
+  function deleteProduct(id) {
+    var products=getProducts();
+    var p=products.find(function(p){ return p.id===id; });
+    if (!p) return;
+    if (!confirm('Xóa sản phẩm "' + p.name + '"?')) return;
+    saveProducts(products.filter(function(p){ return p.id!==id; }));
+    renderAdminProducts(); renderAdminOverview();
+    accToast('Đã xóa sản phẩm!','fa-trash');
+  }
+
+  function renderAdminOrders() {
+    document.getElementById('admin-orders').innerHTML =
+      '<div class="panel-card"><div class="panel-card-title"><i class="fa-solid fa-bag-shopping"></i> Tất cả đơn hàng</div>'
+      + renderOrderTable(getOrders()) + '</div>';
+  }
+
+  function renderOrderTable(orders) {
+    if (!orders.length) return '<div class="no-orders"><i class="fa-solid fa-bag-shopping"></i><p>Không có đơn hàng</p></div>';
+    var rows = orders.map(function(o) {
+      var st=STATUS_MAP[o.status];
+      var total=o.items.reduce(function(s,i){ return s+i.price*i.qty; },0);
+      return '<tr><td><strong class="order-id">' + o.id + '</strong></td><td>' + o.date + '</td>'
+        + '<td>' + o.items.map(function(i){ return i.name+' x'+i.qty; }).join('<br>') + '</td>'
+        + '<td><strong>' + formatPrice(total) + '</strong></td>'
+        + '<td><span class="order-badge ' + st.cls + '">' + st.label + '</span></td>'
+        + '<td><select onchange="updateOrderStatus(\'' + o.id + '\',this.value)" style="padding:5px 8px;border:1.5px solid #ddd;border-radius:6px;font-size:.8rem;cursor:pointer">'
+        + ['pending','shipping','done','cancel'].map(function(s){
+            return '<option value="'+s+'"'+(o.status===s?' selected':'')+'>'+STATUS_MAP[s].label+'</option>';
+          }).join('') + '</select></td></tr>';
+    }).join('');
+    return '<div class="tbl-wrap"><table class="data-table"><thead><tr>'
+      + '<th>Mã đơn</th><th>Ngày</th><th>Sản phẩm</th><th>Tổng tiền</th><th>Trạng thái</th><th>Cập nhật</th>'
+      + '</tr></thead><tbody>' + rows + '</tbody></table></div>';
+  }
+
+  function updateOrderStatus(orderId, newStatus) {
+    var orders=getOrders();
+    var o=orders.find(function(o){ return o.id===orderId; });
+    if (o) { o.status=newStatus; saveOrders(orders); }
+    renderAdminOrders(); renderAdminOverview();
+    accToast('Đã cập nhật trạng thái đơn ' + orderId,'fa-check');
+  }
+
+  function renderAdminRevenue() {
+    var orders=getOrders(); var products=getProducts();
+    var done=orders.filter(function(o){ return o.status==='done'; });
+    var total=done.reduce(function(s,o){ return s+o.items.reduce(function(ss,i){ return ss+i.price*i.qty; },0); },0);
+    var avg=done.length?Math.round(total/done.length):0;
+    document.getElementById('admin-revenue').innerHTML =
+      '<div class="dash-stats" style="grid-template-columns:repeat(3,1fr)">'
+      + statCard('fa-circle-check','green', done.length+' đơn','Đơn hoàn thành')
+      + statCard('fa-money-bill-wave','blue', formatPrice(total),'Tổng doanh thu')
+      + statCard('fa-calculator','orange', formatPrice(avg),'Giá trị TB/đơn')
+      + '</div>'
+      + '<div class="panel-card"><div class="panel-card-title"><i class="fa-solid fa-chart-bar"></i> Doanh thu theo sản phẩm</div>'
+      + '<div class="tbl-wrap"><table class="data-table"><thead><tr><th>Sản phẩm</th><th>Đã bán</th><th>Doanh thu</th></tr></thead><tbody>'
+      + products.map(function(p){
+          return '<tr><td>'+p.name+'</td><td>'+p.sold+'</td><td><strong style="color:var(--clr-accent)">'+formatPrice(p.price*p.sold)+'</strong></td></tr>';
+        }).join('') + '</tbody></table></div></div>';
+  }
+
+  /* ============================================================
+     CUSTOMER DASHBOARD
+  ============================================================ */
+  function renderCustomerDashboard(user) {
+    document.getElementById('dashNav').innerHTML = [
+      '<div class="dash-nav-item active" onclick="showCustomerPanel(\'overview\',this)"><i class="fa-solid fa-house"></i> Tổng quan</div>',
+      '<div class="dash-nav-item" onclick="showCustomerPanel(\'profile\',this)"><i class="fa-solid fa-user-pen"></i> Thông tin cá nhân</div>',
+      '<div class="dash-nav-item" onclick="showCustomerPanel(\'orders\',this)"><i class="fa-solid fa-bag-shopping"></i> Lịch sử mua hàng</div>',
+      '<div class="dash-nav-item" onclick="showCustomerPanel(\'password\',this)"><i class="fa-solid fa-key"></i> Đổi mật khẩu</div>',
+      '<div class="dash-nav-divider"></div>',
+      '<div class="dash-nav-item" onclick="location.href=\'index.html\'"><i class="fa-solid fa-cart-shopping"></i> Tiếp tục mua sắm</div>',
+      '<div class="dash-nav-item" onclick="location.href=\'checkout.html\'"><i class="fa-solid fa-credit-card"></i> Thanh toán</div>',
+      '<div class="dash-nav-divider"></div>',
+      '<div class="dash-nav-item" onclick="doLogout()" style="color:#ef4444"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</div>',
+    ].join('');
+
+    document.getElementById('dashContent').innerHTML =
+      '<div class="dash-panel active" id="cust-overview"></div>' +
+      '<div class="dash-panel" id="cust-profile"></div>' +
+      '<div class="dash-panel" id="cust-orders"></div>' +
+      '<div class="dash-panel" id="cust-password"></div>';
+
+    // Lấy thông tin user từ mảng ms_users
+    var allUsers = JSON.parse(localStorage.getItem('ms_users') || '[]');
+    var saved = allUsers.find(function(u){ return u.email === user.email; }) || {};
+    renderCustomerOverview(); renderCustomerProfile(saved, user);
+    renderCustomerOrders(); renderCustomerPassword();
+    showCustomerPanel('overview', document.querySelector('#dashNav .dash-nav-item'));
+  }
+
+  function showCustomerPanel(name, el) {
+    document.querySelectorAll('#dashContent .dash-panel').forEach(function(p){ p.classList.remove('active'); });
+    document.querySelectorAll('#dashNav .dash-nav-item').forEach(function(n){ n.classList.remove('active'); });
+    var panel = document.getElementById('cust-' + name);
+    if (panel) panel.classList.add('active');
+    if (el) el.classList.add('active');
+  }
+
+  function renderCustomerOverview() {
+    var orders=getOrders();
+    var shipping=orders.filter(function(o){ return o.status==='shipping'; }).length;
+    var done=orders.filter(function(o){ return o.status==='done'; }).length;
+    document.getElementById('cust-overview').innerHTML =
+      '<div class="dash-stats">'
+      + statCard('fa-bag-shopping','orange', orders.length,'Tổng đơn hàng')
+      + statCard('fa-truck','blue', shipping,'Đang giao')
+      + statCard('fa-circle-check','green', done,'Hoàn thành')
+      + '</div>'
+      + '<div class="panel-card"><div class="panel-card-title"><i class="fa-solid fa-clock-rotate-left"></i> Đơn hàng gần đây</div>'
+      + renderOrderCards(orders.slice(0,3)) + '</div>';
+  }
+
+  function renderOrderCards(orders) {
+    if (!orders.length) return '<div class="no-orders"><i class="fa-solid fa-bag-shopping"></i><p>Chưa có đơn hàng</p></div>';
+    return orders.map(function(o) {
+      var st=STATUS_MAP[o.status];
+      var total=o.items.reduce(function(s,i){ return s+i.price*i.qty; },0);
+      return '<div class="order-card">'
+        + '<div class="order-card-head"><span class="order-id">'+o.id+'</span>'
+        + '<span class="order-date"><i class="fa-regular fa-calendar fa-xs"></i> '+o.date+'</span>'
+        + '<span class="order-badge '+st.cls+'">'+st.label+'</span></div>'
+        + '<div class="order-card-body">'
+        + o.items.map(function(i){ return '<div class="order-prod-row"><span class="order-prod-name">'+i.name+'</span><span class="order-prod-qty">x'+i.qty+'</span><span class="order-prod-price">'+formatPrice(i.price)+'</span></div>'; }).join('')
+        + '</div><div class="order-card-foot"><span>Tổng: <span class="order-total">'+formatPrice(total)+'</span></span>'
+        + (o.status==='done'?'<button class="btn-reorder" onclick="accToast(\'Đã thêm vào giỏ hàng!\')">Mua lại</button>':'')
+        + (o.status==='pending'?'<button class="btn-reorder" style="background:#ef4444" onclick="cancelOrder(\''+o.id+'\')">Hủy đơn</button>':'')
+        + '</div></div>';
+    }).join('');
+  }
+
+  function cancelOrder(id) {
+    if (!confirm('Hủy đơn hàng ' + id + '?')) return;
+    var orders=getOrders();
+    var o=orders.find(function(o){ return o.id===id; });
+    if (o) { o.status='cancel'; saveOrders(orders); }
+    renderCustomerOverview(); renderCustomerOrders();
+    accToast('Đã hủy đơn hàng '+id,'fa-circle-xmark');
+  }
+
+  function renderCustomerOrders() {
+    document.getElementById('cust-orders').innerHTML =
+      '<div class="panel-card"><div class="panel-card-title"><i class="fa-solid fa-bag-shopping"></i> Lịch sử mua hàng</div>'
+      + '<div class="order-filter-tabs">'
+      + ['all','pending','shipping','done','cancel'].map(function(s,i){
+          var labels=['Tất cả','Chờ xác nhận','Đang giao','Hoàn thành','Đã hủy'];
+          return '<div class="order-tab'+(i===0?' active':'')+'" onclick="filterCustOrders(\''+s+'\',this)">'+labels[i]+'</div>';
+        }).join('')
+      + '</div><div id="custOrderList">'+renderOrderCards(getOrders())+'</div></div>';
+  }
+
+  function filterCustOrders(status, el) {
+    document.querySelectorAll('.order-tab').forEach(function(t){ t.classList.remove('active'); });
+    el.classList.add('active');
+    var filtered=status==='all'?getOrders():getOrders().filter(function(o){ return o.status===status; });
+    document.getElementById('custOrderList').innerHTML=renderOrderCards(filtered);
+  }
+
+  function renderCustomerProfile(saved, user) {
+    document.getElementById('cust-profile').innerHTML =
+      '<div class="panel-card"><div class="panel-card-title"><i class="fa-solid fa-user-pen"></i> Thông tin cá nhân</div>'
+      + '<div class="profile-grid">'
+      + pfF('pfName','text','Họ và tên',saved.name||user.name||'','Nguyễn Văn A')
+      + pfF('pfPhone','tel','Số điện thoại',saved.phone||'','0901 234 567')
+      + pfF('pfEmail','email','Email',saved.email||user.email||'','email@example.com')
+      + pfF('pfDob','date','Ngày sinh',saved.dob||'','')
+      + '<div class="pf-group"><label class="pf-label">Giới tính</label>'
+      + '<select class="pf-input" id="pfGender"><option value="">-- Chọn --</option>'
+      + '<option value="male"'+(saved.gender==='male'?' selected':'')+'>Nam</option>'
+      + '<option value="female"'+(saved.gender==='female'?' selected':'')+'>Nữ</option>'
+      + '<option value="other"'+(saved.gender==='other'?' selected':'')+'>Khác</option>'
+      + '</select></div>'
+      + pfF('pfCity','text','Tỉnh / Thành phố',saved.city||'','TP. Hồ Chí Minh')
+      + '<div class="pf-group full">'+pfF('pfAddress','text','Địa chỉ',saved.address||'','Số nhà, tên đường...',true)+'</div>'
+      + '</div><button class="btn-save" onclick="saveProfile()"><i class="fa-solid fa-floppy-disk"></i> Lưu thay đổi</button></div>';
+  }
+
+  function pfF(id, type, label, value, placeholder, full) {
+    return '<div class="pf-group'+(full?' full':'')+'"><label class="pf-label">'+label+'</label>'
+      + '<input type="'+type+'" class="pf-input" id="'+id+'" value="'+value+'" placeholder="'+placeholder+'"></div>';
+  }
+
+  function renderCustomerPassword() {
+    document.getElementById('cust-password').innerHTML =
+      '<div class="panel-card"><div class="panel-card-title"><i class="fa-solid fa-key"></i> Đổi mật khẩu</div>'
+      + '<div class="pw-group"><label>Mật khẩu hiện tại</label><div class="pw-wrap"><input type="password" id="pwCurrent" placeholder="••••••••"><button class="pw-toggle" type="button" onclick="togglePw(\'pwCurrent\',this)"><i class="fa-regular fa-eye"></i></button></div></div>'
+      + '<div class="pw-group"><label>Mật khẩu mới</label><div class="pw-wrap"><input type="password" id="pwNew" placeholder="Tối thiểu 6 ký tự"><button class="pw-toggle" type="button" onclick="togglePw(\'pwNew\',this)"><i class="fa-regular fa-eye"></i></button></div></div>'
+      + '<div class="pw-group"><label>Xác nhận mật khẩu mới</label><div class="pw-wrap"><input type="password" id="pwConfirm" placeholder="Nhập lại"><button class="pw-toggle" type="button" onclick="togglePw(\'pwConfirm\',this)"><i class="fa-regular fa-eye"></i></button></div></div>'
+      + '<button class="btn-save" onclick="changePassword()"><i class="fa-solid fa-lock"></i> Cập nhật mật khẩu</button></div>';
+  }
+
+  function saveProfile() {
+    var data = {
+      name:(document.getElementById('pfName')||{}).value||'',
+      phone:(document.getElementById('pfPhone')||{}).value||'',
+      email:(document.getElementById('pfEmail')||{}).value||'',
+      dob:(document.getElementById('pfDob')||{}).value||'',
+      gender:(document.getElementById('pfGender')||{}).value||'',
+      city:(document.getElementById('pfCity')||{}).value||'',
+      address:(document.getElementById('pfAddress')||{}).value||'',
     };
+    if (!data.name.trim()) { alert('Vui lòng nhập họ tên!'); return; }
+    // Cập nhật trong mảng ms_users
+    var session = JSON.parse(localStorage.getItem('ms_session') || '{}');
+    var users = JSON.parse(localStorage.getItem('ms_users') || '[]');
+    var userIdx = users.findIndex(function(u){ return u.email === session.email; });
+    if (userIdx !== -1) {
+      users[userIdx].name = data.name;
+      users[userIdx].phone = data.phone;
+      localStorage.setItem('ms_users', JSON.stringify(users));
+    }
+    // Cập nhật session
+    session.name = data.name;
+    localStorage.setItem('ms_session', JSON.stringify(session));
 
-    // ===== TOAST =====
-    function accToast(msg, icon) {
-      icon = icon || 'fa-circle-check';
-      var t = document.getElementById('accToast');
-      t.querySelector('i').className = 'fa-solid ' + icon;
-      document.getElementById('accToastMsg').textContent = msg;
-      t.classList.add('show');
-      setTimeout(function(){ t.classList.remove('show'); }, 2800);
+    document.getElementById('dashName').textContent = data.name;
+    document.getElementById('dashAvatar').textContent = data.name.charAt(0).toUpperCase();
+    accToast('Đã lưu thông tin cá nhân!','fa-floppy-disk');
+  }
+
+  function changePassword() {
+    var cur=document.getElementById('pwCurrent').value;
+    var nw=document.getElementById('pwNew').value;
+    var conf=document.getElementById('pwConfirm').value;
+    if (!cur) { alert('Vui lòng nhập mật khẩu hiện tại!'); return; }
+
+    // Kiểm tra mật khẩu hiện tại
+    var session = JSON.parse(localStorage.getItem('ms_session') || '{}');
+    var users = JSON.parse(localStorage.getItem('ms_users') || '[]');
+    var user = users.find(function(u){ return u.email === session.email; });
+    if (user && user.password !== cur) {
+      alert('Mật khẩu hiện tại không đúng!');
+      return;
     }
 
-    // ===== AUTH =====
-    function switchTab(tab) {
-      document.getElementById('tabLogin').classList.toggle('active', tab === 'login');
-      document.getElementById('tabRegister').classList.toggle('active', tab === 'register');
-      document.getElementById('formLogin').classList.toggle('active', tab === 'login');
-      document.getElementById('formRegister').classList.toggle('active', tab === 'register');
+    if (nw.length < 6) { alert('Mật khẩu mới tối thiểu 6 ký tự!'); return; }
+    if (nw !== conf) { alert('Xác nhận mật khẩu không khớp!'); return; }
+
+    // Cập nhật mật khẩu trong ms_users
+    if (user) {
+      user.password = nw;
+      localStorage.setItem('ms_users', JSON.stringify(users));
     }
 
-    function togglePw(id, btn) {
-      var inp = document.getElementById(id);
-      var isText = inp.type === 'text';
-      inp.type = isText ? 'password' : 'text';
-      btn.querySelector('i').className = isText ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash';
-    }
+    document.getElementById('pwCurrent').value='';
+    document.getElementById('pwNew').value='';
+    document.getElementById('pwConfirm').value='';
+    accToast('Đã đổi mật khẩu thành công!','fa-lock');
+  }
 
-    function forgotPw() {
-      var email = document.getElementById('loginEmail').value.trim();
-      if (!email) { alert('Vui lòng nhập email trước!'); return; }
-      accToast('Đã gửi link đặt lại mật khẩu tới ' + email, 'fa-envelope');
-    }
-
-    function checkStrength(val, barId, textId) {
-      barId = barId || 'pwBarFill';
-      textId = textId || 'pwStrengthText';
-      var bar = document.getElementById(barId);
-      var txt = document.getElementById(textId);
-      if (!bar || !txt) return;
-      var score = 0;
-      if (val.length >= 6) score++;
-      if (val.length >= 10) score++;
-      if (/[A-Z]/.test(val)) score++;
-      if (/[0-9]/.test(val)) score++;
-      if (/[^A-Za-z0-9]/.test(val)) score++;
-      var levels = [
-        { pct: '0%',   color: '#e5e7eb', label: 'Nhập mật khẩu' },
-        { pct: '25%',  color: '#f87171', label: 'Yếu' },
-        { pct: '50%',  color: '#fb923c', label: 'Trung bình' },
-        { pct: '75%',  color: '#facc15', label: 'Khá mạnh' },
-        { pct: '90%',  color: '#4ade80', label: 'Mạnh' },
-        { pct: '100%', color: '#22c55e', label: 'Rất mạnh' },
-      ];
-      var lv = levels[Math.min(score, 5)];
-      bar.style.width = lv.pct;
-      bar.style.background = lv.color;
-      txt.textContent = lv.label;
-    }
-
-    function doLogin() {
-      var email = document.getElementById('loginEmail').value.trim();
-      var pw    = document.getElementById('loginPw').value;
-      if (!email || !pw) { alert('Vui lòng nhập đầy đủ email và mật khẩu!'); return; }
-      if (!email.includes('@')) { alert('Email không hợp lệ!'); return; }
-      // Lấy thông tin đã đăng ký nếu có
-      var saved = JSON.parse(localStorage.getItem('ms_user') || 'null');
-      var name = (saved && saved.email === email) ? saved.name : email.split('@')[0];
-      localStorage.setItem('ms_session', JSON.stringify({ email: email, name: name }));
-      loadDashboard({ email: email, name: name });
-    }
-
-    function doRegister() {
-      var name  = document.getElementById('regName').value.trim();
-      var email = document.getElementById('regEmail').value.trim();
-      var phone = document.getElementById('regPhone').value.trim();
-      var pw      = document.getElementById('regPw').value;
-      var pwConf  = document.getElementById('regPwConfirm').value;
-      if (!name || !email || !phone || !pw) { alert('Vui lòng điền đầy đủ thông tin!'); return; }
-      if (!email.includes('@')) { alert('Email không hợp lệ!'); return; }
-      if (pw.length < 6) { alert('Mật khẩu tối thiểu 6 ký tự!'); return; }
-      if (pw !== pwConf) { alert('Xác nhận mật khẩu không khớp!'); return; }
-      var user = { name: name, email: email, phone: phone };
-      localStorage.setItem('ms_user', JSON.stringify(user));
-      localStorage.setItem('ms_session', JSON.stringify(user));
-      loadDashboard(user);
-      accToast('Đăng ký thành công! Chào mừng ' + name + ' 🎉', 'fa-party-horn');
-    }
-
-    function doLogout() {
-      if (!confirm('Bạn có chắc muốn đăng xuất không?')) return;
-      localStorage.removeItem('ms_session');
-      document.getElementById('dashboard').classList.remove('active');
-      document.getElementById('authScreen').style.display = 'flex';
-    }
-
-    // ===== DASHBOARD =====
-    function loadDashboard(user) {
-      document.getElementById('authScreen').style.display = 'none';
-      document.getElementById('dashboard').classList.add('active');
-
-      // Avatar & name
-      var initial = (user.name || 'U').charAt(0).toUpperCase();
-      document.getElementById('dashAvatar').textContent = initial;
-      document.getElementById('dashName').textContent = user.name || 'Người dùng';
-      document.getElementById('dashEmail').textContent = user.email || '';
-
-      // Load saved profile
-      var saved = JSON.parse(localStorage.getItem('ms_user') || '{}');
-      document.getElementById('pfName').value    = saved.name    || user.name || '';
-      document.getElementById('pfPhone').value   = saved.phone   || '';
-      document.getElementById('pfEmail').value   = saved.email   || user.email || '';
-      document.getElementById('pfDob').value     = saved.dob     || '';
-      document.getElementById('pfGender').value  = saved.gender  || '';
-      document.getElementById('pfCity').value    = saved.city    || '';
-      document.getElementById('pfAddress').value = saved.address || '';
-
-      // Stats
-      var total    = MOCK_ORDERS.length;
-      var shipping = MOCK_ORDERS.filter(function(o){ return o.status === 'shipping'; }).length;
-      var done     = MOCK_ORDERS.filter(function(o){ return o.status === 'done'; }).length;
-      document.getElementById('statTotal').textContent    = total;
-      document.getElementById('statShipping').textContent = shipping;
-      document.getElementById('statDone').textContent     = done;
-
-      // Recent orders (3 gần nhất)
-      renderOrderCards(MOCK_ORDERS.slice(0, 3), 'recentOrders');
-      renderOrderCards(MOCK_ORDERS, 'orderList');
-    }
-
-    function showPanel(name) {
-      document.querySelectorAll('.dash-panel').forEach(function(p){ p.classList.remove('active'); });
-      document.querySelectorAll('.dash-nav-item').forEach(function(n){ n.classList.remove('active'); });
-      document.getElementById('panel-' + name).classList.add('active');
-      event.currentTarget.classList.add('active');
-    }
-
-    function formatPrice(p) { return p.toLocaleString('vi-VN') + 'đ'; }
-
-    function renderOrderCards(orders, containerId) {
-      var el = document.getElementById(containerId);
-      if (!orders.length) {
-        el.innerHTML = '<div class="no-orders"><i class="fa-solid fa-bag-shopping"></i>Chưa có đơn hàng nào</div>';
-        return;
-      }
-      el.innerHTML = orders.map(function(o) {
-        var st = STATUS_MAP[o.status];
-        var total = o.items.reduce(function(s, i){ return s + i.price * i.qty; }, 0);
-        return '<div class="order-card" data-status="' + o.status + '">'
-          + '<div class="order-card-head">'
-          + '<span class="order-id">' + o.id + '</span>'
-          + '<span class="order-date"><i class="fa-regular fa-calendar fa-xs"></i> ' + o.date + '</span>'
-          + '<span class="order-badge ' + st.cls + '">' + st.label + '</span>'
-          + '</div>'
-          + '<div class="order-card-body">'
-          + o.items.map(function(item) {
-              return '<div class="order-prod-row">'
-                + '<span class="order-prod-name">' + item.name + '</span>'
-                + '<span class="order-prod-qty">x' + item.qty + '</span>'
-                + '<span class="order-prod-price">' + formatPrice(item.price) + '</span>'
-                + '</div>';
-            }).join('')
-          + '</div>'
-          + '<div class="order-card-foot">'
-          + '<span>Tổng: <span class="order-total">' + formatPrice(total) + '</span></span>'
-          + (o.status === 'done' ? '<button class="btn-reorder" onclick="accToast(\'Đã thêm sản phẩm vào giỏ hàng!\')">Mua lại</button>' : '')
-          + (o.status === 'pending' ? '<button class="btn-reorder" style="background:#ef4444" onclick="accToast(\'Đã hủy đơn hàng\',\'fa-circle-xmark\')">Hủy đơn</button>' : '')
-          + '</div>'
-          + '</div>';
-      }).join('');
-    }
-
-    function filterOrders(status, tabEl) {
-      document.querySelectorAll('.order-tab').forEach(function(t){ t.classList.remove('active'); });
-      tabEl.classList.add('active');
-      var filtered = status === 'all' ? MOCK_ORDERS : MOCK_ORDERS.filter(function(o){ return o.status === status; });
-      renderOrderCards(filtered, 'orderList');
-    }
-
-    function saveProfile() {
-      var data = {
-        name:    document.getElementById('pfName').value.trim(),
-        phone:   document.getElementById('pfPhone').value.trim(),
-        email:   document.getElementById('pfEmail').value.trim(),
-        dob:     document.getElementById('pfDob').value,
-        gender:  document.getElementById('pfGender').value,
-        city:    document.getElementById('pfCity').value.trim(),
-        address: document.getElementById('pfAddress').value.trim(),
-      };
-      if (!data.name) { alert('Vui lòng nhập họ tên!'); return; }
-      localStorage.setItem('ms_user', JSON.stringify(data));
-      document.getElementById('dashName').textContent = data.name;
-      document.getElementById('dashAvatar').textContent = data.name.charAt(0).toUpperCase();
-      accToast('Đã lưu thông tin cá nhân!', 'fa-floppy-disk');
-    }
-
-    function changePassword() {
-      var cur  = document.getElementById('pwCurrent').value;
-      var nw   = document.getElementById('pwNew').value;
-      var conf = document.getElementById('pwConfirm').value;
-      if (!cur)        { alert('Vui lòng nhập mật khẩu hiện tại!'); return; }
-      if (nw.length < 6) { alert('Mật khẩu mới tối thiểu 6 ký tự!'); return; }
-      if (nw !== conf) { alert('Xác nhận mật khẩu không khớp!'); return; }
-      document.getElementById('pwCurrent').value = '';
-      document.getElementById('pwNew').value = '';
-      document.getElementById('pwConfirm').value = '';
-      accToast('Đã đổi mật khẩu thành công!', 'fa-lock');
-    }
-
-    // ===== AUTO-LOGIN nếu đã có session =====
-    (function () {
-      var session = JSON.parse(localStorage.getItem('ms_session') || 'null');
-      if (session) {
-        loadDashboard(session);
-      }
-    })();
+  /* ============================================================
+     AUTO LOGIN
+  ============================================================ */
+  (function() {
+    var session = JSON.parse(localStorage.getItem('ms_session') || 'null');
+    if (session) loadDashboard(session);
+  })();
   </script>
 </body>
 </html>

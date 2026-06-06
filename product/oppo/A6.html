@@ -235,6 +235,7 @@
     .combo-add-btn:hover, .combo-item.selected .combo-add-btn { background: var(--black); color: #fff; }
 
     /* ACTION BUTTONS */
+
     .action-row { display: flex; gap: 12px; margin-bottom: 24px; }
     .btn-addcart {
       flex: 1; padding: 16px;
@@ -470,16 +471,18 @@
         </div>
     </nav>
     <div class="header-actions">
-      <div class="search-bar">
-        <input type="text" placeholder="Tìm điện thoại...">
-        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        <div class="search-bar">
+          <input type="text" placeholder="Tìm điện thoại, phụ kiện..." aria-label="Tìm kiếm sản phẩm">
+          <button aria-label="Tìm kiếm"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+        </div>
+        <a href="../../Account.html" class="icon-btn" aria-label="Tài khoản">
+          <i class="fa-regular fa-user" aria-hidden="true"></i>
+        </a>
+        <a href="#" class="icon-btn cart-btn" aria-label="Giỏ hàng">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
       </div>
-      <a href="#" class="icon-btn"><i class="fa-regular fa-user"></i></a>
-      <a href="#" class="icon-btn">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <span class="cart-count" id="cartCount">0</span>
-      </a>
-    </div>
   </div>
 </header>
 
@@ -594,10 +597,10 @@
 
         <!-- ACTIONS -->
         <div class="action-row">
-          <button class="btn-addcart" id="addCartBtn" onclick="addToCart()">
+          <button class="btn-addcart" id="addCartBtn" onclick="addProductToCart(false)">
             <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
           </button>
-          <button class="btn-buynow" onclick="showToast('Tính năng đang phát triển 🚀')">
+          <button class="btn-buynow" onclick="addProductToCart(true)">
             <i class="fa-solid fa-bolt"></i> Mua ngay
           </button>
         </div>
@@ -994,12 +997,13 @@
     <span class="sticky-bar-price" id="stickyPrice">8.990.000₫</span>
   </div>
   <div class="sticky-bar-actions">
-    <button class="sticky-btn-cart" onclick="addToCart()"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button>
-    <button class="sticky-btn-buy" onclick="showToast('Tính năng đang phát triển 🚀')"><i class="fa-solid fa-bolt"></i> Mua ngay</button>
+    <button class="sticky-btn-cart" onclick="addProductToCart(false)"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button>
+    <button class="sticky-btn-buy" onclick="addProductToCart(true)"><i class="fa-solid fa-bolt"></i> Mua ngay</button>
   </div>
 </div>
 
 <script>
+
   // ===== IMAGE =====
   function changeImg(thumb, src) {
     document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
@@ -1043,17 +1047,30 @@
     body.classList.toggle('open');
   }
 
-  // ===== COMBO ITEM =====
-  function toggleComboItem(el, name, price) {
-    el.classList.toggle('selected');
-    const btn = el.querySelector('.combo-add-btn');
-    if (el.classList.contains('selected')) {
-      btn.textContent = '✓ Đã thêm';
-      showToast('Đã thêm "' + name + '" vào giỏ hàng');
-    } else {
-      btn.textContent = 'Thêm vào';
-    }
+ function toggleComboItem(el, name, price) {
+  el.classList.toggle('selected');
+  const btn = el.querySelector('.combo-add-btn');
+
+  if (el.classList.contains('selected')) {
+    btn.textContent = '✓ Đã thêm';
+
+    // Tạo id từ tên sản phẩm — giống cách main.js đang làm
+    const id = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const img = el.querySelector('.combo-img') ? el.querySelector('.combo-img').src : '';
+
+    // Gọi Cart.add() giống hệt các nút khác trong main.js
+    Cart.add(id, name, price, img);
+    showToast('Đã thêm "' + name + '" vào giỏ hàng');
+
+  } else {
+    btn.textContent = 'Thêm vào';
+
+    // Xóa khỏi giỏ khi bỏ chọn
+    const id = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    Cart.remove(id);
+    showToast('Đã bỏ "' + name + '" khỏi giỏ hàng');
   }
+}
 
   // ===== TABS =====
   function switchTab(id, btn) {
@@ -1105,5 +1122,6 @@
   // Auto-open combo on load
   toggleCombo();
 </script>
+  <script src="../../main.js"></script>
 </body>
 </html>

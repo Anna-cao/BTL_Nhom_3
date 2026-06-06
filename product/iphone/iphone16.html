@@ -211,6 +211,7 @@
     .combo-add-btn:hover, .combo-item.selected .combo-add-btn { background: var(--black); color: #fff; }
 
     /* ACTION BUTTONS */
+
     .action-row { display: flex; gap: 12px; margin-bottom: 24px; }
     .btn-addcart {
       flex: 1; padding: 16px;
@@ -309,7 +310,7 @@
     .highlight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .highlight-card {
       border-radius: 20px; overflow: hidden;
-      position: relative; aspect-ratio: 4/5;
+      position: relative; aspect-ratio: 5/3;
       display: flex; flex-direction: column; justify-content: flex-end;
     }
     .highlight-card.dark { background: linear-gradient(135deg, #111 0%, #2c2c2c 100%); }
@@ -326,6 +327,15 @@
     .highlight-card.dark .highlight-sub { color: rgba(255,255,255,.6); }
     .highlight-icon { position: absolute; top: 28px; right: 28px; font-size: 48px; opacity: .15; }
     .highlight-card.dark .highlight-icon { color: #fff; }
+    .highlight-card {
+  transition: transform 0.25s cubic-bezier(.34, 1.56, .64, 1),
+              box-shadow 0.25s ease;
+  cursor: pointer;
+}
+.highlight-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+}
 
     /* RELATED */
     .related-section { background: var(--gray); padding: 60px 0; }
@@ -434,16 +444,18 @@
         </div>
     </nav>
     <div class="header-actions">
-      <div class="search-bar">
-        <input type="text" placeholder="Tìm điện thoại...">
-        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        <div class="search-bar">
+          <input type="text" placeholder="Tìm điện thoại, phụ kiện..." aria-label="Tìm kiếm sản phẩm">
+          <button aria-label="Tìm kiếm"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+        </div>
+        <a href="../../Account.html" class="icon-btn" aria-label="Tài khoản">
+          <i class="fa-regular fa-user" aria-hidden="true"></i>
+        </a>
+        <a href="#" class="icon-btn cart-btn" aria-label="Giỏ hàng">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
       </div>
-      <a href="#" class="icon-btn"><i class="fa-regular fa-user"></i></a>
-      <a href="#" class="icon-btn">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <span class="cart-count" id="cartCount">0</span>
-      </a>
-    </div>
   </div>
 </header>
 
@@ -587,24 +599,20 @@
             <i class="fa-solid fa-chevron-down combo-header-icon"></i>
           </div>
           <div class="combo-body" id="comboBody">
-            <div class="combo-item" id="comboItem1" onclick="toggleComboItem(this, 'AirPods (3rd gen)', 3490000)">
-              <img class="combo-img"
-                src="https://placehold.co/70x60/f5f5f5/999?text=AirPods"
-                alt="AirPods 3rd gen">
-              <span class="combo-name">AirPods<br>(Thế hệ 3)</span>
-              <span class="combo-old-price">4.490.000₫</span>
-              <span class="combo-new-price">3.490.000₫</span>
-              <span class="combo-discount">Giảm giá tới 22%</span>
+            <div class="combo-item combo-pair" data-pair="2" onclick="toggleComboItem(this, 'AirPods 4', 2990000)">
+              <img class="combo-img" src="../../image/accessories/airpod4.png" alt="AirPods 4">
+              <span class="combo-name">AirPods 4<br>Tai nghe</span>
+              <span class="combo-old-price">3.490.000₫</span>
+              <span class="combo-new-price">2.990.000₫</span>
+              <span class="combo-discount">Bass mạnh · Pin 30h · IP54</span>
               <button class="combo-add-btn">Thêm vào</button>
             </div>
-            <div class="combo-item" id="comboItem2" onclick="toggleComboItem(this, 'Ốp lưng Apple Silicone', 890000)">
-              <img class="combo-img"
-                src="https://placehold.co/70x60/f5f5f5/999?text=Case"
-                alt="Apple Silicone Case">
-              <span class="combo-name">Ốp lưng Apple<br>Silicone Case</span>
-              <span class="combo-old-price">1.190.000₫</span>
-              <span class="combo-new-price">890.000₫</span>
-              <span class="combo-discount">Giảm giá tới 25%</span>
+            <div class="combo-item combo-pair" data-pair="2" onclick="toggleComboItem(this, 'Apple Watch 3', 4490000)">
+              <img class="combo-img" src="../../image/accessories/watch3.jpg" alt="Apple Watch 3">
+              <span class="combo-name">Apple Watch 3<br>Đồng hồ thông minh</span>
+              <span class="combo-old-price">4.990.000₫</span>
+              <span class="combo-new-price">4.490.000₫</span>
+              <span class="combo-discount">Theo dõi sức khỏe 24/7 · Pin 2 ngày</span>
               <button class="combo-add-btn">Thêm vào</button>
             </div>
           </div>
@@ -612,10 +620,10 @@
 
         <!-- ACTIONS -->
         <div class="action-row">
-          <button class="btn-addcart" id="addCartBtn" onclick="addToCart()">
+          <button class="btn-addcart" id="addCartBtn" onclick="addProductToCart(false)">
             <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
           </button>
-          <button class="btn-buynow" onclick="showToast('Tính năng đang phát triển 🚀')">
+          <button class="btn-buynow" onclick="addProductToCart(true)">
             <i class="fa-solid fa-bolt"></i> Mua ngay
           </button>
         </div>
@@ -967,8 +975,8 @@ MagSafe 15W và sạc không dây Qi.
     <span class="sticky-bar-price" id="stickyPrice">30.990.000₫</span>
   </div>
   <div class="sticky-bar-actions">
-    <button class="sticky-btn-cart" onclick="addToCart()"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button>
-    <button class="sticky-btn-buy" onclick="showToast('Tính năng đang phát triển 🚀')"><i class="fa-solid fa-bolt"></i> Mua ngay</button>
+    <button class="sticky-btn-cart" onclick="addProductToCart(false)"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button>
+    <button class="sticky-btn-buy" onclick="addProductToCart(true)"><i class="fa-solid fa-bolt"></i> Mua ngay</button>
   </div>
 </div>
 
@@ -1020,17 +1028,30 @@ MagSafe 15W và sạc không dây Qi.
     body.classList.toggle('open');
   }
 
-  // ===== COMBO ITEM =====
   function toggleComboItem(el, name, price) {
-    el.classList.toggle('selected');
-    const btn = el.querySelector('.combo-add-btn');
-    if (el.classList.contains('selected')) {
-      btn.textContent = '✓ Đã thêm';
-      showToast('Đã thêm "' + name + '" vào giỏ hàng');
-    } else {
-      btn.textContent = 'Thêm vào';
-    }
+  el.classList.toggle('selected');
+  const btn = el.querySelector('.combo-add-btn');
+
+  if (el.classList.contains('selected')) {
+    btn.textContent = '✓ Đã thêm';
+
+    // Tạo id từ tên sản phẩm — giống cách main.js đang làm
+    const id = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const img = el.querySelector('.combo-img') ? el.querySelector('.combo-img').src : '';
+
+    // Gọi Cart.add() giống hệt các nút khác trong main.js
+    Cart.add(id, name, price, img);
+    showToast('Đã thêm "' + name + '" vào giỏ hàng');
+
+  } else {
+    btn.textContent = 'Thêm vào';
+
+    // Xóa khỏi giỏ khi bỏ chọn
+    const id = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    Cart.remove(id);
+    showToast('Đã bỏ "' + name + '" khỏi giỏ hàng');
   }
+}
 
   // ===== TABS =====
   function switchTab(id, btn) {
@@ -1082,5 +1103,6 @@ MagSafe 15W và sạc không dây Qi.
   // Auto-open combo on load
   toggleCombo();
 </script>
+  <script src="../../main.js"></script>
 </body>
 </html>
