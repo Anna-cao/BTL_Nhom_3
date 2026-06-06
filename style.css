@@ -1113,11 +1113,12 @@ address { font-style: normal; }
     .auth-form.active { display: block; }
 
     .auth-form h2 {
-      font-family: var(--ff-serif);
-      font-size: 1.5rem;
-      font-weight: 400;
-      margin-bottom: .3rem;
-    }
+    font-family: var(--ff-sans);   
+    font-size: 1.5rem;
+    font-weight: 700;             
+    margin-bottom: .3rem;
+}
+
     .auth-form p.sub {
       color: var(--clr-mid);
       font-size: .85rem;
@@ -1138,7 +1139,9 @@ address { font-style: normal; }
     }
     .inp-wrap {
       position: relative;
-    }
+      display: flex;
+      align-items: center;
+}
     .inp-wrap i {
       position: absolute;
       left: 13px;
@@ -1148,40 +1151,41 @@ address { font-style: normal; }
       font-size: .85rem;
       pointer-events: none;
     }
-    .inp-wrap input {
-      width: 100%;
-      padding: 11px 40px 11px 36px;
-      border: 1.5px solid var(--clr-border);
-      border-radius: var(--radius-md);
-      font-family: var(--ff-sans);
-      font-size: .92rem;
-      color: var(--clr-dark);
-      background: var(--clr-surface);
-      outline: none;
-      transition: border-color .2s, box-shadow .2s;
-    }
+  .inp-wrap input {
+    width: 100%;
+    padding: 11px 44px 11px 36px;
+    border: 1.5px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    font-family: var(--ff-sans);
+    font-size: 14px;
+    color: var(--clr-dark);
+    background: var(--clr-surface);
+    outline: none;
+    box-sizing: border-box;
+}
     .inp-wrap input:focus {
       border-color: var(--clr-accent);
       box-shadow: 0 0 0 3px rgba(217,79,43,.1);
     }
-    .inp-toggle {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--clr-light);
-      cursor: pointer;
-      font-size: .85rem;
-      pointer-events: all;
-      background: none;
-      border: none;
-      padding: 4px 6px;
-      border-radius: 4px;
-      line-height: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+   .inp-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--clr-light);
+    cursor: pointer;
+    font-size: .85rem;
+    background: none;
+    border: none;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    pointer-events: all;
+}
 
     .auth-forgot {
       display: block;
